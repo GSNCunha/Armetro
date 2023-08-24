@@ -1,0 +1,311 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: gabriel Gabriel.sadigursky@gmail.com, UFRGS, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.38.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DARMCM1.DLL V1.19.6.0
+Target DLL:      PEMicro\Pemicro_ArmCortexInterface.dll V1.3.0.0
+Dialog DLL:      TARMCM1.DLL V1.14.6.0
+ 
+<h2>Project:</h2>
+C:\Users\Gabri\Desktop\Projeto2\Projeto2.uvprojx
+Project File Date:  08/23/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Rebuild target 'Target 1'
+subRotinaAdm.c(1): warning: ISO C requires a translation unit to contain at least one declaration [-Wempty-translation-unit]
+1 warning generated.
+compiling subRotinaAdm.c...
+assembling startup_MKL25Z4.s...
+timers.c(2): warning: In file included from...
+./timers.h(11): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+timers.c(3): warning: // comments are not allowed in this language [-Wcomment]
+#define periodo ((8*8000000/3)/25000) //calculo periodo para frequencia de 25000 hz
+                                      ^
+timers.c(10): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+        //Com o prescale de 64, o delay de 1 segundo ocorrer<E1> ap<F3>s 5 overflows do timer
+                                                            ^
+timers.c(10): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+        //Com o prescale de 64, o delay de 1 segundo ocorrer<E1> ap<F3>s 5 overflows do timer
+                                                                   ^
+timers.c(12): warning: mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]
+        int ciclos = 0;
+            ^
+timers.c(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+                //Com o prescale de 64, o delay de 1 segundo ocorrer<E1> ap<F3>s 5 overflows do timer
+                                                                    ^
+timers.c(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+                //Com o prescale de 64, o delay de 1 segundo ocorrer<E1> ap<F3>s 5 overflows do timer
+                                                                           ^
+timers.c(24): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+        TPM2_MOD = (8*8000000/3)*(miliSegundos/1000)/64;
+                 ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+timers.c(42): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+//porcentagem de periodo equivalente (80km/h --> 0*per<ED>odo, 24KM/h(min) --> 70%*periodo)
+                                                      ^
+timers.c(47): warning: implicit conversion turns floating-point number into integer: 'double' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
+        TPM2_C0V = periodo*(-0.0125*velocidade + 1); 
+                 ~ ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+timers.c(43): warning: no previous prototype for function 'velocidade' [-Wmissing-prototypes]
+void velocidade(char velocidade){
+     ^
+timers.c(43): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void velocidade(char velocidade){
+^
+static 
+11 warnings generated.
+compiling timers.c...
+lcdio.c(2): warning: In file included from...
+./lcdio.h(19): warning: // comments are not allowed in this language [-Wcomment]
+//////TELAS///////
+^
+./lcdio.h(21): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+        void telaArmMetro();
+                         ^
+                          void
+./lcdio.h(23): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+        void telaSenhaCorreta();
+                             ^
+                              void
+./lcdio.h(26): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+lcdio.c(3): warning: In file included from...
+./timers.h(11): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+lcdio.c(5): warning: // comments are not allowed in this language [-Wcomment]
+        // RS: PTC8 (0: comando,  1: dados)
+        ^
+lcdio.c(25): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+                GPIOD_PCOR = 0b11111111;
+                             ^
+lcdio.c(41): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+                GPIOD_PCOR = 0b11111111;
+                             ^
+lcdio.c(105): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+        void telaArmMetro()
+                         ^
+                          void
+lcdio.c(105): warning: no previous prototype for function 'telaArmMetro' [-Wmissing-prototypes]
+        void telaArmMetro()
+             ^
+./lcdio.h(21): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+        void telaArmMetro();
+             ^
+                          void
+lcdio.c(112): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+                void telaSenhaCorreta(){
+                                     ^
+                                      void
+lcdio.c(112): warning: no previous prototype for function 'telaSenhaCorreta' [-Wmissing-prototypes]
+                void telaSenhaCorreta(){
+                     ^
+./lcdio.h(23): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+        void telaSenhaCorreta();
+             ^
+                              void
+12 warnings generated.
+compiling lcdio.c...
+main.c(2): warning: In file included from...
+./lcdio.h(19): warning: // comments are not allowed in this language [-Wcomment]
+//////TELAS///////
+^
+./lcdio.h(21): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+        void telaArmMetro();
+                         ^
+                          void
+./lcdio.h(23): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+        void telaSenhaCorreta();
+                             ^
+                              void
+./lcdio.h(26): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+main.c(7): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+int main(){
+        ^
+         void
+main.c(12): warning: // comments are not allowed in this language [-Wcomment]
+{1700, 100, 30, (63/3.6)}}; //parametros de distancia, tempo entre estacoes, tempo de parada e velocidade maxima em metros por segundo.
+                            ^
+main.c(20): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOA_PDDR &= ~(1 << 1 | 1 << 2 | 1 << 4 | 1 << 5);//pino colunado teclado como input
+                   ~~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.c(21): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        GPIOD_PDDR = 0b11111111;//pinos de D0-D7 do LCD como output
+                     ^
+main.c(52): warning: implicit declaration of function 'digitarSenha' [-Wimplicit-function-declaration]
+                digitarSenha();
+                ^
+main.c(55): warning: no newline at end of file [-Wnewline-eof]
+        
+        ^
+main.c(9): warning: unused variable 'parametros' [-Wunused-variable]
+        double parametros[3][4] =
+               ^
+11 warnings generated.
+compiling main.c...
+teclado.c(6): warning: 'bounce' macro redefined [-Wmacro-redefined]
+#define bounce 8
+        ^
+./teclado.h(4): note: previous definition is here
+#define bounce 
+        ^
+teclado.c(8): warning: no previous extern declaration for non-static variable 'teclado' [-Wmissing-variable-declarations]
+char teclado [4][4] = {
+     ^
+teclado.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char teclado [4][4] = {
+^
+teclado.c(20): warning: implicit declaration of function 'atraso' [-Wimplicit-function-declaration]
+                atraso(1, 'm');
+                ^
+teclado.c(21): warning: // comments are not allowed in this language [-Wcomment]
+                if ((GPIOA_PDIR & (1 << bitColuna)) == 1)//caso a tecla seja lida como n?o precionada, repetimos a contagem, ela tem que se manter precionada por 100 contagens para ser considerada instavel e fora do per?odo de Bouncing
+                                                         ^
+teclado.c(26): warning: array subscript is of type 'char' [-Wchar-subscripts]
+        return teclado[indLinha][indColuna];//numero da tecla precionada
+                      ^~~~~~~~~
+teclado.c(26): warning: array subscript is of type 'char' [-Wchar-subscripts]
+        return teclado[indLinha][indColuna];//numero da tecla precionada
+                                ^~~~~~~~~~
+6 warnings generated.
+compiling teclado.c...
+validacao_senhas.c(4): warning: In file included from...
+./lcdio.h(19): warning: // comments are not allowed in this language [-Wcomment]
+//////TELAS///////
+^
+./lcdio.h(21): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+        void telaArmMetro();
+                         ^
+                          void
+./lcdio.h(23): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+        void telaSenhaCorreta();
+                             ^
+                              void
+./lcdio.h(26): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+validacao_senhas.c(5): warning: In file included from...
+./validacao_senhas.h(15): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void digitarSenha();
+                 ^
+                  void
+./validacao_senhas.h(17): warning: no newline at end of file [-Wnewline-eof]
+#endif /* VALIDACAO_SENHAS_H_ */
+                                ^
+validacao_senhas.c(13): warning: no previous extern declaration for non-static variable 'nr_digitados' [-Wmissing-variable-declarations]
+int nr_digitados = 0;
+    ^
+validacao_senhas.c(13): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int nr_digitados = 0;
+^
+validacao_senhas.c(14): warning: no previous extern declaration for non-static variable 'senha' [-Wmissing-variable-declarations]
+char senha[7] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0'};
+     ^
+validacao_senhas.c(14): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char senha[7] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0'};
+^
+validacao_senhas.c(16): warning: no previous extern declaration for non-static variable 'admLogin' [-Wmissing-variable-declarations]
+char admLogin = 0;
+     ^
+validacao_senhas.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char admLogin = 0;
+^
+validacao_senhas.c(19): warning: declaration shadows a variable in the global scope [-Wshadow]
+void lendo_senha(char tecla){
+                      ^
+validacao_senhas.c(17): note: previous declaration is here
+char tecla;
+     ^
+validacao_senhas.c(23): warning: // comments are not allowed in this language [-Wcomment]
+        //envia asterisco
+        ^
+validacao_senhas.c(67): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void digitarSenha()
+                 ^
+                  void
+validacao_senhas.c(69): warning: implicit declaration of function 'procuraTecla' [-Wimplicit-function-declaration]
+                tecla = procuraTecla();
+                        ^
+validacao_senhas.c(69): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
+                tecla = procuraTecla();
+                      ~ ^~~~~~~~~~~~~~
+validacao_senhas.c(76): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
+                                char result_val = resultado_validacao();
+                                     ~~~~~~~~~~   ^~~~~~~~~~~~~~~~~~~~~
+validacao_senhas.c(67): warning: no previous prototype for function 'digitarSenha' [-Wmissing-prototypes]
+void digitarSenha()
+     ^
+./validacao_senhas.h(15): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void digitarSenha();
+     ^
+                  void
+validacao_senhas.c(15): warning: no previous extern declaration for non-static variable 'validacao' [-Wmissing-variable-declarations]
+const char* validacao;  
+            ^
+validacao_senhas.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const char* validacao;  
+      ^
+validacao_senhas.c(17): warning: no previous extern declaration for non-static variable 'tecla' [-Wmissing-variable-declarations]
+char tecla;
+     ^
+validacao_senhas.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char tecla;
+^
+18 warnings generated.
+compiling validacao_senhas.c...
+compiling system_MKL25Z4.c...
+linking...
+Program Size: Code=2960 RO-data=412 RW-data=16 ZI-data=376  
+".\Objects\Projeto2.axf" - 0 Error(s), 59 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.Kinetis_KLxx_DFP.1.15.0.pack
+                Keil.Kinetis_KLxx_DFP.1.15.0
+                NXP Kinetis KLxx Series Device Support and Examples
+   * Component: Startup Version: 2.5.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/MKL25Z128xxx4
+  ./RTE/_Target_1
+  C:/Users/Gabri/Desktop/KEIL/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/Gabri/Desktop/KEIL/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:Startup:2.5.0
+      Source file:   Device/Source/ARM/startup_MKL25Z4.s
+      Source file:   Device/Source/system_MKL25Z4.c
+      Include file:  Device/Source/system_MKL25Z4.h
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>

@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "lcdio.h"
-#include "validacao_senhas.h"
-
 
 #define senhaAdm "082479"
 #define senhaOp1 "126963"
@@ -14,7 +11,6 @@ int nr_digitados = 0;
 char senha[7] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0'};
 const char* validacao;	
 char admLogin = 0;
-char tecla;
 
 void lendo_senha(char tecla){
 			
@@ -64,13 +60,12 @@ int resultado_validacao(void){
 	}	
 }
 
-void digitarSenha()
-{
-		tecla = procuraTecla();
-		
-	if ((tecla == '1') || (tecla == '2') || (tecla == '3') || (tecla == '4') || (tecla == '5') || (tecla == '6') || (tecla == '7') || (tecla == '8') || (tecla == '9') || (tecla == '0')){
+void digitarSenha(char teclaInterrupcao)
+{		
+	if ((teclaInterrupcao == '1') || (teclaInterrupcao == '2') || (teclaInterrupcao == '3') || (teclaInterrupcao == '4') || (teclaInterrupcao == '5') || (teclaInterrupcao == '6') || (teclaInterrupcao == '7') || (teclaInterrupcao == '8') || (teclaInterrupcao == '9') || (teclaInterrupcao == '0')){
 			if(nr_digitados < 6){//caso a senha seja para desligar o alarme// digitos numericos somam para resultar em uma senha
-				lendo_senha(tecla);
+				lendo_senha(teclaInterrupcao);
+				send_data(teclaInterrupcao);
 			}
 			if(nr_digitados == 6){//caso a senha tenha sido digitada por inteiro, vamos conferir seu resultado
 				char result_val = resultado_validacao();

@@ -5,6 +5,8 @@
 
 char teclado [4][4];
 
+char tecla;
+
 char teclaDeboucing( char bitColuna, char indColuna, char indLinha);
 
 char ligaLinhas(char bitColuna, char indColuna);

@@ -1,7 +1,5 @@
 #include <stdint.h>
 #include <MKL25Z4.h>
-#include "teclado.h"
-
 
 #define bounce 8
 
@@ -23,6 +21,7 @@ char teclaDeboucing( char bitColuna, char indColuna, char indLinha)
 			c = 0;
 		}
 	}
+	GPIOC_PCOR |= (1 << 7 | 1 << 0 | 1 << 3 | 1 << 4); // seta todas as portas para zero para proxima leitura
 	return teclado[indLinha][indColuna];//numero da tecla precionada
 }
 
@@ -82,10 +81,6 @@ char procuraLinhas(void)
 char procuraTecla(void)
 {
 	GPIOC_PCOR |= (1 << 7 | 1 << 0 | 1 << 3 | 1 << 4);
-	
-	while(!((GPIOA_PDIR & (1 << 1)) && (GPIOA_PDIR & (1 << 2)) && (GPIOA_PDIR & (1 << 4)) && (GPIOA_PDIR & (1 << 5))));
-
-	while((GPIOA_PDIR & (1 << 1)) && (GPIOA_PDIR & (1 << 2)) && (GPIOA_PDIR & (1 <<4)) && (GPIOA_PDIR & (1 << 5)));//espera qualquer tecla ser pressionada
 
 	return procuraLinhas();
 }

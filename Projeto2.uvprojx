@@ -434,6 +434,16 @@
               <FileType>5</FileType>
               <FilePath>.\timers.h</FilePath>
             </File>
+            <File>
+              <FileName>controle_motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\controle_motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>controle_motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\controle_motor.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -1,14 +1,14 @@
 #include <MKL25Z4.h>
 #define tempoAbertura 15
-#include "timers.h"
+//#include "timers.h"
 
 int main(){
 	
 	
 	double parametros[3][4] =
-{{1300, 100, 20, (60/3.6)},
-{2100, 130, 20, (70/3.6)},
-{1700, 100, 30, (63/3.6)}}; //parametros de distancia, tempo entre estacoes, tempo de parada e velocidade maxima em metros por segundo.
+	{{1300, 100, 20, (60/3.6)},
+	{2100, 130, 20, (70/3.6)},
+	{1700, 100, 30, (63/3.6)}}; //parametros de distancia, tempo entre estacoes, tempo de parada e velocidade maxima em metros por segundo.
 
 	SIM_SCGC5 |= (1 << 11);// habilitar PORTC
 	SIM_SCGC5 |= (1 << 12);// habilitar PORTD
@@ -43,29 +43,47 @@ int main(){
 	PORTA_PCR5 = ((1<< 8) + 3) | (10 << 16);
 
 	SIM_SOPT2 |= 1<<24; //habilita clock dos timers
-	SIM_SCGC6 |= 1<< 26 | 1 << 25; //habilita timer 2
+	SIM_SCGC6 |= 1<< 26; //habilita timer 2
 	
 	//pinos cooler
 	
-	PORTA_PCR12 = ((1<< 8) + 3) | (10 << 16);//habilitar interrupcao pelo tequimetro
-	GPIOE_PDDR |= 1 << 30;
-	PORTE_PCR30 = (3 << 8) + 3;
+	//PORTA_PCR12 = ((1<< 8) + 3) | (10 << 16);//habilitar interrupcao pelo tequimetro
+	//GPIOE_PDDR |= 1 << 30;
+	//PORTE_PCR30 = (3 << 8) + 3;
 
-
-
-
-	
 	config_lcd_padrao();
 	limpa_reseta_cursor();
 	telaArmMetro();
 
-			__enable_irq();
+	__enable_irq();
 			
-			NVIC_EnableIRQ(PORTA_IRQn);
+	NVIC_EnableIRQ(PORTA_IRQn);
 	
-
+	
+	configura_motor();
+	
+			
+	
 	while(1)
 	{
+		pwm_motor(0);
+		atraso(3, 's');
+		pwm_motor(20);
+		atraso(3, 's');
+		pwm_motor(40);
+		atraso(3, 's');
+		pwm_motor(60);
+		atraso(3, 's');
+		pwm_motor(80);
+		atraso(3, 's');
+		pwm_motor(60);
+		atraso(3, 's');
+		pwm_motor(40);
+		atraso(3, 's');
+		pwm_motor(20);
+		atraso(3, 's');
+		pwm_motor(0);
+		atraso(3, 's');
 	/*	calibracaoDeRotseg();
 		
 
@@ -73,9 +91,9 @@ int main(){
 		while(distancia > 0)
 		{*/
 
-				GPIOE_PTOR = 1 << 30;
-				velocidade(80);
-
+				//GPIOE_PTOR = 1 << 30;
+				//velocidade(80);
+	
 		/*}
 		
 		interrupcao()

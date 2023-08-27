@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.38.0.0
 Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: gabriel Gabriel.sadigursky@gmail.com, UFRGS, LIC=----
+License Information: vitor simon de souza, ufrgs, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.38.0.0
@@ -21,23 +21,31 @@ Target DLL:      PEMicro\Pemicro_ArmCortexInterface.dll V1.3.0.0
 Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
-C:\Users\Gabri\Desktop\Projeto2\Projeto2.uvprojx
-Project File Date:  08/24/2023
+C:\Users\vitor\Área de Trabalho\Armetro\Projeto2.uvprojx
+Project File Date:  08/26/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
-compiling validacao_senhas.c...
 compiling subRotinaAdm.c...
-compiling lcdio.c...
+compiling validacao_senhas.c...
 compiling timers.c...
-compiling main.c...
-assembling startup_MKL25Z4.s...
-compiling teclado.c...
+controle_motor.c(59): warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+controle_motor.c(63): warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+2 warnings generated.
+compiling controle_motor.c...
 compiling system_MKL25Z4.c...
+compiling main.c...
+compiling lcdio.c...
+compiling teclado.c...
+assembling startup_MKL25Z4.s...
 linking...
-Program Size: Code=2472 RO-data=336 RW-data=20 ZI-data=352  
-".\Objects\Projeto2.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=2784 RO-data=336 RW-data=16 ZI-data=352  
+".\Objects\Projeto2.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -56,8 +64,8 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   ./RTE/Device/MKL25Z128xxx4
   ./RTE/_Target_1
-  C:/Users/Gabri/Desktop/KEIL/ARM/CMSIS/5.9.0/CMSIS/Core/Include
-  C:/Users/Gabri/Desktop/KEIL/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include
+  C:/Users/vitor/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/vitor/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include
 
 <h2>Collection of Component Files used:</h2>
 
@@ -67,7 +75,7 @@ Package Vendor: Keil
       Source file:   Device/Source/system_MKL25Z4.c
       Include file:  Device/Source/system_MKL25Z4.h
       Source file:   Device/Source/ARM/startup_MKL25Z4.s
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

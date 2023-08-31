@@ -1,3 +1,5 @@
+#include "timers.h"
+#include "teclado.h"
 #include <stdint.h>
 #include <MKL25Z4.h>
 

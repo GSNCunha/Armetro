@@ -1,5 +1,6 @@
-	#include <MKL25Z4.h>
-
+#include <MKL25Z4.h>
+#include "lcdio.h"
+#include "timers.h"
 	// RS: PTC8 (0: comando,  1: dados)
 	// Enable: PTC9 
 

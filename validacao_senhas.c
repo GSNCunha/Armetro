@@ -1,3 +1,5 @@
+#include "validacao_senhas.h"
+#include "lcdio.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

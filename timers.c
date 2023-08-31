@@ -1,5 +1,5 @@
 #include <MKL25Z4.h>
-
+#include "timers.h"
 #define periodo 853//((8*8000000/3)/25000) //calculo periodo para frequencia de 25000 hz
 
 void delay_s(int segundos){

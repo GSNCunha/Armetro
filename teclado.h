@@ -1,7 +1,6 @@
 #ifndef TECLADO_H_
 #define TECLADO_H_
-
-#define bounce 
+ 
 
 char teclado [4][4];
 

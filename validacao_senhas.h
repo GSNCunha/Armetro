@@ -12,6 +12,6 @@ const char* validar_senha(void);
 
 int resultado_validacao(void);
 
-void digitarSenha();
+void digitarSenha(char teclaInterrupcao);
 
 #endif /* VALIDACAO_SENHAS_H_ */

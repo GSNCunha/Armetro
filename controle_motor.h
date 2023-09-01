@@ -2,16 +2,16 @@
 #define CONTROLE_MOTOR_H
 
 
-static volatile float distancia;
-static volatile float tempoFaltando;
+extern float distancia;
+extern float tempoFaltando;
 
-static volatile float tempoEntrePulsos;
+extern float tempoEntrePulsos;
 
-static volatile float pulsos;
-static volatile float rotacoes_80kmh;
-static volatile float rotacoes_0kmh;
-static volatile int motor_calibrado;
-static volatile float velocidadeAtual;
+extern float pulsos;
+extern float rotacoes_80kmh;
+extern float rotacoes_0kmh;
+extern int motor_calibrado;
+extern float velocidadeAtual;
 
 void pwm_motor(float velocidade_desejada);
 void configura_motor();

@@ -10,16 +10,16 @@ static float rotacoes_0kmh = 0;
 static int motor_calibrado = 0;
 static float velocidadeAtual = 0;
 */
-static volatile float distancia;
-static volatile float tempoFaltando;
+float distancia;
+float tempoFaltando;
 
-static volatile float tempoEntrePulsos;
+float tempoEntrePulsos;
 
-static volatile float pulsos;
-static volatile float rotacoes_80kmh;
-static volatile float rotacoes_0kmh;
-static volatile int motor_calibrado;
-static volatile float velocidadeAtual;
+float pulsos;
+float rotacoes_80kmh;
+float rotacoes_0kmh;
+int motor_calibrado;
+float velocidadeAtual;
 
 void configura_motor(){
 	SIM_SCGC5 |= (1 << 10);// habilitar PORTB
@@ -39,7 +39,6 @@ void pwm_motor(float velocidade_desejada){ //este timer está conectado ao pino 0
 	TPM1_C0V = (int)duty_cycle_motor*853/100; //quanto a gnt quer do periodo
 	//duty_cycle_motor é a porcentagem do pwm, 0 = 0%, 100 = 100% da potencia
 	velocidadeAtual = velocidade_desejada;
-	
 }
 
 void calibra_motor(){

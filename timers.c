@@ -86,7 +86,7 @@ void setup_PIT0(){// delay porta
 	PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
 	
 	
-	//NVIC_SetPriority(PIT_IRQn, 3); 
+	NVIC_SetPriority(PIT_IRQn, 3); 
 	//Clear any pending IRQ from PIT
 	NVIC_ClearPendingIRQ(PIT_IRQn); 
 	//Enable the PIT interrupt in the NVIC
@@ -121,13 +121,11 @@ void setup_PIT1(){// led
 	PIT->CHANNEL[1].TCTRL |= PIT_TCTRL_TIE_MASK;
 	
 	
-	//NVIC_SetPriority(PIT_IRQn, 3); 
+	NVIC_SetPriority(PIT_IRQn, 1); 
 	//Clear any pending IRQ from PIT
 	NVIC_ClearPendingIRQ(PIT_IRQn); 
 	//Enable the PIT interrupt in the NVIC
 	NVIC_EnableIRQ(PIT_IRQn);	
-	
-	
 }
 
 void desliga_PIT1(){

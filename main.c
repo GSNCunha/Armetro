@@ -6,10 +6,7 @@
 #include "teclado.h"
 #include "validacao_senhas.h"
 
-#define tempoAbertura 15
-
-
-int contagem = 0;
+int contagemBlinkLed = 0;
 
 int main(){
 	distancia = 1300;
@@ -68,15 +65,19 @@ int main(){
 	PORTA_PCR12 = ((1<< 8) ) | (10 << 16);//habilitar interrupcao pelo tacometro //+3 pra ativar pullup, tirei
 	
 	//__enable_irq();
+	NVIC_SetPriority(PORTA_IRQn, 0);
 	NVIC_EnableIRQ(PORTA_IRQn);
 
 	config_lcd_padrao();
 	limpa_reseta_cursor();
 	
+	configura_motor();
+	
 		
 	while(1)
 	{
 		if (strcmp(estado, "inicio") == 0){ //pede senha pro maquinista se logar
+			pwm_motor(0);
 			telaArmMetro();
 			lerSenha();
 		}else if (strcmp(estado, "logado") == 0){
@@ -84,8 +85,6 @@ int main(){
 		}else if (strcmp(estado, "adm") == 0){
 			edicaoParametros();
 		}else if (strcmp(estado, "modoAuto") == 0){
-			limpa_reseta_cursor();
-			send_string("daleled");
 			modoAuto();
 		}else if (strcmp(estado, "modoManual") == 0){
 			//
@@ -102,19 +101,21 @@ void PIT_IRQHandler(){
 		PIT->CHANNEL[0].LDVAL = 0;
 	}
 	if(PIT->CHANNEL[1].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 1 q estourou //tem q estourar 12 vezes
-			if (contagem < 12){
+			if (contagemBlinkLed < 12){
 				PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK;
 				//reseta pit 1
 				//PIT->CHANNEL[1].TFLG = 1<<31;
-				contagem++;
+				contagemBlinkLed++;
 				//dou toggle na porta do led
 				GPIOC_PTOR |= (1<<10 | 1<<11);
-			}else if (contagem >= 12){
+			}else if (contagemBlinkLed >= 12){
 				PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK;
 				//desligo pit 1
 				desliga_PIT1();
 				GPIOC_PCOR |= (1<<10 | 1<<11);
-				contagem = 0;
+				contagemBlinkLed = 0;
+				portas_abertas = 0;
+				PORTA_PCR5 &= ~(10 << 16); //desabilito interrupcao da porta A5
 				//fim do tempo, portas se fecharao
 			}
 	}
@@ -122,9 +123,7 @@ void PIT_IRQHandler(){
 }
 
 void PORTA_IRQHandler(void){
-	
-	
-	
+	atraso(5, 'm');
 	if(PIT->CHANNEL[0].CVAL != 0){
 		desliga_PIT0();
 		PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[0].LDVAL + 52428800; //somo 5s
@@ -135,12 +134,11 @@ void PORTA_IRQHandler(void){
 	}else if(PIT->CHANNEL[0].CVAL ==0){
 		//pit0 ==tempo no led + 2s 
 		//pit1 == 3s
-		send_data('y');
 		desliga_PIT1();
 		desliga_PIT0();
-		PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[1].CVAL + contagem*2621440 + 2*10485760;
+		PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[1].CVAL + contagemBlinkLed*2621440 + 2*10485760;
 		PIT->CHANNEL[1].LDVAL = 2621440; //valor para 0.25s, fazendo contagem =0 novamente temos o timer de 3s resetado
-		contagem = 0;
+		contagemBlinkLed = 0;
 		//ligo o PIT 0 dnv
 		PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
 		PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
@@ -148,5 +146,3 @@ void PORTA_IRQHandler(void){
 	}
 	PORTA_PCR5 |= (1 << 24); //reseta flag da interrupção
 }
-
-	

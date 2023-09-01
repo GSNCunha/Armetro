@@ -1,5 +1,6 @@
 #include <MKL25Z4.h>
 #include "validacao_senhas.h"
+#include "controle_motor.h"
 #include "lcdio.h"
 #include "teclado.h"
 #include "timers.h"
@@ -14,7 +15,7 @@ char senhaOp2[] = "082479";
 double parametros[3][4] =
 	{{1300, 100, 20, 60},
 	{2100, 130, 20, 70},
-	{1700, 100, 30, 63}}; //parametros de distancia, tempo entre estacoes, tempo de parada e velocidade maxima em metros por segundo.
+	{1700, 100, 30, 63}}; //parametros de distancia, tempo entre estacoes, tempo de parada e velocidade maxima em km/h.
 
 int nr_digitados = 0;
 char senha[7] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0'};
@@ -22,6 +23,8 @@ const char* validacao;
 char admLogin = 0;
 char estado[] = "inicio"; 
 int portas_abertas = 0;
+
+int ida = 1;
 
 void lerSenha(){
 	for(nr_digitados = 0; nr_digitados < 6; nr_digitados++){
@@ -250,14 +253,153 @@ void selecaoModoMaquinista(){
 	}
 }
 
-void modoAuto(){
+void abrePortasEspera(){
 	PORTA_PCR5 |= ((1<< 8) + 3) | (10 << 16); //ativa interrupção na coluna dos botoes da porta, teclas A e B
 	portas_abertas=1;
 	if(portas_abertas == 1){
-	setup_PIT0();
-	send_data('b');
-	GPIOC_PSOR |= (1<<10 | 1<<11);
+		setup_PIT0();
+		GPIOC_PSOR |= (1<<10 | 1<<11);
 	}
-	while(1);
+	while(portas_abertas==1);
+	GPIOC_PCOR |= (1<<10 | 1<<11);
+	PORTA_PCR5 &= ~(10 << 16);
+}
+
+void tostring(char str[], int num)
+{
+    int i, rem, len = 0, n;
+ 
+    n = num;
+    while (n != 0)
+    {
+        len++;
+        n /= 10;
+    }
+    for (i = 0; i < len; i++)
+    {
+        rem = num % 10;
+        num = num / 10;
+        str[len - (i + 1)] = rem + '0';
+    }
+    str[len] = '\0';
+}
+
+void realizar_viagem(int estacao){ //
+			
+			abrePortasEspera();
+			atraso(5, 's');
+			if(estacao == 3){
+				atraso(10, 's');
+			}
+			estacao--;
+			float vel = (parametros[estacao][0])/((parametros[estacao][1])-5);
+			int duracao_viagem = parametros[estacao][1];
+			char str_duracao_viagem [10];
+	
+	//rampa subida:
+			for(int i=1;i <6; i++){
+				pwm_motor(vel*i);
+				atraso(1, 's');
+				duracao_viagem--;
+				tostring(str_duracao_viagem, duracao_viagem);
+				limpa_reseta_cursor();
+				send_string("DURACAO VIAGEM:");
+				proxima_linha();
+				send_string(str_duracao_viagem);
+			}
+			//vel cte:
+			for(int i = 0; i < (parametros[estacao][1]-15); i++){
+				atraso(1, 's');
+				duracao_viagem--;
+				tostring(str_duracao_viagem, duracao_viagem);
+				limpa_reseta_cursor();
+				send_string("DURACAO VIAGEM:");
+				proxima_linha();
+				send_string(str_duracao_viagem);
+			}
+			limpa_reseta_cursor();
+			send_string("CHEGANDO NA EST.:");
+			proxima_linha();
+			if(estacao+1 ==1){
+				if(ida){
+					send_string("ESTACAO 2");
+				}else{
+					send_string("ESTACAO 1");
+				}
+			}else if(estacao+1 ==2){
+				if(ida){
+					send_string("ESTACAO 3");
+				}else{
+					send_string("ESTACAO 2");
+				}
+			}else if(estacao+1 ==3){
+				if(ida){
+					send_string("FIM DA LINHA");
+				}else{
+					send_string("ESTACAO 3");
+				}
+			}
+			atraso(5, 's');
+			for(int i=4;i>=0; i--){
+				pwm_motor(vel*i);
+				atraso(1, 's');
+			}
 
 }
+
+void modoAuto(){
+	char estado_viagem[16];
+	strcpy(estado_viagem, "estacao_1"); 
+	//int ida = 1;
+	while(1){
+		
+		if (strcmp(estado_viagem, "estacao_1") == 0){ //pede senha pro maquinista se logar
+			//faço ele ir pra parada 1
+			limpa_reseta_cursor();
+			send_string("ESTACAO ATUAL:");
+			proxima_linha();
+			send_string("ESTACAO 1");
+			ida = 1;
+			realizar_viagem(1);
+			strcpy(estado_viagem, "estacao_2");
+		}else if (strcmp(estado, "estacao_2") == 0){
+			//faço ele ir pra parada 2
+			limpa_reseta_cursor();
+			send_string("ESTACAO ATUAL:");
+			proxima_linha();
+			send_string("ESTACAO 2");
+			if(ida == 1){
+				realizar_viagem(2);
+				strcpy(estado_viagem, "estacao_3");
+			}else{
+				realizar_viagem(1);
+				strcpy(estado_viagem, "estacao_1");
+			}
+		}else if (strcmp(estado, "estacao_3") == 0){
+			//faço ele ir pra parada 3
+			limpa_reseta_cursor();
+			send_string("ESTACAO ATUAL:");
+			proxima_linha();
+			send_string("ESTACAO 3");
+			
+			if(ida == 1){
+				realizar_viagem(3);
+				strcpy(estado_viagem, "fim_da_linha");
+			}else{
+				realizar_viagem(2);
+				strcpy(estado_viagem, "estacao_2");
+			}
+		}else if (strcmp(estado, "fim_da_linha") == 0){
+			limpa_reseta_cursor();
+			send_string("ESTACAO ATUAL:");
+			proxima_linha();
+			send_string("FIM DA LINHA");
+			ida = 0;
+			realizar_viagem(3);
+			strcpy(estado_viagem, "estacao_3");
+			//
+		}
+	}
+}
+
+

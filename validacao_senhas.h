@@ -7,6 +7,7 @@ extern const char* validacao;
 extern char admLogin;
 extern char estado[16];
 extern double parametros[3][4];
+extern int portas_abertas;
 
 
 void lendo_senha(char tecla);

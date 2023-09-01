@@ -78,16 +78,8 @@ int main(){
 			// do something else
 		}else if (strcmp(estado, "adm") == 0){
 			edicaoParametros();
-		}else if (strcmp(estado, "editvel") == 0){
-			edicaoParametros();
 		}
 		
-		
-		
-		else{
-		}
-		send_data(tecla);
-		atraso(3, 's');
 	}
 }
 

@@ -30,5 +30,7 @@ void proxima_linha(void);
 	void telaEditarTempos();
 	void telaTempoParada();
 	void telaTempoViagem();
+	void telaEditarTempoParada();
+	void telaEditarTempoViagem();
 
 #endif

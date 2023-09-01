@@ -95,7 +95,7 @@ char lerTeclado(){
 	while(1){
 		tecla = procuraTecla();
 		if(tecla == '1' || tecla == '2' || tecla == '3' || tecla == '4' || tecla == '5' || tecla == '6' || tecla == '7' || tecla == '8' || tecla == '9' || tecla == '0'){
-			send_data(tecla);
+			//send_data(tecla);
 			atraso(1, 's');
 			return tecla;
 		}

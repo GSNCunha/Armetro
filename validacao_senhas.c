@@ -24,6 +24,7 @@ char estado[] = "inicio";
 void lerSenha(){
 	for(nr_digitados = 0; nr_digitados < 6; nr_digitados++){
 		lerTeclado();
+		send_data('*');
 		if(nr_digitados <= 5){
 			senha[nr_digitados] = tecla;
 		}
@@ -58,15 +59,15 @@ void edicaoParametros(){
 		lerTeclado();
 	}
 	if(tecla == '1'){
-		strcpy(estado, "editdist");
+		//strcpy(estado, "editdist");
 		edicaoDist();
 	}
 	if(tecla == '2'){
-		strcpy(estado, "edittempo");
+		//strcpy(estado, "edittempo");
 		edicaoTempo();
 	}
 	if(tecla == '3'){
-		strcpy(estado, "editvel");
+		//strcpy(estado, "editvel");
 		edicaoVel();
 	}
 	if(tecla == '4'){
@@ -84,17 +85,20 @@ void edicaoVel(){
 		telaNovaVel();
 		char novaVel[3];
 		novaVel[2] = '\0';
-		for(int i; i<2; i++){
+		for(int i=0; i<2; i++){
 			novaVel[i] = lerTeclado();
+			send_data(tecla);
 		}
 		parametros[0][3] = atoi(novaVel);
+		atraso(1, 's');
 	}
 	else if(tecla == '2'){
 		telaNovaVel();
 		char novaVel[3];
 		novaVel[2] = '\0';
-		for(int i; i<2; i++){
+		for(int i=0; i<2; i++){
 			novaVel[i] = lerTeclado();
+			send_data(tecla);
 		}
 		parametros[1][3] = atoi(novaVel);
 	}
@@ -102,8 +106,9 @@ void edicaoVel(){
 		telaNovaVel();
 		char novaVel[3];
 		novaVel[2] = '\0';
-		for(int i; i<2; i++){
+		for(int i=0; i<2; i++){
 			novaVel[i] = lerTeclado();
+			send_data(tecla);
 		}
 		parametros[2][3] = atoi(novaVel);
 	}
@@ -119,8 +124,9 @@ void edicaoDist(){
 		telaNovaDist();
 		char novaDist[5];
 		novaDist[4] = '\0';
-		for(int i; i<4; i++){
+		for(int i=0; i<4; i++){
 			novaDist[i] = lerTeclado();
+			send_data(tecla);
 		}
 		parametros[0][0] = atoi(novaDist);
 	}
@@ -128,8 +134,9 @@ void edicaoDist(){
 		telaNovaDist();
 		char novaDist[5];
 		novaDist[4] = '\0';
-		for(int i; i<4; i++){
+		for(int i=0; i<4; i++){
 			novaDist[i] = lerTeclado();
+			send_data(tecla);
 		}
 		parametros[1][0] = atoi(novaDist);
 	}
@@ -137,8 +144,9 @@ void edicaoDist(){
 		telaNovaDist();
 		char novaDist[5];
 		novaDist[4] = '\0';
-		for(int i; i<4; i++){
+		for(int i=0; i<4; i++){
 			novaDist[i] = lerTeclado();
+			send_data(tecla);
 		}
 		parametros[2][0] = atoi(novaDist);
 	}
@@ -156,12 +164,10 @@ void edicaoTempo(){
 	}else if(tecla == '2'){
 		edicaoTempoParada();
 	}
-	
-
 }
 
 void edicaoTempoParada(){
-
+	telaEditarTempoParada();
 	tecla = 0;
 	while(tecla != '1' && tecla != '2' && tecla != '3'){
 		lerTeclado();
@@ -170,75 +176,72 @@ void edicaoTempoParada(){
 	telaTempoParada();
 	
 	if(tecla == '1'){
-		telaTempoParada();
 		char novoTempoParada[3];
 		novoTempoParada[2] = '\0';
-		for(int i; i<2; i++){
+		for(int i=0; i<2; i++){
 			novoTempoParada[i] = lerTeclado();
+			send_data(tecla);
 		}	
 		parametros[0][2] = atoi(novoTempoParada);
 		
 	}else if(tecla == '2'){
-		telaTempoParada();
 		char novoTempoParada[3];
 		novoTempoParada[2] = '\0';
-		for(int i; i<2; i++){
+		for(int i=0; i<2; i++){
 			novoTempoParada[i] = lerTeclado();
+			send_data(tecla);
 		}	
 		parametros[1][2] = atoi(novoTempoParada);
 		
 	}else if(tecla == '3'){
-		telaTempoParada();
 		char novoTempoParada[3];
 		novoTempoParada[2] = '\0';
-		for(int i; i<2; i++){
+		for(int i=0; i<2; i++){
 			novoTempoParada[i] = lerTeclado();
+			send_data(tecla);
 		}	
 		parametros[2][2] = atoi( novoTempoParada);
-		
 	}
-
-
 }
 
 void edicaoTempoViagem(){
-
+	telaEditarTempoViagem();
 	tecla = 0;
 	while(tecla != '1' && tecla != '2' && tecla != '3'){
 		lerTeclado();
 	}
-	
 	telaTempoViagem();
-	
 	if(tecla == '1'){
-		telaTempoViagem();
 		char novoTempoViagem[4];
 		novoTempoViagem[3] = '\0';
-		for(int i; i<3; i++){
+		for(int i=0; i<3; i++){
 			novoTempoViagem[i] = lerTeclado();
+			send_data(tecla);
 		}	
 		parametros[0][1] = atoi(novoTempoViagem);
-		
 	}else if(tecla == '2'){
-		telaTempoViagem();
 		char novoTempoViagem[4];
 		novoTempoViagem[3] = '\0';
-		for(int i; i<3; i++){
+		for(int i=0; i<3; i++){
 			novoTempoViagem[i] = lerTeclado();
+			send_data(tecla);
 		}	
 		parametros[1][1] = atoi(novoTempoViagem);
-		
 	}else if(tecla == '3'){
-		telaTempoViagem();
 		char novoTempoViagem[4];
 		novoTempoViagem[3] = '\0';
-		for(int i; i<3; i++){
+		for(int i=0; i<3; i++){
 			novoTempoViagem[i] = lerTeclado();
+			send_data(tecla);
 		}	
 		parametros[2][1] = atoi(novoTempoViagem);
-		
 	}
-
-
 }
 
+void selecaoModoMaquinista(){
+	tecla = 0;
+	while(tecla != '1' && tecla != '2'){
+		lerTeclado();
+	}
+	
+}

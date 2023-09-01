@@ -178,7 +178,7 @@
 	}
 	void telaNovaDist(){
 		limpa_reseta_cursor();
-		send_string("NOVA VEL.MAX:");
+		send_string("NOVA DIST:");
 		proxima_linha();
 	}
 	
@@ -198,27 +198,13 @@
 	
 	}
 	
-	void rotinaEdicaoParametros(){
-		telaEditarParametros();
-		tecla = procuraTecla();
-		if(tecla == '1'){
-			telaEditarDist();
-			nr_digitados = 0;
-			while(1){
-				tecla = procuraTecla();
-			}
-			
-		
-		}else if(tecla == '2'){
-			telaEditarTempos();
-		
-		
-		}else if(tecla == '3'){
-			telaEditarVel();
-		}else if(tecla == '4'){
-			//sair
-		
-		}
 	
+	
+	void telaModosMaquinista(){
+		limpa_reseta_cursor();
+		send_string("1 - AUTOMATICO");
+		proxima_linha();
+		send_string("2 - MANUAL");
+		
 	}
 	

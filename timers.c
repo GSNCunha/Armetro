@@ -54,32 +54,87 @@ void velocidade(char velocidade){
 
 
 void setup_PIT0(){// delay porta
-	SIM_SCGC6 |= 1<<23; //ativa PIT
-	PIT_MCR = 0x00; // 0 aqui pra habilitar o clock
-	PIT_LDVAL0 = 125829120; //valor inicial pro timer, ele conta até 0 e gera interrupção //12segundos = 125829120
+	/*SIM_SCGC6 |= 1<<23; //ativa PIT
+	PIT_MCR &= ~(1 << 30); // 0 aqui pra habilitar o clock
+	PIT_LDVAL0 = 500;//125829120; //valor inicial pro timer, ele conta até 0 e gera interrupção //12segundos = 125829120
 	//valor atual = PIT_CVAL0;
-	PIT_TCTRL0 = 1 << 30 | 1 << 31; // 1<<30 ativa interrupcao, 1<<31 ativa o timer
+	PIT_TCTRL0 &= (1 << 29);
+	PIT_TCTRL0 |= (1 << 31); // 1<<30 ativa interrupcao, 1<<31 ativa o timer
+	PIT_TCTRL0 |= (1 << 30);
 	NVIC_SetPriority(PIT_IRQn, 3); 
 	NVIC_ClearPendingIRQ(PIT_IRQn);
 	NVIC_EnableIRQ(PIT_IRQn);
+	//NVIC_EnableIRQ();
+	//__enable_irq();
 	send_data('c');
+	
+	*/
+	
+	//Enable clock to PIT module
+	SIM->SCGC6 |= SIM_SCGC6_PIT_MASK;
+ //Enable module, freeze timers in debug mode
+	PIT->MCR &= ~PIT_MCR_MDIS_MASK; //enable mdis
+	
+	//Initialize PIT0 to count down from starting_value
+	PIT->CHANNEL[0].LDVAL =125829120;   //12seg
+	//No chaining of timers
+	PIT->CHANNEL[0].TCTRL &= PIT_TCTRL_CHN_MASK;
+	
+	PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
+	
+	//Let the PIT channel generate interrupt requests
+	PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
+	
+	
+	//NVIC_SetPriority(PIT_IRQn, 3); 
+	//Clear any pending IRQ from PIT
+	NVIC_ClearPendingIRQ(PIT_IRQn); 
+	//Enable the PIT interrupt in the NVIC
+	NVIC_EnableIRQ(PIT_IRQn);	
+
+
+	
 }
 void setup_PIT1(){// led
-	SIM_SCGC6 |= 1<<23; //ativa PIT
-	PIT_MCR = 0x00; // 0 aqui pra habilitar o clock
+	/*SIM_SCGC6 |= 1<<23; //ativa PIT
+	PIT_MCR &= ~(1 << 30); // 0 aqui pra habilitar o clock
+	PIT_MCR |= (1 << 31);
 	PIT_LDVAL1 = 2621440; //valor inicial pro timer, ele conta até 0 e gera interrupção //3segundos = 31457280
 	//valor atual = PIT_CVAL1;
-	PIT_TCTRL1 = 1 << 30 | 1 << 31; // 1<<30 ativa interrupcao, 1<<31 ativa o timer
-	NVIC_SetPriority(PIT_IRQn, 3); 
-	NVIC_ClearPendingIRQ(PIT_IRQn);
-	NVIC_EnableIRQ(PIT_IRQn);
+	PIT_TCTRL1 = (1 << 30) | (1 << 31); // 1<<30 ativa interrupcao, 1<<31 ativa o timer
+	*/
+	
+	
+	//Enable clock to PIT module
+	SIM->SCGC6 |= SIM_SCGC6_PIT_MASK;
+ //Enable module, freeze timers in debug mode
+	PIT->MCR &= ~PIT_MCR_MDIS_MASK; //enable mdis
+	
+	//Initialize PIT0 to count down from starting_value
+	PIT->CHANNEL[1].LDVAL =2621440;   //timer do blink
+	//No chaining of timers
+	PIT->CHANNEL[1].TCTRL &= PIT_TCTRL_CHN_MASK;
+	
+	PIT->CHANNEL[1].TCTRL |= PIT_TCTRL_TEN_MASK;
+	
+	//Let the PIT channel generate interrupt requests
+	PIT->CHANNEL[1].TCTRL |= PIT_TCTRL_TIE_MASK;
+	
+	
+	//NVIC_SetPriority(PIT_IRQn, 3); 
+	//Clear any pending IRQ from PIT
+	NVIC_ClearPendingIRQ(PIT_IRQn); 
+	//Enable the PIT interrupt in the NVIC
+	NVIC_EnableIRQ(PIT_IRQn);	
+	
+	
 }
 
 void desliga_PIT1(){
-	PIT_TCTRL1 = 0;
+	PIT->CHANNEL[1].TCTRL = 0;
 }
 void desliga_PIT0(){
-	PIT_TCTRL0 = 0;
+	PIT->CHANNEL[0].TCTRL = 0;
 }
 
 void soma5_PIT0(){

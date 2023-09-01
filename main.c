@@ -67,7 +67,7 @@ int main(){
 	GPIOA_PDDR &= ~(1 << 12);//pino tacometro como iput
 	PORTA_PCR12 = ((1<< 8) ) | (10 << 16);//habilitar interrupcao pelo tacometro //+3 pra ativar pullup, tirei
 	
-	__enable_irq();
+	//__enable_irq();
 	NVIC_EnableIRQ(PORTA_IRQn);
 
 	config_lcd_padrao();
@@ -94,21 +94,23 @@ int main(){
 }
 
 void PIT_IRQHandler(){
-
 	if(PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 0 q estourou
+		PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
 		setup_PIT1();
 		//desligar pit0
 		desliga_PIT0();
-		send_data('k');
+		PIT->CHANNEL[0].LDVAL = 0;
 	}
 	if(PIT->CHANNEL[1].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 1 q estourou //tem q estourar 12 vezes
 			if (contagem < 12){
+				PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK;
 				//reseta pit 1
-				PIT_TFLG1 = 1<<31;
+				//PIT->CHANNEL[1].TFLG = 1<<31;
 				contagem++;
 				//dou toggle na porta do led
 				GPIOC_PTOR |= (1<<10 | 1<<11);
-			}else if (contagem == 12){
+			}else if (contagem >= 12){
+				PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK;
 				//desligo pit 1
 				desliga_PIT1();
 				GPIOC_PCOR |= (1<<10 | 1<<11);
@@ -120,26 +122,30 @@ void PIT_IRQHandler(){
 }
 
 void PORTA_IRQHandler(void){
-	if(PIT_CVAL0 != 0){
+	
+	
+	
+	if(PIT->CHANNEL[0].CVAL != 0){
 		desliga_PIT0();
-		PIT_LDVAL0 = PIT_LDVAL0 + 52428800; //somo 5s
-		PIT_TCTRL0 = 1 << 30 | 1 << 31; //ligo dnv
-	}else if(PIT_CVAL0 ==0){
+		PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[0].LDVAL + 52428800; //somo 5s
+		//ligo o PIT 0 dnv
+		PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
+		PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
+		
+	}else if(PIT->CHANNEL[0].CVAL ==0){
 		//pit0 ==tempo no led + 2s 
 		//pit1 == 3s
+		send_data('y');
 		desliga_PIT1();
 		desliga_PIT0();
-		PIT_LDVAL0 = PIT_CVAL1 + contagem*2621440 + 2*10485760;
-		PIT_LDVAL1 = 2621440; //valor para 0.25s, fazendo contagem =0 novamente temos o timer de 3s resetado
+		PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[1].CVAL + contagem*2621440 + 2*10485760;
+		PIT->CHANNEL[1].LDVAL = 2621440; //valor para 0.25s, fazendo contagem =0 novamente temos o timer de 3s resetado
 		contagem = 0;
-		PIT_TCTRL0 = 1 << 30 | 1 << 31; //ligo dnv
+		//ligo o PIT 0 dnv
+		PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
+		PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
+		GPIOC_PSOR |= (1<<10 | 1<<11);
 	}
-	
-	//tecla = procuraTecla();
-	//send_data(tecla);
-	//PORTA_PCR1 |= (1 << 24);
-	//PORTA_PCR2 |= (1 << 24);
-	//PORTA_PCR4 |= (1 << 24);
 	PORTA_PCR5 |= (1 << 24); //reseta flag da interrupção
 }
 

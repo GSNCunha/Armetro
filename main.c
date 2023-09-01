@@ -77,10 +77,8 @@ int main(){
 		}else if (strcmp(estado, "logado") == 0){
 			// do something else
 		}else if (strcmp(estado, "adm") == 0){
-			telaEditarParametros();
 			edicaoParametros();
 		}else if (strcmp(estado, "editvel") == 0){
-			telaEditarVel();
 			edicaoParametros();
 		}
 		

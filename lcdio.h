@@ -23,8 +23,12 @@ void proxima_linha(void);
 	void telaSenhaIncorreta();
 	void telaAdmLogado();
 	void telaEditarParametros();
+	void telaEditarDist();
 	void telaEditarVel();
 	void telaNovaVel();
 	void telaNovaDist();
+	void telaEditarTempos();
+	void telaTempoParada();
+	void telaTempoViagem();
 
 #endif

@@ -182,6 +182,22 @@
 		proxima_linha();
 	}
 	
+	void telaTempoParada(){
+	
+		limpa_reseta_cursor();
+		send_string("NOVO TEMPO P.:");
+		proxima_linha();
+	
+	}
+	
+	void telaTempoViagem(){
+	
+		limpa_reseta_cursor();
+		send_string("NOVO TEMPO V.:");
+		proxima_linha();
+	
+	}
+	
 	void rotinaEdicaoParametros(){
 		telaEditarParametros();
 		tecla = procuraTecla();

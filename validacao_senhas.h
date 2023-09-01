@@ -18,5 +18,10 @@ int resultado_validacao(void);
 void digitarSenha(char teclaInterrupcao);
 void lerSenha();
 void edicaoParametros();
+void edicaoVel();
+void edicaoDist();
+void edicaoTempo();
+void edicaoTempoParada();
+void edicaoTempoViagem();
 
 #endif /* VALIDACAO_SENHAS_H_ */

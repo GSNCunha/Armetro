@@ -1,6 +1,12 @@
 #include <MKL25Z4.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "lcdio.h"
 #include "timers.h"
+#include "teclado.h"
+#include "validacao_senhas.h"
+
 	// RS: PTC8 (0: comando,  1: dados)
 	// Enable: PTC9 
 
@@ -106,12 +112,97 @@
 		limpa_reseta_cursor();
 		send_string("   ARMETRO    ");
 		proxima_linha();
+		send_string("SENHA: ");
 	}
-	
-		void telaSenhaCorreta(){
+	void telaSenhaCorreta(){
 		limpa_reseta_cursor();
 		send_string("SENHA CORRETA");
+		atraso(2, 's');
 	}
-		
-		
+	void telaSenhaIncorreta(){
+		limpa_reseta_cursor();
+		send_string("SENHA INCORRETA");
+		atraso(2, 's');
+	}
+	
+	void telaAdmLogado(){
+		limpa_reseta_cursor();
+		send_string("BEM-VINDO ADM");
+		atraso(2, 's');
+	}	
+	
+	void telaEditarParametros(){
+		limpa_reseta_cursor();
+		send_string("1-DIST  2-TEMPO");
+		proxima_linha();
+		send_string("3-VEL.MAX 4-SAIR");
+	}
+	
+	void telaEditarDist(){
+		limpa_reseta_cursor();
+		send_string("1-EST.1 2-EST.2");
+		proxima_linha();
+		send_string("3-EST.3");
+	}
 
+	void telaEditarTempos(){
+		limpa_reseta_cursor();
+		send_string("1-VIAGEM 2-PARADA");
+		proxima_linha();
+	}
+	
+	void telaEditarTempoViagem(){
+		limpa_reseta_cursor();
+		send_string("1-EST.1 2-EST.2");
+		proxima_linha();
+		send_string("3-EST.3");
+	}
+	
+	void telaEditarTempoParada(){
+		limpa_reseta_cursor();
+		send_string("1-EST.1 2-EST.2");
+		proxima_linha();
+		send_string("3-EST.3");
+	}
+	
+	void telaEditarVel(){
+		limpa_reseta_cursor();
+		send_string("1-EST.1 2-EST.2");
+		proxima_linha();
+		send_string("3-EST.3");
+	}
+	void telaNovaVel(){
+		limpa_reseta_cursor();
+		send_string("NOVA VEL.MAX:");
+		proxima_linha();
+	}
+	void telaNovaDist(){
+		limpa_reseta_cursor();
+		send_string("NOVA VEL.MAX:");
+		proxima_linha();
+	}
+	
+	void rotinaEdicaoParametros(){
+		telaEditarParametros();
+		tecla = procuraTecla();
+		if(tecla == '1'){
+			telaEditarDist();
+			nr_digitados = 0;
+			while(1){
+				tecla = procuraTecla();
+			}
+			
+		
+		}else if(tecla == '2'){
+			telaEditarTempos();
+		
+		
+		}else if(tecla == '3'){
+			telaEditarVel();
+		}else if(tecla == '4'){
+			//sair
+		
+		}
+	
+	}
+	

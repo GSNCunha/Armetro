@@ -1,9 +1,12 @@
 #include "timers.h"
 #include "teclado.h"
+#include "lcdio.h"
 #include <stdint.h>
 #include <MKL25Z4.h>
 
 #define bounce 8
+
+char tecla;
 
 char teclado [4][4] = {
 	{'1', '2', '3', 'A'},
@@ -85,4 +88,16 @@ char procuraTecla(void)
 	GPIOC_PCOR |= (1 << 7 | 1 << 0 | 1 << 3 | 1 << 4);
 
 	return procuraLinhas();
+}
+
+char lerTeclado(){
+	tecla = 0;
+	while(1){
+		tecla = procuraTecla();
+		if(tecla == '1' || tecla == '2' || tecla == '3' || tecla == '4' || tecla == '5' || tecla == '6' || tecla == '7' || tecla == '8' || tecla == '9' || tecla == '0'){
+			send_data(tecla);
+			atraso(1, 's');
+			return tecla;
+		}
+	}
 }

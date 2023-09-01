@@ -19,8 +19,12 @@ void proxima_linha(void);
 //////TELAS///////
 
 	void telaArmMetro();
-	
 	void telaSenhaCorreta();
-		
+	void telaSenhaIncorreta();
+	void telaAdmLogado();
+	void telaEditarParametros();
+	void telaEditarVel();
+	void telaNovaVel();
+	void telaNovaDist();
 
 #endif

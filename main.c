@@ -1,22 +1,14 @@
 #include <MKL25Z4.h>
-
+#include <string.h>
 #include "controle_motor.h"
 #include "timers.h"
 #include "lcdio.h"
+#include "teclado.h"
+#include "validacao_senhas.h"
 
 #define tempoAbertura 15
-/*
-volatile static float distancia;
-volatile static float tempoFaltando;
 
-volatile static float tempoEntrePulsos;
 
-volatile static float pulsos;
-volatile static float rotacoes_80kmh;
-volatile static float rotacoes_0kmh;
-volatile static int motor_calibrado;
-volatile static float velocidadeAtual;
-*/
 
 
 int main(){
@@ -29,11 +21,7 @@ int main(){
 	motor_calibrado = 0;
 	velocidadeAtual = 0;
 	
-	double parametros[3][4] =
-	{{1300, 100, 20, (60/3.6)},
-	{2100, 130, 20, (70/3.6)},
-	{1700, 100, 30, (63/3.6)}}; //parametros de distancia, tempo entre estacoes, tempo de parada e velocidade maxima em metros por segundo.
-
+	
 	SIM_SCGC5 |= (1 << 11);// habilitar PORTC
 	SIM_SCGC5 |= (1 << 12);// habilitar PORTD
 	SIM_SCGC5 |= (1 << 9);// habilitar PORTA
@@ -57,14 +45,14 @@ int main(){
 	PORTC_PCR9 = 1<< 8;
 	PORTC_PCR8 = 1<< 8;
 
-	//PORTC_PCR7 = 1<< 8;//habilitar GPIO de todos os pinos usados no teclado
-	//PORTC_PCR0 = 1<< 8;
-	//PORTC_PCR3 = 1<< 8;
-	//PORTC_PCR4 = 1<< 8;
-	//PORTA_PCR1 = ((1<< 8) + 3) | (10 << 16);//habilitar pull-up dos pinos da coluna do teclado einterrupcao
-	//PORTA_PCR2 = ((1<< 8) + 3) | (10 << 16);
-	//PORTA_PCR4 = ((1<< 8) + 3) | (10 << 16);
-	//PORTA_PCR5 = ((1<< 8) + 3) | (10 << 16);
+	PORTC_PCR7 = 1<< 8;//habilitar GPIO de todos os pinos usados no teclado
+	PORTC_PCR0 = 1<< 8;
+	PORTC_PCR3 = 1<< 8;
+	PORTC_PCR4 = 1<< 8;
+	PORTA_PCR1 = ((1<< 8) + 3);// | (10 << 16);//habilitar pull-up dos pinos da coluna do teclado einterrupcao
+	PORTA_PCR2 = ((1<< 8) + 3);// | (10 << 16);
+	PORTA_PCR4 = ((1<< 8) + 3);// | (10 << 16);
+	PORTA_PCR5 = ((1<< 8) + 3);// | (10 << 16);
 	
 	SIM_SOPT2 |= 1<<24; //habilita clock dos timers
 	SIM_SCGC6 |= 1<< 26; //habilita timer 2
@@ -74,74 +62,45 @@ int main(){
 	GPIOA_PDDR &= ~(1 << 12);//pino tacometro como iput
 	PORTA_PCR12 = ((1<< 8) ) | (10 << 16);//habilitar interrupcao pelo tacometro //+3 pra ativar pullup, tirei
 	
-	__enable_irq();
-	NVIC_EnableIRQ(PORTA_IRQn);
+	//__enable_irq();
+	//NVIC_EnableIRQ(PORTA_IRQn);
 
 	config_lcd_padrao();
 	limpa_reseta_cursor();
-	telaArmMetro();
 	
-	
-
-	
-	
-	configura_motor();
-	calibra_motor();
-
-	
-	
-	//sequencia motor
-	motor_calibrado = 1;
-	
-			
+		
 	while(1)
 	{
-		pwm_motor(velocidadeAtual);
+		if (strcmp(estado, "inicio") == 0){ //pede senha pro maquinista se logar
+			telaArmMetro();
+			lerSenha();
+		}else if (strcmp(estado, "logado") == 0){
+			// do something else
+		}else if (strcmp(estado, "adm") == 0){
+			telaEditarParametros();
+			edicaoParametros();
+		}else if (strcmp(estado, "editvel") == 0){
+			telaEditarVel();
+			edicaoParametros();
+		}
+		
+		
+		
+		else{
+		}
+		send_data(tecla);
+		atraso(3, 's');
 	}
 }
 
-void PORTA_IRQHandler(void){
-	PORTA_PCR12 = (1<< 8);//desliga interrupcao
-	pulsos++;
+/*void PORTA_IRQHandler(void){
 	
-	if (motor_calibrado == 1){	//se o motor ja tiver calibrado, queremos ficar lendo o tacometro e vendo se a velocidade colocada corresponde corretamente com a leitura do sensor.
-		//diminuir distancia necessaria pra chegar no final:
-		send_data('a');
-		if(velocidadeAtual != 0){
-			float metrosPorPulso;
-			metrosPorPulso = (velocidadeAtual/km_hParaGiros_h(velocidadeAtual))*(1000/2);
-			distancia = distancia - metrosPorPulso;
-		}
-		
-		//conferencia dos pulsos do sensor:
-		tempoEntrePulsos = RTC_TPR*1/32768;
-		RTC_timer_reseta();
-		tempoFaltando = tempoFaltando - tempoEntrePulsos;
-		//send_data(tempoFaltando);
-		//------------------ 
-		//conferir velocidade
-		//recalcular a velocidade com base distancia que falta e o tempo certo pra chegar
-		float segPorPulso = (1/km_hParaGiros_s(velocidadeAtual))/2;
-			//ajustar conforme distancia e tempo faltando
-			if (distancia/tempoFaltando < 80){
-				pwm_motor(distancia/tempoFaltando);
-			} //dps ajustar, cada trecho tem uma velocidade maxima
-			else{
-				pwm_motor(80);
-			}
-			
-			if(distancia <= 0 || tempoFaltando <= 0){
-				send_string("fim");
-			}
-			
-	}	
-	//atrasoTimerZero(20, 'm');
-	//PORTA_PCR1 |= (1 << 24);
-	//PORTA_PCR2 |= (1 << 24);
-	//PORTA_PCR4 |= (1 << 24);
-	//PORTA_PCR5 |= (1 << 24);
-	PORTA_PCR12 |= (1 << 24); //limpa flag
-	PORTA_PCR12 |= (1<< 8) | (10 << 16);// liga interrupcao //1<<8 p usar como pino, +3 pra ativar pullup, 10<<16 pra interrupção na borda de descida.
-}
+	tecla = procuraTecla();
+	send_data(tecla);
+	PORTA_PCR1 |= (1 << 24);
+	PORTA_PCR2 |= (1 << 24);
+	PORTA_PCR4 |= (1 << 24);
+	PORTA_PCR5 |= (1 << 24);
+}*/
 
 	

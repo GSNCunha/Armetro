@@ -23,5 +23,7 @@ void edicaoDist();
 void edicaoTempo();
 void edicaoTempoParada();
 void edicaoTempoViagem();
+void selecaoModoMaquinista();
+void modoAuto();
 
 #endif /* VALIDACAO_SENHAS_H_ */

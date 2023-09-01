@@ -1,5 +1,6 @@
 #include <MKL25Z4.h>
 #include "timers.h"
+#include "lcdio.h"
 #define periodo 853//((8*8000000/3)/25000) //calculo periodo para frequencia de 25000 hz
 
 void delay_s(int segundos){
@@ -50,3 +51,39 @@ void velocidade(char velocidade){
 	TPM2_SC |= 1<<7;
 
 }
+
+
+void setup_PIT0(){// delay porta
+	SIM_SCGC6 |= 1<<23; //ativa PIT
+	PIT_MCR = 0x00; // 0 aqui pra habilitar o clock
+	PIT_LDVAL0 = 125829120; //valor inicial pro timer, ele conta até 0 e gera interrupção //12segundos = 125829120
+	//valor atual = PIT_CVAL0;
+	PIT_TCTRL0 = 1 << 30 | 1 << 31; // 1<<30 ativa interrupcao, 1<<31 ativa o timer
+	NVIC_SetPriority(PIT_IRQn, 3); 
+	NVIC_ClearPendingIRQ(PIT_IRQn);
+	NVIC_EnableIRQ(PIT_IRQn);
+	send_data('c');
+}
+void setup_PIT1(){// led
+	SIM_SCGC6 |= 1<<23; //ativa PIT
+	PIT_MCR = 0x00; // 0 aqui pra habilitar o clock
+	PIT_LDVAL1 = 2621440; //valor inicial pro timer, ele conta até 0 e gera interrupção //3segundos = 31457280
+	//valor atual = PIT_CVAL1;
+	PIT_TCTRL1 = 1 << 30 | 1 << 31; // 1<<30 ativa interrupcao, 1<<31 ativa o timer
+	NVIC_SetPriority(PIT_IRQn, 3); 
+	NVIC_ClearPendingIRQ(PIT_IRQn);
+	NVIC_EnableIRQ(PIT_IRQn);
+}
+
+void desliga_PIT1(){
+	PIT_TCTRL1 = 0;
+}
+void desliga_PIT0(){
+	PIT_TCTRL0 = 0;
+}
+
+void soma5_PIT0(){
+	
+
+}
+

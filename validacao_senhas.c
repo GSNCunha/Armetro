@@ -1,3 +1,4 @@
+#include <MKL25Z4.h>
 #include "validacao_senhas.h"
 #include "lcdio.h"
 #include "teclado.h"
@@ -19,7 +20,8 @@ int nr_digitados = 0;
 char senha[7] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0'};
 const char* validacao;	
 char admLogin = 0;
-char estado[] = "inicio";
+char estado[] = "inicio"; 
+int portas_abertas = 0;
 
 void lerSenha(){
 	for(nr_digitados = 0; nr_digitados < 6; nr_digitados++){
@@ -59,15 +61,12 @@ void edicaoParametros(){
 		lerTeclado();
 	}
 	if(tecla == '1'){
-		//strcpy(estado, "editdist");
 		edicaoDist();
 	}
 	if(tecla == '2'){
-		//strcpy(estado, "edittempo");
 		edicaoTempo();
 	}
 	if(tecla == '3'){
-		//strcpy(estado, "editvel");
 		edicaoVel();
 	}
 	if(tecla == '4'){
@@ -239,9 +238,26 @@ void edicaoTempoViagem(){
 }
 
 void selecaoModoMaquinista(){
+	telaModosMaquinista();
 	tecla = 0;
 	while(tecla != '1' && tecla != '2'){
 		lerTeclado();
 	}
-	
+	if(tecla == '1'){
+		strcpy(estado, "modoAuto");
+	}else if(tecla == '2'){
+		strcpy(estado, "modoManual");
+	}
+}
+
+void modoAuto(){
+	PORTA_PCR5 |= ((1<< 8) + 3) | (10 << 16); //ativa interrupção na coluna dos botoes da porta, teclas A e B
+	portas_abertas=1;
+	if(portas_abertas == 1){
+	setup_PIT0();
+	send_data('b');
+	GPIOC_PSOR |= (1<<10 | 1<<11);
+	}
+	while(1);
+
 }

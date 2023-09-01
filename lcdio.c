@@ -106,7 +106,7 @@
 	/////// TELAS /////////////
 	
 	
-	
+	//telas login:
 	void telaArmMetro()
 	{
 		limpa_reseta_cursor();
@@ -130,7 +130,8 @@
 		send_string("BEM-VINDO ADM");
 		atraso(2, 's');
 	}	
-	
+
+	//telas edição de parametros:
 	void telaEditarParametros(){
 		limpa_reseta_cursor();
 		send_string("1-DIST  2-TEMPO");
@@ -198,13 +199,11 @@
 	
 	}
 	
-	
-	
+	//telas pós login do maquinista:
 	void telaModosMaquinista(){
 		limpa_reseta_cursor();
 		send_string("1 - AUTOMATICO");
 		proxima_linha();
 		send_string("2 - MANUAL");
-		
 	}
 	

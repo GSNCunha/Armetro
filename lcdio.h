@@ -32,5 +32,6 @@ void proxima_linha(void);
 	void telaTempoViagem();
 	void telaEditarTempoParada();
 	void telaEditarTempoViagem();
+	void telaModosMaquinista();
 
 #endif

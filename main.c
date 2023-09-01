@@ -9,7 +9,7 @@
 #define tempoAbertura 15
 
 
-
+int contagem = 0;
 
 int main(){
 	distancia = 1300;
@@ -44,6 +44,11 @@ int main(){
 	PORTD_PCR7 = 1<< 8;
 	PORTC_PCR9 = 1<< 8;
 	PORTC_PCR8 = 1<< 8;
+	//Pinos Led
+	PORTC_PCR10 = 1<< 8;
+	PORTC_PCR11 = 1<< 8;
+	GPIOC_PDDR |= (1<<10 | 1<<11);
+	
 
 	PORTC_PCR7 = 1<< 8;//habilitar GPIO de todos os pinos usados no teclado
 	PORTC_PCR0 = 1<< 8;
@@ -62,8 +67,8 @@ int main(){
 	GPIOA_PDDR &= ~(1 << 12);//pino tacometro como iput
 	PORTA_PCR12 = ((1<< 8) ) | (10 << 16);//habilitar interrupcao pelo tacometro //+3 pra ativar pullup, tirei
 	
-	//__enable_irq();
-	//NVIC_EnableIRQ(PORTA_IRQn);
+	__enable_irq();
+	NVIC_EnableIRQ(PORTA_IRQn);
 
 	config_lcd_padrao();
 	limpa_reseta_cursor();
@@ -75,22 +80,67 @@ int main(){
 			telaArmMetro();
 			lerSenha();
 		}else if (strcmp(estado, "logado") == 0){
-			// do something else
+			selecaoModoMaquinista();
 		}else if (strcmp(estado, "adm") == 0){
 			edicaoParametros();
+		}else if (strcmp(estado, "modoAuto") == 0){
+			limpa_reseta_cursor();
+			send_string("daleled");
+			modoAuto();
+		}else if (strcmp(estado, "modoManual") == 0){
+			//
 		}
-		
 	}
 }
 
-/*void PORTA_IRQHandler(void){
+void PIT_IRQHandler(){
+
+	if(PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 0 q estourou
+		setup_PIT1();
+		//desligar pit0
+		desliga_PIT0();
+		send_data('k');
+	}
+	if(PIT->CHANNEL[1].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 1 q estourou //tem q estourar 12 vezes
+			if (contagem < 12){
+				//reseta pit 1
+				PIT_TFLG1 = 1<<31;
+				contagem++;
+				//dou toggle na porta do led
+				GPIOC_PTOR |= (1<<10 | 1<<11);
+			}else if (contagem == 12){
+				//desligo pit 1
+				desliga_PIT1();
+				GPIOC_PCOR |= (1<<10 | 1<<11);
+				contagem = 0;
+				//fim do tempo, portas se fecharao
+			}
+	}
 	
-	tecla = procuraTecla();
-	send_data(tecla);
-	PORTA_PCR1 |= (1 << 24);
-	PORTA_PCR2 |= (1 << 24);
-	PORTA_PCR4 |= (1 << 24);
-	PORTA_PCR5 |= (1 << 24);
-}*/
+}
+
+void PORTA_IRQHandler(void){
+	if(PIT_CVAL0 != 0){
+		desliga_PIT0();
+		PIT_LDVAL0 = PIT_LDVAL0 + 52428800; //somo 5s
+		PIT_TCTRL0 = 1 << 30 | 1 << 31; //ligo dnv
+	}else if(PIT_CVAL0 ==0){
+		//pit0 ==tempo no led + 2s 
+		//pit1 == 3s
+		desliga_PIT1();
+		desliga_PIT0();
+		PIT_LDVAL0 = PIT_CVAL1 + contagem*2621440 + 2*10485760;
+		PIT_LDVAL1 = 2621440; //valor para 0.25s, fazendo contagem =0 novamente temos o timer de 3s resetado
+		contagem = 0;
+		PIT_TCTRL0 = 1 << 30 | 1 << 31; //ligo dnv
+	}
+	
+	//tecla = procuraTecla();
+	//send_data(tecla);
+	//PORTA_PCR1 |= (1 << 24);
+	//PORTA_PCR2 |= (1 << 24);
+	//PORTA_PCR4 |= (1 << 24);
+	PORTA_PCR5 |= (1 << 24); //reseta flag da interrupção
+}
 
 	

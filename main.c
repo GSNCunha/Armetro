@@ -119,7 +119,6 @@ void PIT_IRQHandler(){
 				//fim do tempo, portas se fecharao
 			}
 	}
-	
 }
 
 void PORTA_IRQHandler(void){

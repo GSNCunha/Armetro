@@ -348,8 +348,8 @@ void realizar_viagem(int estacao){ //
 }
 
 void modoAuto(){
-	char estado_viagem[16];
-	strcpy(estado_viagem, "estacao_1"); 
+	char estado_viagem[16] = "estacao_1";
+	//strcpy(estado_viagem, "estacao_1"); 
 	//int ida = 1;
 	while(1){
 		

@@ -1,31 +1,22 @@
 #include <MKL25Z4.h>
 #include <string.h>
+#include <stdlib.h>
+#include "menus.h"
+#include "rotinas_viagem.h"
 #include "controle_motor.h"
 #include "timers.h"
 #include "lcdio.h"
 #include "teclado.h"
-#include "validacao_senhas.h"
+
 
 int contagemBlinkLed = 0;
 char strtempoPortasAbertas[10];
-extern int tempoPortasAbertas;
 
 int main(){
-	distancia = 1300;
-	tempoFaltando = 20;
-	tempoEntrePulsos = 0;
-	pulsos = 0;
-	rotacoes_80kmh = 0;
-	rotacoes_0kmh = 0;
-	motor_calibrado = 0;
-	velocidadeAtual = 0;
-	
-	
 	SIM_SCGC5 |= (1 << 11);// habilitar PORTC
 	SIM_SCGC5 |= (1 << 12);// habilitar PORTD
 	SIM_SCGC5 |= (1 << 9);// habilitar PORTA
   SIM_SCGC5 |= (1 << 13);// habilitar PORTE
-	RTC_timer_configura();
 
 
 	GPIOC_PDDR |= (1 << 7 | 1 << 0 | 1 << 3 | 1 << 4);//pino linha  do teclado como output
@@ -63,13 +54,12 @@ int main(){
 	SIM_SCGC6 |= 1<< 24;//habilitar timer 0
 	
 	//pinos cooler
-	GPIOA_PDDR &= ~(1 << 12);//pino tacometro como iput
-	PORTA_PCR12 = ((1<< 8) ) | (10 << 16);//habilitar interrupcao pelo tacometro //+3 pra ativar pullup, tirei
+	//GPIOA_PDDR &= ~(1 << 12);//pino tacometro como iput     //nesse programa não estamos usando.
+	//PORTA_PCR12 = ((1<< 8) ) | (10 << 16);    
 	
-	//__enable_irq();
 	NVIC_SetPriority(PORTA_IRQn, 0);
 	NVIC_EnableIRQ(PORTA_IRQn);
-
+	
 	config_lcd_padrao();
 	limpa_reseta_cursor();
 	
@@ -122,7 +112,6 @@ if(strcmp(estado, "modoAuto")==0){
 					//fim do tempo, portas se fecharao
 				}
 		}
-	
 	}else if(strcmp(estado, "modoManual")==0){
 		if(PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 0 q estourou
 			PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
@@ -133,38 +122,39 @@ if(strcmp(estado, "modoAuto")==0){
 			send_command(0x80); //lugar equivalente a posicao zero do lcd
 			atraso(3, 'm');
 		}
-	
 	}
 }
 
 void PORTA_IRQHandler(void){
-	PORTA_PCR5 &= ~(10 << 16);
-	if((GPIOA_PDIR & (1 << 5)) == 0){
-		tempoDeEspera++;
-			if(PIT->CHANNEL[0].CVAL != 0){
-			desliga_PIT0();
-			PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[0].LDVAL + 52428800; //somo 5s
-			//ligo o PIT 0 dnv
-			PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
-			PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
-			
-		}else if(PIT->CHANNEL[0].CVAL ==0){
+	PORTA_PCR5 &= ~(10 << 16); //desativa interrupção enquanto estamos tratando ela
+	tecla = procuraTecla();
+	if(tecla == 'A' || tecla == 'B'){
+		if((GPIOA_PDIR & (1 << 5)) == 0){
+			tempoDeEspera++;
+				if(PIT->CHANNEL[0].CVAL != 0){
+				desliga_PIT0();
+				PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[0].LDVAL + 52428800; //somo 5s
+				//ligo o PIT 0 dnv
+				PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
+				PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
+				
+			}else if(PIT->CHANNEL[0].CVAL ==0){
 
-			//pit0 ==tempo no led + 2s 
-			//pit1 == 3s
-			desliga_PIT1();
-			desliga_PIT0();
-			PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[1].CVAL + contagemBlinkLed*2621440 + 2*10485760;
-			PIT->CHANNEL[1].LDVAL = 2621440; //valor para 0.25s, fazendo contagem =0 novamente temos o timer de 3s resetado
-			contagemBlinkLed = 0;
-			//ligo o PIT 0 dnv
-			PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
-			PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
-			GPIOC_PSOR |= (1<<10 | 1<<11);
+				//pit0 ==tempo no led + 2s 
+				//pit1 == 3s
+				desliga_PIT1();
+				desliga_PIT0();
+				PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[1].CVAL + contagemBlinkLed*2621440 + 2*10485760;
+				PIT->CHANNEL[1].LDVAL = 2621440; //valor para 0.25s, fazendo contagem =0 novamente temos o timer de 3s resetado
+				contagemBlinkLed = 0;
+				//ligo o PIT 0 dnv
+				PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
+				PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
+				GPIOC_PSOR |= (1<<10 | 1<<11);
+			}
 		}
 	}
-	atraso(5, 'm');
+	
 	PORTA_PCR5 |= (1 << 24); //reseta flag da interrupção
-		
-	PORTA_PCR5 |= ((1<< 8) + 3) | (10 << 16); //ativa interrupção na coluna dos botoes da porta, teclas A e B
+	PORTA_PCR5 |= (10 << 16); //ativa interrupção na coluna dos botoes da porta, teclas A e B
 }

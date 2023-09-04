@@ -390,11 +390,6 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>validacao_senhas.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\validacao_senhas.c</FilePath>
-            </File>
-            <File>
               <FileName>lcdio.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\lcdio.c</FilePath>
@@ -420,11 +415,6 @@
               <FilePath>.\lcdio.h</FilePath>
             </File>
             <File>
-              <FileName>validacao_senhas.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\validacao_senhas.h</FilePath>
-            </File>
-            <File>
               <FileName>timers.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\timers.c</FilePath>
@@ -443,6 +433,26 @@
               <FileName>controle_motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\controle_motor.h</FilePath>
+            </File>
+            <File>
+              <FileName>menus.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\menus.c</FilePath>
+            </File>
+            <File>
+              <FileName>menus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\menus.h</FilePath>
+            </File>
+            <File>
+              <FileName>rotinas_viagem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\rotinas_viagem.c</FilePath>
+            </File>
+            <File>
+              <FileName>rotinas_viagem.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\rotinas_viagem.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -5,7 +5,8 @@
 #include "lcdio.h"
 #include "timers.h"
 #include "teclado.h"
-#include "validacao_senhas.h"
+#include "menus.h"
+#include "rotinas_viagem.h"
 
 	// RS: PTC8 (0: comando,  1: dados)
 	// Enable: PTC9 

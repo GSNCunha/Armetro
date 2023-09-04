@@ -3,7 +3,6 @@
 
 extern int nr_digitados;
 extern char senha[7];
-extern char admLogin;
 extern char estado[16];
 
 void lerSenha();

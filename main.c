@@ -1,3 +1,8 @@
+/*GRUPO A - Gabriel Sadigursky, Vinicius Zortea, Vitor Simon.
+
+Esse é o código do metro que à principio é pra funcionar tudo menos o controle proporcional da velocidade do motor.
+
+*/
 #include <MKL25Z4.h>
 #include <string.h>
 #include <stdlib.h>
@@ -44,10 +49,10 @@ int main(){
 	PORTC_PCR0 = 1<< 8;
 	PORTC_PCR3 = 1<< 8;
 	PORTC_PCR4 = 1<< 8;
-	PORTA_PCR1 = ((1<< 8) + 3);// | (10 << 16);//habilitar pull-up dos pinos da coluna do teclado e interrupcao
-	PORTA_PCR2 = ((1<< 8) + 3);// | (10 << 16);
-	PORTA_PCR4 = ((1<< 8) + 3);// | (10 << 16);
-	PORTA_PCR5 = ((1<< 8) + 3);// | (10 << 16);
+	PORTA_PCR1 = ((1<< 8) + 3);//habilitar pull-up dos pinos da coluna do teclado
+	PORTA_PCR2 = ((1<< 8) + 3);
+	PORTA_PCR4 = ((1<< 8) + 3);
+	PORTA_PCR5 = ((1<< 8) + 3);
 	
 	SIM_SOPT2 |= 1<<24; //habilita clock dos timers
 	SIM_SCGC6 |= 1<< 26; //habilita timer 2
@@ -57,13 +62,12 @@ int main(){
 	//GPIOA_PDDR &= ~(1 << 12);//pino tacometro como iput     //nesse programa não estamos usando.
 	//PORTA_PCR12 = ((1<< 8) ) | (10 << 16);    
 	
-	NVIC_SetPriority(PORTA_IRQn, 0);
-	NVIC_EnableIRQ(PORTA_IRQn);
+	NVIC_EnableIRQ(PORTA_IRQn); //ja deixo habilitado a interrupção da porta A de antemão, dps só mexemos no registrador p alterar qnd queremos interrupção ou não
 	
 	config_lcd_padrao();
 	limpa_reseta_cursor();
 	
-	configura_motor();
+	configura_motor(); //configuro os pinos e timer responsaveis pela ativação do motor
 	
 		
 	while(1)
@@ -72,13 +76,13 @@ int main(){
 			pwm_motor(0);
 			telaArmMetro();
 			lerSenha();
-		}else if (strcmp(estado, "logado") == 0){
+		}else if (strcmp(estado, "logado") == 0){ //se esta logado como maquinista, entra na rotina de seleção de modo
 			selecaoModoMaquinista();
-		}else if (strcmp(estado, "adm") == 0){
+		}else if (strcmp(estado, "adm") == 0){ //se esta logado como adm, entra na edição de parametros
 			edicaoParametros();
-		}else if (strcmp(estado, "modoAuto") == 0){
+		}else if (strcmp(estado, "modoAuto") == 0){ //se o maquinista seleciona o modo automatico, entra na interface de modo automatico
 			modoAuto();
-		}else if (strcmp(estado, "modoManual") == 0){
+		}else if (strcmp(estado, "modoManual") == 0){  //se o maquinista seleciona o modo manual, entra na interface de modo manual
 			modoManual();
 		}
 	}
@@ -87,22 +91,21 @@ int main(){
 void PIT_IRQHandler(){
 if(strcmp(estado, "modoAuto")==0){
 		if(PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 0 q estourou
-			PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
-			setup_PIT1();
+			PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK; //limpa flag
+			setup_PIT1(); //se estourou o canal 0 quer dizer q se passaram 12s, ai faço os leds blinkarem usando o canal 1
 			//desligar pit0
-			desliga_PIT0();
+			desliga_PIT0(); //desligo o canal 0
 			PIT->CHANNEL[0].LDVAL = 0;
 		}
 		if(PIT->CHANNEL[1].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 1 q estourou //tem q estourar 12 vezes
-				if (contagemBlinkLed < 12){
+				if (contagemBlinkLed < 12){ //faço o blink dos leds no canal 1
 					PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK;
 					//reseta pit 1
-					//PIT->CHANNEL[1].TFLG = 1<<31;
 					contagemBlinkLed++;
 					//dou toggle na porta do led
 					GPIOC_PTOR |= (1<<10 | 1<<11);
-				}else if (contagemBlinkLed >= 12){
-					PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK;
+				}else if (contagemBlinkLed >= 12){ //se ja blinkei 12x, desligo td e fecho as portas
+					PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK; 
 					//desligo pit 1
 					desliga_PIT1();
 					GPIOC_PCOR |= (1<<10 | 1<<11);
@@ -112,12 +115,12 @@ if(strcmp(estado, "modoAuto")==0){
 					//fim do tempo, portas se fecharao
 				}
 		}
-	}else if(strcmp(estado, "modoManual")==0){
+	}else if(strcmp(estado, "modoManual")==0){ //no modo manual, o canal 0 cuida o tempo que se passou com as portas abertas estourando 1x por segundo e atualizando o tempo no display e na variavel
 		if(PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 0 q estourou
 			PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
 			tostring(strtempoPortasAbertas,tempoPortasAbertas);
 			proxima_linha();
-			send_string(strtempoPortasAbertas);
+			send_string(strtempoPortasAbertas); //printa o tempo passado com as portas abertas
 			tempoPortasAbertas++;
 			send_command(0x80); //lugar equivalente a posicao zero do lcd
 			atraso(3, 'm');
@@ -128,7 +131,7 @@ if(strcmp(estado, "modoAuto")==0){
 void PORTA_IRQHandler(void){
 	PORTA_PCR5 &= ~(10 << 16); //desativa interrupção enquanto estamos tratando ela
 	tecla = procuraTecla();
-	if(tecla == 'A' || tecla == 'B'){
+	if(tecla == 'A' || tecla == 'B'){ //se A ou B foram apertados com a interrupção ativa, é adicionado mais 5s de porta aberta
 		if((GPIOA_PDIR & (1 << 5)) == 0){
 			tempoDeEspera++;
 				if(PIT->CHANNEL[0].CVAL != 0){

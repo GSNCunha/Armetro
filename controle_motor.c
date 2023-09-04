@@ -17,8 +17,7 @@ void configura_motor(){
 
 void pwm_motor(float velocidade_desejada){ //este timer está conectado ao pino 0 da porta B, nao mexer
 	float duty_cycle_motor;
-	duty_cycle_motor = velocidade_desejada*75/80+25;
-	
+	duty_cycle_motor = velocidade_desejada*75/80+25; //duty cycle considerando os limites de 0 à 80km/h com 0km/h sendo 25%
 	TPM1_SC = (1 << 3) + 0; //ativa incremento no timer, sem prescaler
 	TPM1_MOD = 853; //periodo total
 	TPM1_C0SC = (2 << 4) + (2 << 2); // High-true pulses (clear Output on match, set Output on reload)

@@ -9,4 +9,4 @@
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h lcdio.h timers.h \
-  teclado.h menus.h rotinas_viagem.h
+  teclado.h

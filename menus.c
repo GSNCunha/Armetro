@@ -9,35 +9,35 @@
 #include <stdlib.h>
 #include <string.h>
 
-int nr_digitados = 0;
-char senha[7] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0'};
+int nr_digitados = 0; //variavel q armazena o numero de caracteres digitados na senha
+char senha[7] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0'}; //variavel q armazenamos a senha para dps comparar
 char senhaAdm[] = "082479";
 char senhaOp1[] = "126963";
 char senhaOp2[] = "082479";
-char admLogin = 0;
-char estado[16] = "inicio"; 
+
+char estado[16] = "inicio"; //variavel q armazena em que interface o usuario esta. começa como "inicio" para entrar direto na tela padrao de login
 
 void lerSenha(){
-	for(nr_digitados = 0; nr_digitados < 6; nr_digitados++){
+	for(nr_digitados = 0; nr_digitados < 6; nr_digitados++){ //enquanto tiver menos q 6 caracteres le a senha
 		lerTeclado();
 		send_data('*');
 		if(nr_digitados <= 5){
 			senha[nr_digitados] = tecla;
 		}
 		if(nr_digitados == 5){
-			if(!strcmp(senha,senhaAdm)){
+			if(!strcmp(senha,senhaAdm)){ //se a senha digitada bater com a do adm, faz o estado atual virar "adm" e volta para o loop principal, onde o codigo ira cair dentro do menu de adm
 				strcpy(estado, "adm");
 				telaAdmLogado();
 				break;
-			}else if(!strcmp(senha,senhaOp1)){
+			}else if(!strcmp(senha,senhaOp1)){ //mesma ideia do estado adm, porem pra se logar como maquinista
 				telaSenhaCorreta();
 				strcpy(estado, "logado");
 				break;
-			}else if(!strcmp(senha,senhaOp2)){
+			}else if(!strcmp(senha,senhaOp2)){ //mesma ideia do estado adm, porem pra se logar como maquinista
 				telaSenhaCorreta();
 				strcpy(estado, "logado");
 				break;
-			}else{
+			}else{ 		//se a senha tiver incorreta, volta pro estado de inicio, ou seja, menu principal
 				nr_digitados = 0;
 				telaSenhaIncorreta();
 				limpa_reseta_cursor();
@@ -49,46 +49,45 @@ void lerSenha(){
 }
 
 void edicaoParametros(){
-	telaEditarParametros();
-	tecla = 0;
+	telaEditarParametros(); //exibe a tela de edição de parametros 
+	tecla = 0; //seta a ultima tecla apertada como nula
 	while(tecla != '1' && tecla != '2' && tecla != '3' && tecla != '4'){
-		lerTeclado();
+		lerTeclado(); //espera até q o usuario digite uma tecla de 1 até 4
 	}
 	if(tecla == '1'){
-		edicaoDist();
+		edicaoDist(); //1 vai para edição de distancia 
 	}
 	if(tecla == '2'){
-		edicaoTempo();
+		edicaoTempo();//2 vai para edição de tempos 
 	}
 	if(tecla == '3'){
-		edicaoVel();
+		edicaoVel();//3 vai para edição de vel maxima  
 	}
 	if(tecla == '4'){
-		strcpy(estado, "inicio");
+		strcpy(estado, "inicio"); //4 faz logout e retorna ao menu principal
 	}
 }
 
 void edicaoVel(){
-	telaEditarVel();
+	telaEditarVel(); //printa no lcd a tela de edicao de vel maxima
 	tecla = 0;
 	while(tecla != '1' && tecla != '2' && tecla != '3'){
-		lerTeclado();
+		lerTeclado(); //espera q o usuario digite uma opção de 1 a 3
 	}
 	if(tecla == '1'){
-		telaNovaVel();
+		telaNovaVel(); //se for 1, pede p ler a nova velocidade
 		char novaVel[3];
-		novaVel[2] = '\0';
+		novaVel[2] = '\0'; //ultimo caractere da string com o sinalizador de final de string
 		for(int i=0; i<2; i++){
 			novaVel[i] = lerTeclado();
 			send_data(tecla);
 		}
-		parametros[0][3] = atoi(novaVel);
-		atraso(1, 's');
+		parametros[0][3] = atoi(novaVel); //transforma a nova velocidade de string pra inteiro
 	}
 	else if(tecla == '2'){
-		telaNovaVel();
+		telaNovaVel(); //se for 2, pede p ler a nova velocidade maxima da estação 2
 		char novaVel[3];
-		novaVel[2] = '\0';
+		novaVel[2] = '\0'; //ultimo caractere da string com o sinalizador de final de string
 		for(int i=0; i<2; i++){
 			novaVel[i] = lerTeclado();
 			send_data(tecla);
@@ -96,18 +95,18 @@ void edicaoVel(){
 		parametros[1][3] = atoi(novaVel);
 	}
 	else if(tecla == '3'){
-		telaNovaVel();
-		char novaVel[3];
-		novaVel[2] = '\0';
+		telaNovaVel(); //se for 3, pede p ler a nova velocidade maxima da estação 3
+		char novaVel[3]; //a nova velocidade terá 2 caracteres sempre
+		novaVel[2] = '\0'; //ultimo caractere da string com o sinalizador de final de string
 		for(int i=0; i<2; i++){
-			novaVel[i] = lerTeclado();
+			novaVel[i] = lerTeclado(); //le os 2 caracteres do teclado
 			send_data(tecla);
 		}
 		parametros[2][3] = atoi(novaVel);
 	}
 }
 
-void edicaoDist(){
+void edicaoDist(){ //segue a mesma estrutura das funções anteriores, porem agora pra distancia
 	telaEditarDist();
 	tecla = 0;
 	while(tecla != '1' && tecla != '2' && tecla != '3'){
@@ -145,7 +144,7 @@ void edicaoDist(){
 	}
 }
 
-void edicaoTempo(){
+void edicaoTempo(){ //pede pro usuario selecionar se é tempo de viagem ou parada q quer editar
 	
 	tecla = 0;
 	telaEditarTempos();
@@ -159,7 +158,7 @@ void edicaoTempo(){
 	}
 }
 
-void edicaoTempoParada(){
+void edicaoTempoParada(){ //segue a mesma estrutura das funções anteriores, porem agora pra tempo
 	telaEditarTempoParada();
 	tecla = 0;
 	while(tecla != '1' && tecla != '2' && tecla != '3'){
@@ -197,7 +196,7 @@ void edicaoTempoParada(){
 	}
 }
 
-void edicaoTempoViagem(){
+void edicaoTempoViagem(){ //segue a mesma estrutura das funções anteriores, porem agora pra tempo de viagem
 	telaEditarTempoViagem();
 	tecla = 0;
 	while(tecla != '1' && tecla != '2' && tecla != '3'){
@@ -231,7 +230,7 @@ void edicaoTempoViagem(){
 	}
 }
 
-void selecaoModoMaquinista(){
+void selecaoModoMaquinista(){ //pede pro usuario digitar se quer modo manual ou automático
 	telaModosMaquinista();
 	tecla = 0;
 	while(tecla != '1' && tecla != '2'){

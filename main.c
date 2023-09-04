@@ -7,6 +7,8 @@
 #include "validacao_senhas.h"
 
 int contagemBlinkLed = 0;
+char strtempoPortasAbertas[10];
+extern int tempoPortasAbertas;
 
 int main(){
 	distancia = 1300;
@@ -124,12 +126,12 @@ if(strcmp(estado, "modoAuto")==0){
 	}else if(strcmp(estado, "modoManual")==0){
 		if(PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 0 q estourou
 			PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
-			char strtempoPortasAbertas[10];
 			tostring(strtempoPortasAbertas,tempoPortasAbertas);
 			proxima_linha();
 			send_string(strtempoPortasAbertas);
 			tempoPortasAbertas++;
-			//desligar pit0
+			send_command(0x80); //lugar equivalente a posicao zero do lcd
+			atraso(3, 'm');
 		}
 	
 	}

@@ -2,7 +2,7 @@
 #define VALIDACAO_SENHAS_H_
 
 extern int nr_digitados;
-extern int tempoPortasAbertas;
+//extern int tempoPortasAbertas;
 extern int ida;
 extern char senha[7];
 extern const char* validacao;

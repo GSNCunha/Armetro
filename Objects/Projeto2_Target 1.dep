@@ -1,95 +1,95 @@
 Dependencies for Project 'Projeto2', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6190000::V6.19::ARMCLANG
-F (.\main.c)(0x64F55790)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/Gabri/Desktop/KEIL/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Gabri/Desktop/KEIL/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/main.o -MD)
-I (C:\Users\Gabri\Desktop\KEIL\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
+F (.\main.c)(0x64F55F2A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/vitor/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/vitor/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/main.o -MD)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6388E3B8)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F5240B)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F55C14)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6388E3B8)
-I (controle_motor.h)(0x64F5240B)
-I (timers.h)(0x64F5563B)
-I (lcdio.h)(0x64F5240B)
-I (teclado.h)(0x64F5240B)
-I (validacao_senhas.h)(0x64F557BE)
-F (.\validacao_senhas.c)(0x64F559B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/Gabri/Desktop/KEIL/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Gabri/Desktop/KEIL/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/validacao_senhas.o -MD)
-I (C:\Users\Gabri\Desktop\KEIL\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
+I (controle_motor.h)(0x64F55C14)
+I (timers.h)(0x64F55C14)
+I (lcdio.h)(0x64F55C14)
+I (teclado.h)(0x64F55C14)
+I (validacao_senhas.h)(0x64F55E8A)
+F (.\validacao_senhas.c)(0x64F55FD0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/vitor/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/vitor/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/validacao_senhas.o -MD)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6388E3B8)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F5240B)
-I (validacao_senhas.h)(0x64F557BE)
-I (controle_motor.h)(0x64F5240B)
-I (lcdio.h)(0x64F5240B)
-I (teclado.h)(0x64F5240B)
-I (timers.h)(0x64F5563B)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F55C14)
+I (validacao_senhas.h)(0x64F55E8A)
+I (controle_motor.h)(0x64F55C14)
+I (lcdio.h)(0x64F55C14)
+I (teclado.h)(0x64F55C14)
+I (timers.h)(0x64F55C14)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6388E3B8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6388E3B8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6388E3B8)
-F (.\lcdio.c)(0x64F53798)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/Gabri/Desktop/KEIL/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Gabri/Desktop/KEIL/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/lcdio.o -MD)
-I (C:\Users\Gabri\Desktop\KEIL\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
+F (.\lcdio.c)(0x64F55C14)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/vitor/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/vitor/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/lcdio.o -MD)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6388E3B8)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F5240B)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F55C14)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6388E3B8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6388E3B8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6388E3B8)
-I (lcdio.h)(0x64F5240B)
-I (timers.h)(0x64F5563B)
-I (teclado.h)(0x64F5240B)
-I (validacao_senhas.h)(0x64F557BE)
-F (.\teclado.c)(0x64F5240B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/Gabri/Desktop/KEIL/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Gabri/Desktop/KEIL/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/teclado.o -MD)
-I (timers.h)(0x64F5563B)
-I (teclado.h)(0x64F5240B)
-I (lcdio.h)(0x64F5240B)
+I (lcdio.h)(0x64F55C14)
+I (timers.h)(0x64F55C14)
+I (teclado.h)(0x64F55C14)
+I (validacao_senhas.h)(0x64F55E8A)
+F (.\teclado.c)(0x64F55C14)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/vitor/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/vitor/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/teclado.o -MD)
+I (timers.h)(0x64F55C14)
+I (teclado.h)(0x64F55C14)
+I (lcdio.h)(0x64F55C14)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6388E3B8)
-I (C:\Users\Gabri\Desktop\KEIL\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F5240B)
-F (.\subRotinaAdm.c)(0x64F5240B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/Gabri/Desktop/KEIL/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Gabri/Desktop/KEIL/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/subrotinaadm.o -MD)
-F (.\teclado.h)(0x64F5240B)()
-F (.\lcdio.h)(0x64F5240B)()
-F (.\validacao_senhas.h)(0x64F557BE)()
-F (.\timers.c)(0x64F5563B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/Gabri/Desktop/KEIL/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Gabri/Desktop/KEIL/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/timers.o -MD)
-I (C:\Users\Gabri\Desktop\KEIL\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F55C14)
+F (.\subRotinaAdm.c)(0x64F55C14)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/vitor/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/vitor/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/subrotinaadm.o -MD)
+F (.\teclado.h)(0x64F55C14)()
+F (.\lcdio.h)(0x64F55C14)()
+F (.\validacao_senhas.h)(0x64F55E8A)()
+F (.\timers.c)(0x64F55C14)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/vitor/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/vitor/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/timers.o -MD)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6388E3B8)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F5240B)
-I (timers.h)(0x64F5563B)
-I (lcdio.h)(0x64F5240B)
-F (.\timers.h)(0x64F5563B)()
-F (.\controle_motor.c)(0x64F5240B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/Gabri/Desktop/KEIL/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Gabri/Desktop/KEIL/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/controle_motor.o -MD)
-I (C:\Users\Gabri\Desktop\KEIL\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F55C14)
+I (timers.h)(0x64F55C14)
+I (lcdio.h)(0x64F55C14)
+F (.\timers.h)(0x64F55C14)()
+F (.\controle_motor.c)(0x64F55C14)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/vitor/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/vitor/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/controle_motor.o -MD)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6388E3B8)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F5240B)
-I (controle_motor.h)(0x64F5240B)
-I (timers.h)(0x64F5563B)
-I (lcdio.h)(0x64F5240B)
-F (.\controle_motor.h)(0x64F5240B)()
-F (RTE/Device/MKL25Z128xxx4/startup_MKL25Z4.s)(0x64F5240B)(--target=arm-arm-none-eabi -mcpu=cortex-m0plus -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/Gabri/Desktop/KEIL/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Gabri/Desktop/KEIL/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 538" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"MKL25Z128xxx4 SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_mkl25z4.o)
-F (RTE/Device/MKL25Z128xxx4/system_MKL25Z4.c)(0x64F5240B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/Gabri/Desktop/KEIL/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/Gabri/Desktop/KEIL/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/system_mkl25z4.o -MD)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F55C14)
+I (controle_motor.h)(0x64F55C14)
+I (timers.h)(0x64F55C14)
+I (lcdio.h)(0x64F55C14)
+F (.\controle_motor.h)(0x64F55C14)()
+F (RTE/Device/MKL25Z128xxx4/startup_MKL25Z4.s)(0x64F55C14)(--target=arm-arm-none-eabi -mcpu=cortex-m0plus -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/vitor/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/vitor/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 538" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"MKL25Z128xxx4 SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_mkl25z4.o)
+F (RTE/Device/MKL25Z128xxx4/system_MKL25Z4.c)(0x64F55C14)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/vitor/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/vitor/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/system_mkl25z4.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6388E3B8)
-I (C:\Users\Gabri\Desktop\KEIL\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
-I (C:\Users\Gabri\Desktop\KEIL\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F5240B)
-F (RTE/Device/MKL25Z128xxx4/system_MKL25Z4.h)(0x64F5240B)()
+I (C:\Users\vitor\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C24CA)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FE58E)
+I (C:\Users\vitor\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626FE58E)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x64F55C14)
+F (RTE/Device/MKL25Z128xxx4/system_MKL25Z4.h)(0x64F55C14)()

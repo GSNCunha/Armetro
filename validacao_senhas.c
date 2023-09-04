@@ -431,7 +431,6 @@ void modoManual(){
 			if (tecla == '1'){
 				setup_PIT0_modoManual();
 				tempoPortasAbertas = 0;
-				char strtempoPortasAbertas[10];
 				limpa_reseta_cursor();
 				send_string("1-FECHAR PORTAS");
 				GPIOC_PSOR |= (1<<10 | 1<<11);
@@ -466,7 +465,6 @@ void modoManual(){
 			if (tecla == '1'){
 				setup_PIT0_modoManual();
 				tempoPortasAbertas = 0;
-				char strtempoPortasAbertas[10];
 				limpa_reseta_cursor();
 				send_string("1-FECHAR PORTAS");
 				GPIOC_PSOR |= (1<<10 | 1<<11);
@@ -506,7 +504,6 @@ void modoManual(){
 			if (tecla == '1'){
 				setup_PIT0_modoManual();
 				tempoPortasAbertas = 0;
-				char strtempoPortasAbertas[10];
 				limpa_reseta_cursor();
 				send_string("1-FECHAR PORTAS");
 				GPIOC_PSOR |= (1<<10 | 1<<11);
@@ -545,7 +542,6 @@ void modoManual(){
 			if (tecla == '1'){
 				setup_PIT0_modoManual();
 				tempoPortasAbertas = 0;
-				char strtempoPortasAbertas[10];
 				limpa_reseta_cursor();
 				send_string("1-FECHAR PORTAS");
 				GPIOC_PSOR |= (1<<10 | 1<<11);

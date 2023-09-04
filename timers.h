@@ -10,6 +10,7 @@ void atraso(int num, char param);
 
 void setup_PIT0();
 void setup_PIT1();
+void setup_PIT0_modoManual();
 void desliga_PIT0();
 void desliga_PIT1();
 

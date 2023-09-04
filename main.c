@@ -51,7 +51,7 @@ int main(){
 	PORTC_PCR0 = 1<< 8;
 	PORTC_PCR3 = 1<< 8;
 	PORTC_PCR4 = 1<< 8;
-	PORTA_PCR1 = ((1<< 8) + 3);// | (10 << 16);//habilitar pull-up dos pinos da coluna do teclado einterrupcao
+	PORTA_PCR1 = ((1<< 8) + 3);// | (10 << 16);//habilitar pull-up dos pinos da coluna do teclado e interrupcao
 	PORTA_PCR2 = ((1<< 8) + 3);// | (10 << 16);
 	PORTA_PCR4 = ((1<< 8) + 3);// | (10 << 16);
 	PORTA_PCR5 = ((1<< 8) + 3);// | (10 << 16);
@@ -87,61 +87,82 @@ int main(){
 		}else if (strcmp(estado, "modoAuto") == 0){
 			modoAuto();
 		}else if (strcmp(estado, "modoManual") == 0){
-			//
+			modoManual();
 		}
 	}
 }
 
 void PIT_IRQHandler(){
-	if(PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 0 q estourou
-		PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
-		setup_PIT1();
-		//desligar pit0
-		desliga_PIT0();
-		PIT->CHANNEL[0].LDVAL = 0;
-	}
-	if(PIT->CHANNEL[1].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 1 q estourou //tem q estourar 12 vezes
-			if (contagemBlinkLed < 12){
-				PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK;
-				//reseta pit 1
-				//PIT->CHANNEL[1].TFLG = 1<<31;
-				contagemBlinkLed++;
-				//dou toggle na porta do led
-				GPIOC_PTOR |= (1<<10 | 1<<11);
-			}else if (contagemBlinkLed >= 12){
-				PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK;
-				//desligo pit 1
-				desliga_PIT1();
-				GPIOC_PCOR |= (1<<10 | 1<<11);
-				contagemBlinkLed = 0;
-				portas_abertas = 0;
-				PORTA_PCR5 &= ~(10 << 16); //desabilito interrupcao da porta A5
-				//fim do tempo, portas se fecharao
-			}
+if(strcmp(estado, "modoAuto")==0){
+		if(PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 0 q estourou
+			PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
+			setup_PIT1();
+			//desligar pit0
+			desliga_PIT0();
+			PIT->CHANNEL[0].LDVAL = 0;
+		}
+		if(PIT->CHANNEL[1].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 1 q estourou //tem q estourar 12 vezes
+				if (contagemBlinkLed < 12){
+					PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK;
+					//reseta pit 1
+					//PIT->CHANNEL[1].TFLG = 1<<31;
+					contagemBlinkLed++;
+					//dou toggle na porta do led
+					GPIOC_PTOR |= (1<<10 | 1<<11);
+				}else if (contagemBlinkLed >= 12){
+					PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK;
+					//desligo pit 1
+					desliga_PIT1();
+					GPIOC_PCOR |= (1<<10 | 1<<11);
+					contagemBlinkLed = 0;
+					portas_abertas = 0;
+					PORTA_PCR5 &= ~(10 << 16); //desabilito interrupcao da porta A5
+					//fim do tempo, portas se fecharao
+				}
+		}
+	
+	}else if(strcmp(estado, "modoManual")==0){
+		if(PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK){ //ve se foi o canal 0 q estourou
+			PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
+			char strtempoPortasAbertas[10];
+			tostring(strtempoPortasAbertas,tempoPortasAbertas);
+			proxima_linha();
+			send_string(strtempoPortasAbertas);
+			tempoPortasAbertas++;
+			//desligar pit0
+		}
+	
 	}
 }
 
 void PORTA_IRQHandler(void){
-	atraso(5, 'm');
-	if(PIT->CHANNEL[0].CVAL != 0){
-		desliga_PIT0();
-		PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[0].LDVAL + 52428800; //somo 5s
-		//ligo o PIT 0 dnv
-		PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
-		PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
-		
-	}else if(PIT->CHANNEL[0].CVAL ==0){
-		//pit0 ==tempo no led + 2s 
-		//pit1 == 3s
-		desliga_PIT1();
-		desliga_PIT0();
-		PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[1].CVAL + contagemBlinkLed*2621440 + 2*10485760;
-		PIT->CHANNEL[1].LDVAL = 2621440; //valor para 0.25s, fazendo contagem =0 novamente temos o timer de 3s resetado
-		contagemBlinkLed = 0;
-		//ligo o PIT 0 dnv
-		PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
-		PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
-		GPIOC_PSOR |= (1<<10 | 1<<11);
+	PORTA_PCR5 &= ~(10 << 16);
+	if((GPIOA_PDIR & (1 << 5)) == 0){
+		tempoDeEspera++;
+			if(PIT->CHANNEL[0].CVAL != 0){
+			desliga_PIT0();
+			PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[0].LDVAL + 52428800; //somo 5s
+			//ligo o PIT 0 dnv
+			PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
+			PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
+			
+		}else if(PIT->CHANNEL[0].CVAL ==0){
+
+			//pit0 ==tempo no led + 2s 
+			//pit1 == 3s
+			desliga_PIT1();
+			desliga_PIT0();
+			PIT->CHANNEL[0].LDVAL = PIT->CHANNEL[1].CVAL + contagemBlinkLed*2621440 + 2*10485760;
+			PIT->CHANNEL[1].LDVAL = 2621440; //valor para 0.25s, fazendo contagem =0 novamente temos o timer de 3s resetado
+			contagemBlinkLed = 0;
+			//ligo o PIT 0 dnv
+			PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
+			PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
+			GPIOC_PSOR |= (1<<10 | 1<<11);
+		}
 	}
+	atraso(5, 'm');
 	PORTA_PCR5 |= (1 << 24); //reseta flag da interrupção
+		
+	PORTA_PCR5 |= ((1<< 8) + 3) | (10 << 16); //ativa interrupção na coluna dos botoes da porta, teclas A e B
 }

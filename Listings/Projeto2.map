@@ -17,6 +17,7 @@ Section Cross References
     main.o(.text.main) refers to validacao_senhas.o(.text.selecaoModoMaquinista) for selecaoModoMaquinista
     main.o(.text.main) refers to validacao_senhas.o(.text.edicaoParametros) for edicaoParametros
     main.o(.text.main) refers to validacao_senhas.o(.text.modoAuto) for modoAuto
+    main.o(.text.main) refers to validacao_senhas.o(.text.modoManual) for modoManual
     main.o(.text.main) refers to controle_motor.o(.bss.distancia) for distancia
     main.o(.text.main) refers to controle_motor.o(.bss.tempoFaltando) for tempoFaltando
     main.o(.text.main) refers to controle_motor.o(.bss.tempoEntrePulsos) for tempoEntrePulsos
@@ -30,15 +31,23 @@ Section Cross References
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     main.o(.ARM.exidx.text.__NVIC_SetPriority) refers to main.o(.text.__NVIC_SetPriority) for [Anonymous Symbol]
     main.o(.ARM.exidx.text.__NVIC_EnableIRQ) refers to main.o(.text.__NVIC_EnableIRQ) for [Anonymous Symbol]
+    main.o(.text.PIT_IRQHandler) refers to strcmp.o(.text) for strcmp
     main.o(.text.PIT_IRQHandler) refers to timers.o(.text.setup_PIT1) for setup_PIT1
     main.o(.text.PIT_IRQHandler) refers to timers.o(.text.desliga_PIT0) for desliga_PIT0
     main.o(.text.PIT_IRQHandler) refers to timers.o(.text.desliga_PIT1) for desliga_PIT1
+    main.o(.text.PIT_IRQHandler) refers to validacao_senhas.o(.text.tostring) for tostring
+    main.o(.text.PIT_IRQHandler) refers to lcdio.o(.text.proxima_linha) for proxima_linha
+    main.o(.text.PIT_IRQHandler) refers to lcdio.o(.text.send_string) for send_string
+    main.o(.text.PIT_IRQHandler) refers to validacao_senhas.o(.data.estado) for estado
+    main.o(.text.PIT_IRQHandler) refers to main.o(.rodata.str1.1) for [Anonymous Symbol]
+    main.o(.text.PIT_IRQHandler) refers to validacao_senhas.o(.bss.tempoPortasAbertas) for tempoPortasAbertas
     main.o(.text.PIT_IRQHandler) refers to main.o(.bss.contagemBlinkLed) for contagemBlinkLed
     main.o(.text.PIT_IRQHandler) refers to validacao_senhas.o(.bss.portas_abertas) for portas_abertas
     main.o(.ARM.exidx.text.PIT_IRQHandler) refers to main.o(.text.PIT_IRQHandler) for [Anonymous Symbol]
-    main.o(.text.PORTA_IRQHandler) refers to timers.o(.text.atraso) for atraso
     main.o(.text.PORTA_IRQHandler) refers to timers.o(.text.desliga_PIT0) for desliga_PIT0
     main.o(.text.PORTA_IRQHandler) refers to timers.o(.text.desliga_PIT1) for desliga_PIT1
+    main.o(.text.PORTA_IRQHandler) refers to timers.o(.text.atraso) for atraso
+    main.o(.text.PORTA_IRQHandler) refers to validacao_senhas.o(.bss.tempoDeEspera) for tempoDeEspera
     main.o(.text.PORTA_IRQHandler) refers to main.o(.bss.contagemBlinkLed) for contagemBlinkLed
     main.o(.ARM.exidx.text.PORTA_IRQHandler) refers to main.o(.text.PORTA_IRQHandler) for [Anonymous Symbol]
     validacao_senhas.o(.text.lerSenha) refers to teclado.o(.text.lerTeclado) for lerTeclado
@@ -123,23 +132,26 @@ Section Cross References
     validacao_senhas.o(.ARM.exidx.text.abrePortasEspera) refers to validacao_senhas.o(.text.abrePortasEspera) for [Anonymous Symbol]
     validacao_senhas.o(.text.tostring) refers to aeabi_sdiv.o(.text) for __aeabi_idiv
     validacao_senhas.o(.ARM.exidx.text.tostring) refers to validacao_senhas.o(.text.tostring) for [Anonymous Symbol]
+    validacao_senhas.o(.text.realizar_viagem) refers to strcmp.o(.text) for strcmp
     validacao_senhas.o(.text.realizar_viagem) refers to validacao_senhas.o(.text.abrePortasEspera) for abrePortasEspera
-    validacao_senhas.o(.text.realizar_viagem) refers to timers.o(.text.atraso) for atraso
     validacao_senhas.o(.text.realizar_viagem) refers to daddsub.o(.text) for __aeabi_dadd
+    validacao_senhas.o(.text.realizar_viagem) refers to dfixi.o(.text) for __aeabi_d2iz
+    validacao_senhas.o(.text.realizar_viagem) refers to timers.o(.text.atraso) for atraso
     validacao_senhas.o(.text.realizar_viagem) refers to ddiv.o(.text) for __aeabi_ddiv
     validacao_senhas.o(.text.realizar_viagem) refers to d2f.o(.text) for __aeabi_d2f
-    validacao_senhas.o(.text.realizar_viagem) refers to dfixi.o(.text) for __aeabi_d2iz
+    validacao_senhas.o(.text.realizar_viagem) refers to dflti.o(.text) for __aeabi_i2d
+    validacao_senhas.o(.text.realizar_viagem) refers to lcdio.o(.text.limpa_reseta_cursor) for limpa_reseta_cursor
+    validacao_senhas.o(.text.realizar_viagem) refers to lcdio.o(.text.send_string) for send_string
     validacao_senhas.o(.text.realizar_viagem) refers to fflti.o(.text) for __aeabi_i2f
     validacao_senhas.o(.text.realizar_viagem) refers to fmul.o(x$fpl$fmul) for __aeabi_fmul
     validacao_senhas.o(.text.realizar_viagem) refers to controle_motor.o(.text.pwm_motor) for pwm_motor
     validacao_senhas.o(.text.realizar_viagem) refers to validacao_senhas.o(.text.tostring) for tostring
-    validacao_senhas.o(.text.realizar_viagem) refers to lcdio.o(.text.limpa_reseta_cursor) for limpa_reseta_cursor
-    validacao_senhas.o(.text.realizar_viagem) refers to lcdio.o(.text.send_string) for send_string
     validacao_senhas.o(.text.realizar_viagem) refers to lcdio.o(.text.proxima_linha) for proxima_linha
-    validacao_senhas.o(.text.realizar_viagem) refers to dflti.o(.text) for __aeabi_i2d
     validacao_senhas.o(.text.realizar_viagem) refers to dcmp.o(i._dgeq) for __aeabi_dcmpge
-    validacao_senhas.o(.text.realizar_viagem) refers to validacao_senhas.o(.data.parametros) for parametros
+    validacao_senhas.o(.text.realizar_viagem) refers to validacao_senhas.o(.data.estado) for estado
     validacao_senhas.o(.text.realizar_viagem) refers to validacao_senhas.o(.rodata.str1.1) for [Anonymous Symbol]
+    validacao_senhas.o(.text.realizar_viagem) refers to validacao_senhas.o(.data.parametros) for parametros
+    validacao_senhas.o(.text.realizar_viagem) refers to validacao_senhas.o(.bss.tempoDeEspera) for tempoDeEspera
     validacao_senhas.o(.text.realizar_viagem) refers to validacao_senhas.o(.data.ida) for ida
     validacao_senhas.o(.ARM.exidx.text.realizar_viagem) refers to validacao_senhas.o(.text.realizar_viagem) for [Anonymous Symbol]
     validacao_senhas.o(.text.modoAuto) refers to strcmp.o(.text) for strcmp
@@ -148,10 +160,27 @@ Section Cross References
     validacao_senhas.o(.text.modoAuto) refers to lcdio.o(.text.proxima_linha) for proxima_linha
     validacao_senhas.o(.text.modoAuto) refers to validacao_senhas.o(.text.realizar_viagem) for realizar_viagem
     validacao_senhas.o(.text.modoAuto) refers to strcpy.o(.text) for strcpy
+    validacao_senhas.o(.text.modoAuto) refers to validacao_senhas.o(.data.estado_viagem) for estado_viagem
     validacao_senhas.o(.text.modoAuto) refers to validacao_senhas.o(.rodata.str1.1) for [Anonymous Symbol]
-    validacao_senhas.o(.text.modoAuto) refers to validacao_senhas.o(.data.estado) for estado
     validacao_senhas.o(.text.modoAuto) refers to validacao_senhas.o(.data.ida) for ida
     validacao_senhas.o(.ARM.exidx.text.modoAuto) refers to validacao_senhas.o(.text.modoAuto) for [Anonymous Symbol]
+    validacao_senhas.o(.text.modoManual) refers to strcmp.o(.text) for strcmp
+    validacao_senhas.o(.text.modoManual) refers to lcdio.o(.text.limpa_reseta_cursor) for limpa_reseta_cursor
+    validacao_senhas.o(.text.modoManual) refers to lcdio.o(.text.send_string) for send_string
+    validacao_senhas.o(.text.modoManual) refers to lcdio.o(.text.proxima_linha) for proxima_linha
+    validacao_senhas.o(.text.modoManual) refers to timers.o(.text.atraso) for atraso
+    validacao_senhas.o(.text.modoManual) refers to teclado.o(.text.lerTeclado) for lerTeclado
+    validacao_senhas.o(.text.modoManual) refers to timers.o(.text.setup_PIT0_modoManual) for setup_PIT0_modoManual
+    validacao_senhas.o(.text.modoManual) refers to timers.o(.text.desliga_PIT0) for desliga_PIT0
+    validacao_senhas.o(.text.modoManual) refers to strcpy.o(.text) for strcpy
+    validacao_senhas.o(.text.modoManual) refers to validacao_senhas.o(.text.realizar_viagem) for realizar_viagem
+    validacao_senhas.o(.text.modoManual) refers to validacao_senhas.o(.data.estado) for estado
+    validacao_senhas.o(.text.modoManual) refers to validacao_senhas.o(.rodata.str1.1) for [Anonymous Symbol]
+    validacao_senhas.o(.text.modoManual) refers to validacao_senhas.o(.data.estado_viagem) for estado_viagem
+    validacao_senhas.o(.text.modoManual) refers to validacao_senhas.o(.data.ida) for ida
+    validacao_senhas.o(.text.modoManual) refers to teclado.o(.bss.tecla) for tecla
+    validacao_senhas.o(.text.modoManual) refers to validacao_senhas.o(.bss.tempoPortasAbertas) for tempoPortasAbertas
+    validacao_senhas.o(.ARM.exidx.text.modoManual) refers to validacao_senhas.o(.text.modoManual) for [Anonymous Symbol]
     lcdio.o(.text.trigger_EN) refers to timers.o(.text.atraso) for atraso
     lcdio.o(.ARM.exidx.text.trigger_EN) refers to lcdio.o(.text.trigger_EN) for [Anonymous Symbol]
     lcdio.o(.text.send_data) refers to timers.o(.text.atraso) for atraso
@@ -276,6 +305,10 @@ Section Cross References
     timers.o(.text.setup_PIT1) refers to timers.o(.text.__NVIC_ClearPendingIRQ) for __NVIC_ClearPendingIRQ
     timers.o(.text.setup_PIT1) refers to timers.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
     timers.o(.ARM.exidx.text.setup_PIT1) refers to timers.o(.text.setup_PIT1) for [Anonymous Symbol]
+    timers.o(.text.setup_PIT0_modoManual) refers to timers.o(.text.__NVIC_SetPriority) for __NVIC_SetPriority
+    timers.o(.text.setup_PIT0_modoManual) refers to timers.o(.text.__NVIC_ClearPendingIRQ) for __NVIC_ClearPendingIRQ
+    timers.o(.text.setup_PIT0_modoManual) refers to timers.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
+    timers.o(.ARM.exidx.text.setup_PIT0_modoManual) refers to timers.o(.text.setup_PIT0_modoManual) for [Anonymous Symbol]
     timers.o(.ARM.exidx.text.desliga_PIT1) refers to timers.o(.text.desliga_PIT1) for [Anonymous Symbol]
     timers.o(.ARM.exidx.text.desliga_PIT0) refers to timers.o(.text.desliga_PIT0) for [Anonymous Symbol]
     timers.o(.ARM.exidx.text.soma5_PIT0) refers to timers.o(.text.soma5_PIT0) for [Anonymous Symbol]
@@ -536,8 +569,8 @@ Removing Unused input sections from the image.
     Removing validacao_senhas.o(.ARM.exidx.text.tostring), (8 bytes).
     Removing validacao_senhas.o(.ARM.exidx.text.realizar_viagem), (8 bytes).
     Removing validacao_senhas.o(.ARM.exidx.text.modoAuto), (8 bytes).
+    Removing validacao_senhas.o(.ARM.exidx.text.modoManual), (8 bytes).
     Removing validacao_senhas.o(.bss.admLogin), (1 bytes).
-    Removing validacao_senhas.o(.rodata.cst16), (16 bytes).
     Removing validacao_senhas.o(.bss.validacao), (4 bytes).
     Removing lcdio.o(.text), (0 bytes).
     Removing lcdio.o(.ARM.exidx.text.trigger_EN), (8 bytes).
@@ -580,6 +613,7 @@ Removing Unused input sections from the image.
     Removing timers.o(.ARM.exidx.text.__NVIC_ClearPendingIRQ), (8 bytes).
     Removing timers.o(.ARM.exidx.text.__NVIC_EnableIRQ), (8 bytes).
     Removing timers.o(.ARM.exidx.text.setup_PIT1), (8 bytes).
+    Removing timers.o(.ARM.exidx.text.setup_PIT0_modoManual), (8 bytes).
     Removing timers.o(.ARM.exidx.text.desliga_PIT1), (8 bytes).
     Removing timers.o(.ARM.exidx.text.desliga_PIT0), (8 bytes).
     Removing timers.o(.text.soma5_PIT0), (2 bytes).
@@ -603,7 +637,7 @@ Removing Unused input sections from the image.
     Removing system_mkl25z4.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
     Removing system_mkl25z4.o(.data.SystemCoreClock), (4 bytes).
 
-86 unused section(s) (total 1645 bytes) removed from the image.
+87 unused section(s) (total 1645 bytes) removed from the image.
 
 ==============================================================================
 
@@ -796,257 +830,292 @@ Image Symbol Table
     .text                                    0x000011a8   Section        0  retnan.o(.text)
     .text                                    0x00001208   Section        0  sys_exit.o(.text)
     [Anonymous Symbol]                       0x00001214   Section        0  main.o(.text.PIT_IRQHandler)
-    __arm_cp.3_0                             0x000012b4   Number         4  main.o(.text.PIT_IRQHandler)
-    __arm_cp.3_2                             0x000012b8   Number         4  main.o(.text.PIT_IRQHandler)
-    __arm_cp.3_7                             0x000012bc   Number         4  main.o(.text.PIT_IRQHandler)
-    [Anonymous Symbol]                       0x000012c0   Section        0  main.o(.text.PORTA_IRQHandler)
-    __arm_cp.4_0                             0x0000135c   Number         4  main.o(.text.PORTA_IRQHandler)
-    __arm_cp.4_1                             0x00001360   Number         4  main.o(.text.PORTA_IRQHandler)
-    __arm_cp.4_2                             0x00001364   Number         4  main.o(.text.PORTA_IRQHandler)
-    __arm_cp.4_3                             0x00001368   Number         4  main.o(.text.PORTA_IRQHandler)
-    __arm_cp.4_4                             0x0000136c   Number         4  main.o(.text.PORTA_IRQHandler)
-    __arm_cp.4_5                             0x00001370   Number         4  main.o(.text.PORTA_IRQHandler)
-    [Anonymous Symbol]                       0x00001374   Section        0  controle_motor.o(.text.RTC_timer_configura)
-    __arm_cp.5_1                             0x000013a4   Number         4  controle_motor.o(.text.RTC_timer_configura)
-    __arm_cp.5_2                             0x000013a8   Number         4  controle_motor.o(.text.RTC_timer_configura)
-    __arm_cp.5_3                             0x000013ac   Number         4  controle_motor.o(.text.RTC_timer_configura)
-    __arm_cp.5_4                             0x000013b0   Number         4  controle_motor.o(.text.RTC_timer_configura)
-    [Anonymous Symbol]                       0x000013b4   Section        0  system_mkl25z4.o(.text.SystemInit)
-    __arm_cp.0_0                             0x000013bc   Number         4  system_mkl25z4.o(.text.SystemInit)
-    __NVIC_ClearPendingIRQ                   0x000013c1   Thumb Code    40  timers.o(.text.__NVIC_ClearPendingIRQ)
-    [Anonymous Symbol]                       0x000013c0   Section        0  timers.o(.text.__NVIC_ClearPendingIRQ)
-    __arm_cp.6_0                             0x000013e8   Number         4  timers.o(.text.__NVIC_ClearPendingIRQ)
-    __NVIC_EnableIRQ                         0x000013ed   Thumb Code    40  main.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x000013ec   Section        0  main.o(.text.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x00001415   Thumb Code    40  timers.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x00001414   Section        0  timers.o(.text.__NVIC_EnableIRQ)
-    __arm_cp.7_0                             0x0000143c   Number         4  timers.o(.text.__NVIC_EnableIRQ)
-    __NVIC_SetPriority                       0x00001441   Thumb Code   124  main.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x00001440   Section        0  main.o(.text.__NVIC_SetPriority)
-    __NVIC_SetPriority                       0x000014bd   Thumb Code   124  timers.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x000014bc   Section        0  timers.o(.text.__NVIC_SetPriority)
-    __arm_cp.5_0                             0x00001538   Number         4  timers.o(.text.__NVIC_SetPriority)
-    __arm_cp.5_1                             0x0000153c   Number         4  timers.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x00001540   Section        0  validacao_senhas.o(.text.abrePortasEspera)
-    __arm_cp.8_0                             0x00001594   Number         4  validacao_senhas.o(.text.abrePortasEspera)
-    __arm_cp.8_1                             0x00001598   Number         4  validacao_senhas.o(.text.abrePortasEspera)
-    __arm_cp.8_2                             0x0000159c   Number         4  validacao_senhas.o(.text.abrePortasEspera)
-    __arm_cp.8_3                             0x000015a0   Number         4  validacao_senhas.o(.text.abrePortasEspera)
-    __arm_cp.8_4                             0x000015a4   Number         4  validacao_senhas.o(.text.abrePortasEspera)
-    [Anonymous Symbol]                       0x000015a8   Section        0  timers.o(.text.atraso)
-    [Anonymous Symbol]                       0x000015da   Section        0  lcdio.o(.text.config_lcd_padrao)
-    [Anonymous Symbol]                       0x000015f8   Section        0  controle_motor.o(.text.configura_motor)
-    __arm_cp.0_0                             0x00001620   Number         4  controle_motor.o(.text.configura_motor)
-    __arm_cp.0_1                             0x00001624   Number         4  controle_motor.o(.text.configura_motor)
-    __arm_cp.0_2                             0x00001628   Number         4  controle_motor.o(.text.configura_motor)
-    __arm_cp.0_3                             0x0000162c   Number         4  controle_motor.o(.text.configura_motor)
-    [Anonymous Symbol]                       0x00001630   Section        0  timers.o(.text.delay_ms)
-    __arm_cp.1_1                             0x00001684   Number         4  timers.o(.text.delay_ms)
-    [Anonymous Symbol]                       0x00001688   Section        0  timers.o(.text.delay_s)
-    __arm_cp.0_0                             0x000016dc   Number         4  timers.o(.text.delay_s)
-    __arm_cp.0_1                             0x000016e0   Number         4  timers.o(.text.delay_s)
-    __arm_cp.0_2                             0x000016e4   Number         4  timers.o(.text.delay_s)
-    [Anonymous Symbol]                       0x000016e8   Section        0  timers.o(.text.desliga_PIT0)
-    __arm_cp.10_0                            0x000016f0   Number         4  timers.o(.text.desliga_PIT0)
-    [Anonymous Symbol]                       0x000016f4   Section        0  timers.o(.text.desliga_PIT1)
-    __arm_cp.9_0                             0x000016fc   Number         4  timers.o(.text.desliga_PIT1)
-    [Anonymous Symbol]                       0x00001700   Section        0  validacao_senhas.o(.text.edicaoDist)
-    [Anonymous Symbol]                       0x00001844   Section        0  validacao_senhas.o(.text.edicaoParametros)
-    __arm_cp.1_1                             0x000018e4   Number         4  validacao_senhas.o(.text.edicaoParametros)
-    __arm_cp.1_2                             0x000018e8   Number         4  validacao_senhas.o(.text.edicaoParametros)
-    [Anonymous Symbol]                       0x000018ec   Section        0  validacao_senhas.o(.text.edicaoTempo)
-    [Anonymous Symbol]                       0x00001950   Section        0  validacao_senhas.o(.text.edicaoTempoParada)
-    __arm_cp.5_0                             0x00001a8c   Number         4  validacao_senhas.o(.text.edicaoTempoParada)
-    __arm_cp.5_1                             0x00001a90   Number         4  validacao_senhas.o(.text.edicaoTempoParada)
-    [Anonymous Symbol]                       0x00001a94   Section        0  validacao_senhas.o(.text.edicaoTempoViagem)
-    __arm_cp.6_0                             0x00001bd0   Number         4  validacao_senhas.o(.text.edicaoTempoViagem)
-    __arm_cp.6_1                             0x00001bd4   Number         4  validacao_senhas.o(.text.edicaoTempoViagem)
-    [Anonymous Symbol]                       0x00001bd8   Section        0  validacao_senhas.o(.text.edicaoVel)
-    __arm_cp.2_0                             0x00001d24   Number         4  validacao_senhas.o(.text.edicaoVel)
-    __arm_cp.2_1                             0x00001d28   Number         4  validacao_senhas.o(.text.edicaoVel)
-    [Anonymous Symbol]                       0x00001d2c   Section        0  validacao_senhas.o(.text.lerSenha)
-    __arm_cp.0_0                             0x00001de8   Number         4  validacao_senhas.o(.text.lerSenha)
-    __arm_cp.0_1                             0x00001dec   Number         4  validacao_senhas.o(.text.lerSenha)
-    __arm_cp.0_2                             0x00001df0   Number         4  validacao_senhas.o(.text.lerSenha)
-    __arm_cp.0_3                             0x00001df4   Number         4  validacao_senhas.o(.text.lerSenha)
-    __arm_cp.0_4                             0x00001df8   Number         4  validacao_senhas.o(.text.lerSenha)
-    __arm_cp.0_5                             0x00001dfc   Number         4  validacao_senhas.o(.text.lerSenha)
-    __arm_cp.0_6                             0x00001e00   Number         4  validacao_senhas.o(.text.lerSenha)
-    __arm_cp.0_7                             0x00001e04   Number         4  validacao_senhas.o(.text.lerSenha)
-    __arm_cp.0_8                             0x00001e08   Number         4  validacao_senhas.o(.text.lerSenha)
-    __arm_cp.0_9                             0x00001e0c   Number         4  validacao_senhas.o(.text.lerSenha)
-    [Anonymous Symbol]                       0x00001e10   Section        0  teclado.o(.text.lerTeclado)
-    __arm_cp.4_0                             0x00001e98   Number         4  teclado.o(.text.lerTeclado)
-    [Anonymous Symbol]                       0x00001e9c   Section        0  teclado.o(.text.ligaLinhas)
-    __arm_cp.1_0                             0x00001f9c   Number         4  teclado.o(.text.ligaLinhas)
-    __arm_cp.1_1                             0x00001fa0   Number         4  teclado.o(.text.ligaLinhas)
-    __arm_cp.1_2                             0x00001fa4   Number         4  teclado.o(.text.ligaLinhas)
-    [Anonymous Symbol]                       0x00001fa8   Section        0  lcdio.o(.text.limpa_reseta_cursor)
-    [Anonymous Symbol]                       0x00001fc0   Section        0  main.o(.text.main)
-    __arm_cp.0_0                             0x00002158   Number         4  main.o(.text.main)
-    __arm_cp.0_1                             0x0000215c   Number         4  main.o(.text.main)
-    __arm_cp.0_2                             0x00002160   Number         4  main.o(.text.main)
-    __arm_cp.0_3                             0x00002164   Number         4  main.o(.text.main)
-    __arm_cp.0_4                             0x00002168   Number         4  main.o(.text.main)
-    __arm_cp.0_5                             0x0000216c   Number         4  main.o(.text.main)
-    __arm_cp.0_6                             0x00002170   Number         4  main.o(.text.main)
-    __arm_cp.0_7                             0x00002174   Number         4  main.o(.text.main)
-    __arm_cp.0_8                             0x00002178   Number         4  main.o(.text.main)
-    __arm_cp.0_9                             0x0000217c   Number         4  main.o(.text.main)
-    __arm_cp.0_10                            0x00002180   Number         4  main.o(.text.main)
-    __arm_cp.0_11                            0x00002184   Number         4  main.o(.text.main)
-    __arm_cp.0_12                            0x00002188   Number         4  main.o(.text.main)
-    __arm_cp.0_13                            0x0000218c   Number         4  main.o(.text.main)
-    __arm_cp.0_14                            0x00002190   Number         4  main.o(.text.main)
-    __arm_cp.0_15                            0x00002194   Number         4  main.o(.text.main)
-    __arm_cp.0_16                            0x00002198   Number         4  main.o(.text.main)
-    __arm_cp.0_17                            0x0000219c   Number         4  main.o(.text.main)
-    __arm_cp.0_18                            0x000021a0   Number         4  main.o(.text.main)
-    __arm_cp.0_19                            0x000021a4   Number         4  main.o(.text.main)
-    __arm_cp.0_20                            0x000021a8   Number         4  main.o(.text.main)
-    __arm_cp.0_21                            0x000021ac   Number         4  main.o(.text.main)
-    __arm_cp.0_22                            0x000021b0   Number         4  main.o(.text.main)
-    __arm_cp.0_23                            0x000021b4   Number         4  main.o(.text.main)
-    __arm_cp.0_24                            0x000021b8   Number         4  main.o(.text.main)
-    __arm_cp.0_25                            0x000021bc   Number         4  main.o(.text.main)
-    __arm_cp.0_26                            0x000021c0   Number         4  main.o(.text.main)
-    __arm_cp.0_27                            0x000021c4   Number         4  main.o(.text.main)
-    __arm_cp.0_28                            0x000021c8   Number         4  main.o(.text.main)
-    __arm_cp.0_29                            0x000021cc   Number         4  main.o(.text.main)
-    __arm_cp.0_30                            0x000021d0   Number         4  main.o(.text.main)
-    __arm_cp.0_31                            0x000021d4   Number         4  main.o(.text.main)
-    __arm_cp.0_32                            0x000021d8   Number         4  main.o(.text.main)
-    __arm_cp.0_33                            0x000021dc   Number         4  main.o(.text.main)
-    __arm_cp.0_34                            0x000021e0   Number         4  main.o(.text.main)
-    __arm_cp.0_35                            0x000021e4   Number         4  main.o(.text.main)
-    __arm_cp.0_36                            0x000021e8   Number         4  main.o(.text.main)
-    __arm_cp.0_37                            0x000021ec   Number         4  main.o(.text.main)
-    __arm_cp.0_39                            0x000021f0   Number         4  main.o(.text.main)
-    __arm_cp.0_40                            0x000021f4   Number         4  main.o(.text.main)
-    __arm_cp.0_41                            0x000021f8   Number         4  main.o(.text.main)
-    __arm_cp.0_42                            0x000021fc   Number         4  main.o(.text.main)
-    __arm_cp.0_43                            0x00002200   Number         4  main.o(.text.main)
-    [Anonymous Symbol]                       0x00002204   Section        0  validacao_senhas.o(.text.modoAuto)
-    __arm_cp.11_0                            0x0000232c   Number         4  validacao_senhas.o(.text.modoAuto)
-    __arm_cp.11_1                            0x00002330   Number         4  validacao_senhas.o(.text.modoAuto)
-    __arm_cp.11_2                            0x00002334   Number         4  validacao_senhas.o(.text.modoAuto)
-    __arm_cp.11_3                            0x00002338   Number         4  validacao_senhas.o(.text.modoAuto)
-    __arm_cp.11_4                            0x0000233c   Number         4  validacao_senhas.o(.text.modoAuto)
-    __arm_cp.11_5                            0x00002340   Number         4  validacao_senhas.o(.text.modoAuto)
-    __arm_cp.11_6                            0x00002344   Number         4  validacao_senhas.o(.text.modoAuto)
-    __arm_cp.11_7                            0x00002348   Number         4  validacao_senhas.o(.text.modoAuto)
-    __arm_cp.11_9                            0x0000234c   Number         4  validacao_senhas.o(.text.modoAuto)
-    __arm_cp.11_11                           0x00002350   Number         4  validacao_senhas.o(.text.modoAuto)
-    __arm_cp.11_12                           0x00002354   Number         4  validacao_senhas.o(.text.modoAuto)
-    [Anonymous Symbol]                       0x00002358   Section        0  teclado.o(.text.procuraLinhas)
-    __arm_cp.2_0                             0x000023d4   Number         4  teclado.o(.text.procuraLinhas)
-    [Anonymous Symbol]                       0x000023d8   Section        0  teclado.o(.text.procuraTecla)
-    [Anonymous Symbol]                       0x000023ec   Section        0  lcdio.o(.text.proxima_linha)
-    [Anonymous Symbol]                       0x00002400   Section        0  controle_motor.o(.text.pwm_motor)
-    __arm_cp.1_0                             0x00002450   Number         4  controle_motor.o(.text.pwm_motor)
-    __arm_cp.1_1                             0x00002454   Number         4  controle_motor.o(.text.pwm_motor)
-    __arm_cp.1_2                             0x00002458   Number         4  controle_motor.o(.text.pwm_motor)
-    __arm_cp.1_3                             0x0000245c   Number         4  controle_motor.o(.text.pwm_motor)
-    __arm_cp.1_4                             0x00002460   Number         4  controle_motor.o(.text.pwm_motor)
-    __arm_cp.1_5                             0x00002464   Number         4  controle_motor.o(.text.pwm_motor)
-    __arm_cp.1_6                             0x00002468   Number         4  controle_motor.o(.text.pwm_motor)
-    __arm_cp.1_7                             0x0000246c   Number         4  controle_motor.o(.text.pwm_motor)
-    __arm_cp.1_8                             0x00002470   Number         4  controle_motor.o(.text.pwm_motor)
-    [Anonymous Symbol]                       0x00002474   Section        0  validacao_senhas.o(.text.realizar_viagem)
-    __arm_cp.10_0                            0x00002668   Number         4  validacao_senhas.o(.text.realizar_viagem)
-    __arm_cp.10_1                            0x0000266c   Number         4  validacao_senhas.o(.text.realizar_viagem)
-    __arm_cp.10_2                            0x00002670   Number         4  validacao_senhas.o(.text.realizar_viagem)
-    __arm_cp.10_3                            0x00002674   Number         4  validacao_senhas.o(.text.realizar_viagem)
-    __arm_cp.10_4                            0x00002678   Number         4  validacao_senhas.o(.text.realizar_viagem)
-    __arm_cp.10_5                            0x0000267c   Number         4  validacao_senhas.o(.text.realizar_viagem)
-    __arm_cp.10_6                            0x00002680   Number         4  validacao_senhas.o(.text.realizar_viagem)
-    __arm_cp.10_7                            0x00002684   Number         4  validacao_senhas.o(.text.realizar_viagem)
-    __arm_cp.10_8                            0x00002688   Number         4  validacao_senhas.o(.text.realizar_viagem)
-    __arm_cp.10_9                            0x0000268c   Number         4  validacao_senhas.o(.text.realizar_viagem)
-    [Anonymous Symbol]                       0x00002690   Section        0  validacao_senhas.o(.text.selecaoModoMaquinista)
-    __arm_cp.7_0                             0x000026fc   Number         4  validacao_senhas.o(.text.selecaoModoMaquinista)
-    __arm_cp.7_1                             0x00002700   Number         4  validacao_senhas.o(.text.selecaoModoMaquinista)
-    __arm_cp.7_2                             0x00002704   Number         4  validacao_senhas.o(.text.selecaoModoMaquinista)
-    __arm_cp.7_3                             0x00002708   Number         4  validacao_senhas.o(.text.selecaoModoMaquinista)
-    [Anonymous Symbol]                       0x0000270c   Section        0  lcdio.o(.text.send_command)
-    __arm_cp.2_0                             0x00002754   Number         4  lcdio.o(.text.send_command)
-    [Anonymous Symbol]                       0x00002758   Section        0  lcdio.o(.text.send_data)
-    __arm_cp.1_0                             0x000027a0   Number         4  lcdio.o(.text.send_data)
-    __arm_cp.1_1                             0x000027a4   Number         4  lcdio.o(.text.send_data)
-    __arm_cp.1_2                             0x000027a8   Number         4  lcdio.o(.text.send_data)
-    [Anonymous Symbol]                       0x000027ac   Section        0  lcdio.o(.text.send_string)
-    [Anonymous Symbol]                       0x000027d4   Section        0  timers.o(.text.setup_PIT0)
-    __arm_cp.4_2                             0x00002828   Number         4  timers.o(.text.setup_PIT0)
-    __arm_cp.4_3                             0x0000282c   Number         4  timers.o(.text.setup_PIT0)
-    [Anonymous Symbol]                       0x00002830   Section        0  timers.o(.text.setup_PIT1)
-    __arm_cp.8_0                             0x00002880   Number         4  timers.o(.text.setup_PIT1)
-    __arm_cp.8_1                             0x00002884   Number         4  timers.o(.text.setup_PIT1)
-    __arm_cp.8_2                             0x00002888   Number         4  timers.o(.text.setup_PIT1)
-    __arm_cp.8_3                             0x0000288c   Number         4  timers.o(.text.setup_PIT1)
-    [Anonymous Symbol]                       0x00002890   Section        0  teclado.o(.text.teclaDeboucing)
-    __arm_cp.0_0                             0x00002904   Number         4  teclado.o(.text.teclaDeboucing)
-    __arm_cp.0_1                             0x00002908   Number         4  teclado.o(.text.teclaDeboucing)
-    __arm_cp.0_2                             0x0000290c   Number         4  teclado.o(.text.teclaDeboucing)
-    [Anonymous Symbol]                       0x00002910   Section        0  lcdio.o(.text.telaAdmLogado)
-    __arm_cp.10_0                            0x00002928   Number         4  lcdio.o(.text.telaAdmLogado)
-    [Anonymous Symbol]                       0x0000292c   Section        0  lcdio.o(.text.telaArmMetro)
-    __arm_cp.7_0                             0x00002944   Number         4  lcdio.o(.text.telaArmMetro)
-    __arm_cp.7_1                             0x00002948   Number         4  lcdio.o(.text.telaArmMetro)
-    [Anonymous Symbol]                       0x0000294c   Section        0  lcdio.o(.text.telaEditarDist)
-    [Anonymous Symbol]                       0x00002964   Section        0  lcdio.o(.text.telaEditarParametros)
-    __arm_cp.11_0                            0x0000297c   Number         4  lcdio.o(.text.telaEditarParametros)
-    __arm_cp.11_1                            0x00002980   Number         4  lcdio.o(.text.telaEditarParametros)
-    [Anonymous Symbol]                       0x00002984   Section        0  lcdio.o(.text.telaEditarTempoParada)
-    [Anonymous Symbol]                       0x0000299c   Section        0  lcdio.o(.text.telaEditarTempoViagem)
-    [Anonymous Symbol]                       0x000029b4   Section        0  lcdio.o(.text.telaEditarTempos)
-    __arm_cp.13_0                            0x000029c8   Number         4  lcdio.o(.text.telaEditarTempos)
-    [Anonymous Symbol]                       0x000029cc   Section        0  lcdio.o(.text.telaEditarVel)
-    __arm_cp.16_0                            0x000029e4   Number         4  lcdio.o(.text.telaEditarVel)
-    __arm_cp.16_1                            0x000029e8   Number         4  lcdio.o(.text.telaEditarVel)
-    [Anonymous Symbol]                       0x000029ec   Section        0  lcdio.o(.text.telaModosMaquinista)
-    __arm_cp.21_0                            0x00002a04   Number         4  lcdio.o(.text.telaModosMaquinista)
-    __arm_cp.21_1                            0x00002a08   Number         4  lcdio.o(.text.telaModosMaquinista)
-    [Anonymous Symbol]                       0x00002a0c   Section        0  lcdio.o(.text.telaNovaDist)
-    __arm_cp.18_0                            0x00002a20   Number         4  lcdio.o(.text.telaNovaDist)
-    [Anonymous Symbol]                       0x00002a24   Section        0  lcdio.o(.text.telaNovaVel)
-    __arm_cp.17_0                            0x00002a38   Number         4  lcdio.o(.text.telaNovaVel)
-    [Anonymous Symbol]                       0x00002a3c   Section        0  lcdio.o(.text.telaSenhaCorreta)
-    __arm_cp.8_0                             0x00002a54   Number         4  lcdio.o(.text.telaSenhaCorreta)
-    [Anonymous Symbol]                       0x00002a58   Section        0  lcdio.o(.text.telaSenhaIncorreta)
-    __arm_cp.9_0                             0x00002a70   Number         4  lcdio.o(.text.telaSenhaIncorreta)
-    [Anonymous Symbol]                       0x00002a74   Section        0  lcdio.o(.text.telaTempoParada)
-    __arm_cp.19_0                            0x00002a88   Number         4  lcdio.o(.text.telaTempoParada)
-    [Anonymous Symbol]                       0x00002a8c   Section        0  lcdio.o(.text.telaTempoViagem)
-    __arm_cp.20_0                            0x00002aa0   Number         4  lcdio.o(.text.telaTempoViagem)
-    [Anonymous Symbol]                       0x00002aa4   Section        0  validacao_senhas.o(.text.tostring)
-    [Anonymous Symbol]                       0x00002b20   Section        0  lcdio.o(.text.trigger_EN)
-    __arm_cp.0_0                             0x00002b50   Number         4  lcdio.o(.text.trigger_EN)
-    __arm_cp.0_1                             0x00002b54   Number         4  lcdio.o(.text.trigger_EN)
-    i._dgeq                                  0x00002b58   Section        0  dcmp.o(i._dgeq)
-    locale$$code                             0x00002b70   Section       44  lc_ctype_c.o(locale$$code)
-    x$fpl$dgeqf                              0x00002b9c   Section      100  dgef.o(x$fpl$dgeqf)
-    x$fpl$fadd                               0x00002c00   Section      140  faddsub.o(x$fpl$fadd)
-    _fadd1                                   0x00002c0d   Thumb Code     0  faddsub.o(x$fpl$fadd)
-    x$fpl$fmul                               0x00002c8c   Section      176  fmul.o(x$fpl$fmul)
-    x$fpl$fsub                               0x00002d3c   Section      208  faddsub.o(x$fpl$fsub)
-    _fsub1                                   0x00002d49   Thumb Code     0  faddsub.o(x$fpl$fsub)
-    ddiv_reciptbl                            0x00002e0c   Data         128  ddiv.o(.constdata)
-    .constdata                               0x00002e0c   Section      128  ddiv.o(.constdata)
-    fdiv_tab                                 0x00002e8c   Data          64  fdiv.o(.constdata)
-    .constdata                               0x00002e8c   Section       64  fdiv.o(.constdata)
-    [Anonymous Symbol]                       0x00002ecc   Section        0  main.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x00002ef2   Section        0  validacao_senhas.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x00002f79   Section        0  lcdio.o(.rodata.str1.1)
-    locale$$data                             0x00003078   Section      272  lc_ctype_c.o(locale$$data)
-    __lcctype_c_name                         0x0000307c   Data           2  lc_ctype_c.o(locale$$data)
-    __lcctype_c_start                        0x00003084   Data           0  lc_ctype_c.o(locale$$data)
-    __lcctype_c_end                          0x00003188   Data           0  lc_ctype_c.o(locale$$data)
-    .bss                                     0x1ffff0a0   Section       96  libspace.o(.bss)
-    Heap_Mem                                 0x1ffff138   Data           0  startup_mkl25z4.o(HEAP)
-    Stack_Mem                                0x1ffff138   Data         256  startup_mkl25z4.o(STACK)
-    HEAP                                     0x1ffff138   Section        0  startup_mkl25z4.o(HEAP)
-    STACK                                    0x1ffff138   Section      256  startup_mkl25z4.o(STACK)
-    __initial_sp                             0x1ffff238   Data           0  startup_mkl25z4.o(STACK)
+    __arm_cp.3_0                             0x00001314   Number         4  main.o(.text.PIT_IRQHandler)
+    __arm_cp.3_1                             0x00001318   Number         4  main.o(.text.PIT_IRQHandler)
+    __arm_cp.3_2                             0x0000131c   Number         4  main.o(.text.PIT_IRQHandler)
+    __arm_cp.3_3                             0x00001320   Number         4  main.o(.text.PIT_IRQHandler)
+    __arm_cp.3_4                             0x00001324   Number         4  main.o(.text.PIT_IRQHandler)
+    __arm_cp.3_6                             0x00001328   Number         4  main.o(.text.PIT_IRQHandler)
+    __arm_cp.3_11                            0x0000132c   Number         4  main.o(.text.PIT_IRQHandler)
+    [Anonymous Symbol]                       0x00001330   Section        0  main.o(.text.PORTA_IRQHandler)
+    __arm_cp.4_1                             0x000013f8   Number         4  main.o(.text.PORTA_IRQHandler)
+    __arm_cp.4_2                             0x000013fc   Number         4  main.o(.text.PORTA_IRQHandler)
+    __arm_cp.4_3                             0x00001400   Number         4  main.o(.text.PORTA_IRQHandler)
+    __arm_cp.4_4                             0x00001404   Number         4  main.o(.text.PORTA_IRQHandler)
+    __arm_cp.4_5                             0x00001408   Number         4  main.o(.text.PORTA_IRQHandler)
+    __arm_cp.4_6                             0x0000140c   Number         4  main.o(.text.PORTA_IRQHandler)
+    __arm_cp.4_7                             0x00001410   Number         4  main.o(.text.PORTA_IRQHandler)
+    __arm_cp.4_8                             0x00001414   Number         4  main.o(.text.PORTA_IRQHandler)
+    [Anonymous Symbol]                       0x00001418   Section        0  controle_motor.o(.text.RTC_timer_configura)
+    __arm_cp.5_1                             0x00001448   Number         4  controle_motor.o(.text.RTC_timer_configura)
+    __arm_cp.5_2                             0x0000144c   Number         4  controle_motor.o(.text.RTC_timer_configura)
+    __arm_cp.5_3                             0x00001450   Number         4  controle_motor.o(.text.RTC_timer_configura)
+    __arm_cp.5_4                             0x00001454   Number         4  controle_motor.o(.text.RTC_timer_configura)
+    [Anonymous Symbol]                       0x00001458   Section        0  system_mkl25z4.o(.text.SystemInit)
+    __arm_cp.0_0                             0x00001460   Number         4  system_mkl25z4.o(.text.SystemInit)
+    __NVIC_ClearPendingIRQ                   0x00001465   Thumb Code    40  timers.o(.text.__NVIC_ClearPendingIRQ)
+    [Anonymous Symbol]                       0x00001464   Section        0  timers.o(.text.__NVIC_ClearPendingIRQ)
+    __arm_cp.6_0                             0x0000148c   Number         4  timers.o(.text.__NVIC_ClearPendingIRQ)
+    __NVIC_EnableIRQ                         0x00001491   Thumb Code    40  main.o(.text.__NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x00001490   Section        0  main.o(.text.__NVIC_EnableIRQ)
+    __NVIC_EnableIRQ                         0x000014b9   Thumb Code    40  timers.o(.text.__NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x000014b8   Section        0  timers.o(.text.__NVIC_EnableIRQ)
+    __arm_cp.7_0                             0x000014e0   Number         4  timers.o(.text.__NVIC_EnableIRQ)
+    __NVIC_SetPriority                       0x000014e5   Thumb Code   124  main.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x000014e4   Section        0  main.o(.text.__NVIC_SetPriority)
+    __NVIC_SetPriority                       0x00001561   Thumb Code   124  timers.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x00001560   Section        0  timers.o(.text.__NVIC_SetPriority)
+    __arm_cp.5_0                             0x000015dc   Number         4  timers.o(.text.__NVIC_SetPriority)
+    __arm_cp.5_1                             0x000015e0   Number         4  timers.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x000015e4   Section        0  validacao_senhas.o(.text.abrePortasEspera)
+    __arm_cp.8_0                             0x00001638   Number         4  validacao_senhas.o(.text.abrePortasEspera)
+    __arm_cp.8_1                             0x0000163c   Number         4  validacao_senhas.o(.text.abrePortasEspera)
+    __arm_cp.8_2                             0x00001640   Number         4  validacao_senhas.o(.text.abrePortasEspera)
+    __arm_cp.8_3                             0x00001644   Number         4  validacao_senhas.o(.text.abrePortasEspera)
+    __arm_cp.8_4                             0x00001648   Number         4  validacao_senhas.o(.text.abrePortasEspera)
+    [Anonymous Symbol]                       0x0000164c   Section        0  timers.o(.text.atraso)
+    [Anonymous Symbol]                       0x0000167e   Section        0  lcdio.o(.text.config_lcd_padrao)
+    [Anonymous Symbol]                       0x0000169c   Section        0  controle_motor.o(.text.configura_motor)
+    __arm_cp.0_0                             0x000016c4   Number         4  controle_motor.o(.text.configura_motor)
+    __arm_cp.0_1                             0x000016c8   Number         4  controle_motor.o(.text.configura_motor)
+    __arm_cp.0_2                             0x000016cc   Number         4  controle_motor.o(.text.configura_motor)
+    __arm_cp.0_3                             0x000016d0   Number         4  controle_motor.o(.text.configura_motor)
+    [Anonymous Symbol]                       0x000016d4   Section        0  timers.o(.text.delay_ms)
+    __arm_cp.1_1                             0x0000171c   Number         4  timers.o(.text.delay_ms)
+    [Anonymous Symbol]                       0x00001720   Section        0  timers.o(.text.delay_s)
+    __arm_cp.0_0                             0x00001774   Number         4  timers.o(.text.delay_s)
+    __arm_cp.0_1                             0x00001778   Number         4  timers.o(.text.delay_s)
+    __arm_cp.0_2                             0x0000177c   Number         4  timers.o(.text.delay_s)
+    [Anonymous Symbol]                       0x00001780   Section        0  timers.o(.text.desliga_PIT0)
+    __arm_cp.11_0                            0x00001788   Number         4  timers.o(.text.desliga_PIT0)
+    [Anonymous Symbol]                       0x0000178c   Section        0  timers.o(.text.desliga_PIT1)
+    __arm_cp.10_0                            0x00001794   Number         4  timers.o(.text.desliga_PIT1)
+    [Anonymous Symbol]                       0x00001798   Section        0  validacao_senhas.o(.text.edicaoDist)
+    [Anonymous Symbol]                       0x000018dc   Section        0  validacao_senhas.o(.text.edicaoParametros)
+    __arm_cp.1_1                             0x0000197c   Number         4  validacao_senhas.o(.text.edicaoParametros)
+    __arm_cp.1_2                             0x00001980   Number         4  validacao_senhas.o(.text.edicaoParametros)
+    [Anonymous Symbol]                       0x00001984   Section        0  validacao_senhas.o(.text.edicaoTempo)
+    [Anonymous Symbol]                       0x000019e8   Section        0  validacao_senhas.o(.text.edicaoTempoParada)
+    __arm_cp.5_0                             0x00001b24   Number         4  validacao_senhas.o(.text.edicaoTempoParada)
+    __arm_cp.5_1                             0x00001b28   Number         4  validacao_senhas.o(.text.edicaoTempoParada)
+    [Anonymous Symbol]                       0x00001b2c   Section        0  validacao_senhas.o(.text.edicaoTempoViagem)
+    __arm_cp.6_0                             0x00001c68   Number         4  validacao_senhas.o(.text.edicaoTempoViagem)
+    __arm_cp.6_1                             0x00001c6c   Number         4  validacao_senhas.o(.text.edicaoTempoViagem)
+    [Anonymous Symbol]                       0x00001c70   Section        0  validacao_senhas.o(.text.edicaoVel)
+    __arm_cp.2_0                             0x00001dbc   Number         4  validacao_senhas.o(.text.edicaoVel)
+    __arm_cp.2_1                             0x00001dc0   Number         4  validacao_senhas.o(.text.edicaoVel)
+    [Anonymous Symbol]                       0x00001dc4   Section        0  validacao_senhas.o(.text.lerSenha)
+    __arm_cp.0_0                             0x00001e80   Number         4  validacao_senhas.o(.text.lerSenha)
+    __arm_cp.0_1                             0x00001e84   Number         4  validacao_senhas.o(.text.lerSenha)
+    __arm_cp.0_2                             0x00001e88   Number         4  validacao_senhas.o(.text.lerSenha)
+    __arm_cp.0_3                             0x00001e8c   Number         4  validacao_senhas.o(.text.lerSenha)
+    __arm_cp.0_4                             0x00001e90   Number         4  validacao_senhas.o(.text.lerSenha)
+    __arm_cp.0_5                             0x00001e94   Number         4  validacao_senhas.o(.text.lerSenha)
+    __arm_cp.0_6                             0x00001e98   Number         4  validacao_senhas.o(.text.lerSenha)
+    __arm_cp.0_7                             0x00001e9c   Number         4  validacao_senhas.o(.text.lerSenha)
+    __arm_cp.0_8                             0x00001ea0   Number         4  validacao_senhas.o(.text.lerSenha)
+    __arm_cp.0_9                             0x00001ea4   Number         4  validacao_senhas.o(.text.lerSenha)
+    [Anonymous Symbol]                       0x00001ea8   Section        0  teclado.o(.text.lerTeclado)
+    __arm_cp.4_0                             0x00001f30   Number         4  teclado.o(.text.lerTeclado)
+    [Anonymous Symbol]                       0x00001f34   Section        0  teclado.o(.text.ligaLinhas)
+    __arm_cp.1_0                             0x00002034   Number         4  teclado.o(.text.ligaLinhas)
+    __arm_cp.1_1                             0x00002038   Number         4  teclado.o(.text.ligaLinhas)
+    __arm_cp.1_2                             0x0000203c   Number         4  teclado.o(.text.ligaLinhas)
+    [Anonymous Symbol]                       0x00002040   Section        0  lcdio.o(.text.limpa_reseta_cursor)
+    [Anonymous Symbol]                       0x00002058   Section        0  main.o(.text.main)
+    __arm_cp.0_0                             0x000021f4   Number         4  main.o(.text.main)
+    __arm_cp.0_1                             0x000021f8   Number         4  main.o(.text.main)
+    __arm_cp.0_2                             0x000021fc   Number         4  main.o(.text.main)
+    __arm_cp.0_3                             0x00002200   Number         4  main.o(.text.main)
+    __arm_cp.0_4                             0x00002204   Number         4  main.o(.text.main)
+    __arm_cp.0_5                             0x00002208   Number         4  main.o(.text.main)
+    __arm_cp.0_6                             0x0000220c   Number         4  main.o(.text.main)
+    __arm_cp.0_7                             0x00002210   Number         4  main.o(.text.main)
+    __arm_cp.0_8                             0x00002214   Number         4  main.o(.text.main)
+    __arm_cp.0_9                             0x00002218   Number         4  main.o(.text.main)
+    __arm_cp.0_10                            0x0000221c   Number         4  main.o(.text.main)
+    __arm_cp.0_11                            0x00002220   Number         4  main.o(.text.main)
+    __arm_cp.0_12                            0x00002224   Number         4  main.o(.text.main)
+    __arm_cp.0_13                            0x00002228   Number         4  main.o(.text.main)
+    __arm_cp.0_14                            0x0000222c   Number         4  main.o(.text.main)
+    __arm_cp.0_15                            0x00002230   Number         4  main.o(.text.main)
+    __arm_cp.0_16                            0x00002234   Number         4  main.o(.text.main)
+    __arm_cp.0_17                            0x00002238   Number         4  main.o(.text.main)
+    __arm_cp.0_18                            0x0000223c   Number         4  main.o(.text.main)
+    __arm_cp.0_19                            0x00002240   Number         4  main.o(.text.main)
+    __arm_cp.0_20                            0x00002244   Number         4  main.o(.text.main)
+    __arm_cp.0_21                            0x00002248   Number         4  main.o(.text.main)
+    __arm_cp.0_22                            0x0000224c   Number         4  main.o(.text.main)
+    __arm_cp.0_23                            0x00002250   Number         4  main.o(.text.main)
+    __arm_cp.0_24                            0x00002254   Number         4  main.o(.text.main)
+    __arm_cp.0_25                            0x00002258   Number         4  main.o(.text.main)
+    __arm_cp.0_26                            0x0000225c   Number         4  main.o(.text.main)
+    __arm_cp.0_27                            0x00002260   Number         4  main.o(.text.main)
+    __arm_cp.0_28                            0x00002264   Number         4  main.o(.text.main)
+    __arm_cp.0_29                            0x00002268   Number         4  main.o(.text.main)
+    __arm_cp.0_30                            0x0000226c   Number         4  main.o(.text.main)
+    __arm_cp.0_31                            0x00002270   Number         4  main.o(.text.main)
+    __arm_cp.0_32                            0x00002274   Number         4  main.o(.text.main)
+    __arm_cp.0_33                            0x00002278   Number         4  main.o(.text.main)
+    __arm_cp.0_34                            0x0000227c   Number         4  main.o(.text.main)
+    __arm_cp.0_35                            0x00002280   Number         4  main.o(.text.main)
+    __arm_cp.0_36                            0x00002284   Number         4  main.o(.text.main)
+    __arm_cp.0_37                            0x00002288   Number         4  main.o(.text.main)
+    __arm_cp.0_38                            0x0000228c   Number         4  main.o(.text.main)
+    __arm_cp.0_39                            0x00002290   Number         4  main.o(.text.main)
+    __arm_cp.0_40                            0x00002294   Number         4  main.o(.text.main)
+    __arm_cp.0_41                            0x00002298   Number         4  main.o(.text.main)
+    __arm_cp.0_42                            0x0000229c   Number         4  main.o(.text.main)
+    __arm_cp.0_43                            0x000022a0   Number         4  main.o(.text.main)
+    [Anonymous Symbol]                       0x000022a4   Section        0  validacao_senhas.o(.text.modoAuto)
+    __arm_cp.11_0                            0x000023bc   Number         4  validacao_senhas.o(.text.modoAuto)
+    __arm_cp.11_1                            0x000023c0   Number         4  validacao_senhas.o(.text.modoAuto)
+    __arm_cp.11_2                            0x000023c4   Number         4  validacao_senhas.o(.text.modoAuto)
+    __arm_cp.11_3                            0x000023c8   Number         4  validacao_senhas.o(.text.modoAuto)
+    __arm_cp.11_4                            0x000023cc   Number         4  validacao_senhas.o(.text.modoAuto)
+    __arm_cp.11_5                            0x000023d0   Number         4  validacao_senhas.o(.text.modoAuto)
+    __arm_cp.11_6                            0x000023d4   Number         4  validacao_senhas.o(.text.modoAuto)
+    __arm_cp.11_7                            0x000023d8   Number         4  validacao_senhas.o(.text.modoAuto)
+    __arm_cp.11_8                            0x000023dc   Number         4  validacao_senhas.o(.text.modoAuto)
+    __arm_cp.11_9                            0x000023e0   Number         4  validacao_senhas.o(.text.modoAuto)
+    __arm_cp.11_10                           0x000023e4   Number         4  validacao_senhas.o(.text.modoAuto)
+    [Anonymous Symbol]                       0x000023e8   Section        0  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_24                           0x000027e4   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_28                           0x000027f4   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_0                            0x0000282c   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_2                            0x00002830   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_3                            0x00002834   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_4                            0x00002838   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_5                            0x0000283c   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_6                            0x00002840   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_7                            0x00002844   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_8                            0x00002848   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_9                            0x0000284c   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_10                           0x00002850   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_11                           0x00002854   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_12                           0x00002858   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_13                           0x0000285c   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_14                           0x00002860   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_15                           0x00002864   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_16                           0x00002868   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_17                           0x0000286c   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_18                           0x00002870   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_19                           0x00002874   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_20                           0x00002878   Number         4  validacao_senhas.o(.text.modoManual)
+    __arm_cp.12_21                           0x0000287c   Number         4  validacao_senhas.o(.text.modoManual)
+    [Anonymous Symbol]                       0x00002880   Section        0  teclado.o(.text.procuraLinhas)
+    __arm_cp.2_0                             0x000028fc   Number         4  teclado.o(.text.procuraLinhas)
+    [Anonymous Symbol]                       0x00002900   Section        0  teclado.o(.text.procuraTecla)
+    __arm_cp.3_0                             0x00002914   Number         4  teclado.o(.text.procuraTecla)
+    [Anonymous Symbol]                       0x00002918   Section        0  lcdio.o(.text.proxima_linha)
+    [Anonymous Symbol]                       0x0000292c   Section        0  controle_motor.o(.text.pwm_motor)
+    __arm_cp.1_0                             0x0000297c   Number         4  controle_motor.o(.text.pwm_motor)
+    __arm_cp.1_1                             0x00002980   Number         4  controle_motor.o(.text.pwm_motor)
+    __arm_cp.1_2                             0x00002984   Number         4  controle_motor.o(.text.pwm_motor)
+    __arm_cp.1_3                             0x00002988   Number         4  controle_motor.o(.text.pwm_motor)
+    __arm_cp.1_4                             0x0000298c   Number         4  controle_motor.o(.text.pwm_motor)
+    __arm_cp.1_5                             0x00002990   Number         4  controle_motor.o(.text.pwm_motor)
+    __arm_cp.1_6                             0x00002994   Number         4  controle_motor.o(.text.pwm_motor)
+    __arm_cp.1_7                             0x00002998   Number         4  controle_motor.o(.text.pwm_motor)
+    __arm_cp.1_8                             0x0000299c   Number         4  controle_motor.o(.text.pwm_motor)
+    [Anonymous Symbol]                       0x000029a0   Section        0  validacao_senhas.o(.text.realizar_viagem)
+    __arm_cp.10_2                            0x00002bec   Number         4  validacao_senhas.o(.text.realizar_viagem)
+    __arm_cp.10_3                            0x00002bf0   Number         4  validacao_senhas.o(.text.realizar_viagem)
+    __arm_cp.10_4                            0x00002bf4   Number         4  validacao_senhas.o(.text.realizar_viagem)
+    __arm_cp.10_5                            0x00002bf8   Number         4  validacao_senhas.o(.text.realizar_viagem)
+    __arm_cp.10_6                            0x00002bfc   Number         4  validacao_senhas.o(.text.realizar_viagem)
+    __arm_cp.10_7                            0x00002c00   Number         4  validacao_senhas.o(.text.realizar_viagem)
+    __arm_cp.10_8                            0x00002c04   Number         4  validacao_senhas.o(.text.realizar_viagem)
+    __arm_cp.10_9                            0x00002c08   Number         4  validacao_senhas.o(.text.realizar_viagem)
+    __arm_cp.10_10                           0x00002c0c   Number         4  validacao_senhas.o(.text.realizar_viagem)
+    __arm_cp.10_11                           0x00002c10   Number         4  validacao_senhas.o(.text.realizar_viagem)
+    __arm_cp.10_12                           0x00002c14   Number         4  validacao_senhas.o(.text.realizar_viagem)
+    __arm_cp.10_13                           0x00002c18   Number         4  validacao_senhas.o(.text.realizar_viagem)
+    [Anonymous Symbol]                       0x00002c1c   Section        0  validacao_senhas.o(.text.selecaoModoMaquinista)
+    __arm_cp.7_0                             0x00002c88   Number         4  validacao_senhas.o(.text.selecaoModoMaquinista)
+    __arm_cp.7_1                             0x00002c8c   Number         4  validacao_senhas.o(.text.selecaoModoMaquinista)
+    __arm_cp.7_2                             0x00002c90   Number         4  validacao_senhas.o(.text.selecaoModoMaquinista)
+    __arm_cp.7_3                             0x00002c94   Number         4  validacao_senhas.o(.text.selecaoModoMaquinista)
+    [Anonymous Symbol]                       0x00002c98   Section        0  lcdio.o(.text.send_command)
+    __arm_cp.2_0                             0x00002ce0   Number         4  lcdio.o(.text.send_command)
+    [Anonymous Symbol]                       0x00002ce4   Section        0  lcdio.o(.text.send_data)
+    __arm_cp.1_0                             0x00002d2c   Number         4  lcdio.o(.text.send_data)
+    __arm_cp.1_1                             0x00002d30   Number         4  lcdio.o(.text.send_data)
+    __arm_cp.1_2                             0x00002d34   Number         4  lcdio.o(.text.send_data)
+    [Anonymous Symbol]                       0x00002d38   Section        0  lcdio.o(.text.send_string)
+    [Anonymous Symbol]                       0x00002d60   Section        0  timers.o(.text.setup_PIT0)
+    [Anonymous Symbol]                       0x00002db4   Section        0  timers.o(.text.setup_PIT0_modoManual)
+    __arm_cp.9_2                             0x00002e08   Number         4  timers.o(.text.setup_PIT0_modoManual)
+    __arm_cp.9_3                             0x00002e0c   Number         4  timers.o(.text.setup_PIT0_modoManual)
+    [Anonymous Symbol]                       0x00002e10   Section        0  timers.o(.text.setup_PIT1)
+    __arm_cp.8_0                             0x00002e60   Number         4  timers.o(.text.setup_PIT1)
+    __arm_cp.8_1                             0x00002e64   Number         4  timers.o(.text.setup_PIT1)
+    __arm_cp.8_2                             0x00002e68   Number         4  timers.o(.text.setup_PIT1)
+    __arm_cp.8_3                             0x00002e6c   Number         4  timers.o(.text.setup_PIT1)
+    [Anonymous Symbol]                       0x00002e70   Section        0  teclado.o(.text.teclaDeboucing)
+    __arm_cp.0_0                             0x00002ee4   Number         4  teclado.o(.text.teclaDeboucing)
+    __arm_cp.0_1                             0x00002ee8   Number         4  teclado.o(.text.teclaDeboucing)
+    __arm_cp.0_2                             0x00002eec   Number         4  teclado.o(.text.teclaDeboucing)
+    [Anonymous Symbol]                       0x00002ef0   Section        0  lcdio.o(.text.telaAdmLogado)
+    __arm_cp.10_0                            0x00002f08   Number         4  lcdio.o(.text.telaAdmLogado)
+    [Anonymous Symbol]                       0x00002f0c   Section        0  lcdio.o(.text.telaArmMetro)
+    __arm_cp.7_0                             0x00002f24   Number         4  lcdio.o(.text.telaArmMetro)
+    __arm_cp.7_1                             0x00002f28   Number         4  lcdio.o(.text.telaArmMetro)
+    [Anonymous Symbol]                       0x00002f2c   Section        0  lcdio.o(.text.telaEditarDist)
+    [Anonymous Symbol]                       0x00002f44   Section        0  lcdio.o(.text.telaEditarParametros)
+    __arm_cp.11_0                            0x00002f5c   Number         4  lcdio.o(.text.telaEditarParametros)
+    __arm_cp.11_1                            0x00002f60   Number         4  lcdio.o(.text.telaEditarParametros)
+    [Anonymous Symbol]                       0x00002f64   Section        0  lcdio.o(.text.telaEditarTempoParada)
+    [Anonymous Symbol]                       0x00002f7c   Section        0  lcdio.o(.text.telaEditarTempoViagem)
+    [Anonymous Symbol]                       0x00002f94   Section        0  lcdio.o(.text.telaEditarTempos)
+    __arm_cp.13_0                            0x00002fa8   Number         4  lcdio.o(.text.telaEditarTempos)
+    [Anonymous Symbol]                       0x00002fac   Section        0  lcdio.o(.text.telaEditarVel)
+    __arm_cp.16_0                            0x00002fc4   Number         4  lcdio.o(.text.telaEditarVel)
+    __arm_cp.16_1                            0x00002fc8   Number         4  lcdio.o(.text.telaEditarVel)
+    [Anonymous Symbol]                       0x00002fcc   Section        0  lcdio.o(.text.telaModosMaquinista)
+    __arm_cp.21_0                            0x00002fe4   Number         4  lcdio.o(.text.telaModosMaquinista)
+    __arm_cp.21_1                            0x00002fe8   Number         4  lcdio.o(.text.telaModosMaquinista)
+    [Anonymous Symbol]                       0x00002fec   Section        0  lcdio.o(.text.telaNovaDist)
+    __arm_cp.18_0                            0x00003000   Number         4  lcdio.o(.text.telaNovaDist)
+    [Anonymous Symbol]                       0x00003004   Section        0  lcdio.o(.text.telaNovaVel)
+    __arm_cp.17_0                            0x00003018   Number         4  lcdio.o(.text.telaNovaVel)
+    [Anonymous Symbol]                       0x0000301c   Section        0  lcdio.o(.text.telaSenhaCorreta)
+    __arm_cp.8_0                             0x00003034   Number         4  lcdio.o(.text.telaSenhaCorreta)
+    [Anonymous Symbol]                       0x00003038   Section        0  lcdio.o(.text.telaSenhaIncorreta)
+    __arm_cp.9_0                             0x00003050   Number         4  lcdio.o(.text.telaSenhaIncorreta)
+    [Anonymous Symbol]                       0x00003054   Section        0  lcdio.o(.text.telaTempoParada)
+    __arm_cp.19_0                            0x00003068   Number         4  lcdio.o(.text.telaTempoParada)
+    [Anonymous Symbol]                       0x0000306c   Section        0  lcdio.o(.text.telaTempoViagem)
+    __arm_cp.20_0                            0x00003080   Number         4  lcdio.o(.text.telaTempoViagem)
+    [Anonymous Symbol]                       0x00003084   Section        0  validacao_senhas.o(.text.tostring)
+    [Anonymous Symbol]                       0x00003100   Section        0  lcdio.o(.text.trigger_EN)
+    __arm_cp.0_0                             0x00003130   Number         4  lcdio.o(.text.trigger_EN)
+    __arm_cp.0_1                             0x00003134   Number         4  lcdio.o(.text.trigger_EN)
+    i._dgeq                                  0x00003138   Section        0  dcmp.o(i._dgeq)
+    locale$$code                             0x00003150   Section       44  lc_ctype_c.o(locale$$code)
+    x$fpl$dgeqf                              0x0000317c   Section      100  dgef.o(x$fpl$dgeqf)
+    x$fpl$fadd                               0x000031e0   Section      140  faddsub.o(x$fpl$fadd)
+    _fadd1                                   0x000031ed   Thumb Code     0  faddsub.o(x$fpl$fadd)
+    x$fpl$fmul                               0x0000326c   Section      176  fmul.o(x$fpl$fmul)
+    x$fpl$fsub                               0x0000331c   Section      208  faddsub.o(x$fpl$fsub)
+    _fsub1                                   0x00003329   Thumb Code     0  faddsub.o(x$fpl$fsub)
+    ddiv_reciptbl                            0x000033ec   Data         128  ddiv.o(.constdata)
+    .constdata                               0x000033ec   Section      128  ddiv.o(.constdata)
+    fdiv_tab                                 0x0000346c   Data          64  fdiv.o(.constdata)
+    .constdata                               0x0000346c   Section       64  fdiv.o(.constdata)
+    [Anonymous Symbol]                       0x000034ac   Section        0  main.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x000034d2   Section        0  validacao_senhas.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x0000358d   Section        0  lcdio.o(.rodata.str1.1)
+    locale$$data                             0x0000368c   Section      272  lc_ctype_c.o(locale$$data)
+    __lcctype_c_name                         0x00003690   Data           2  lc_ctype_c.o(locale$$data)
+    __lcctype_c_start                        0x00003698   Data           0  lc_ctype_c.o(locale$$data)
+    __lcctype_c_end                          0x0000379c   Data           0  lc_ctype_c.o(locale$$data)
+    .bss                                     0x1ffff0b0   Section       96  libspace.o(.bss)
+    Heap_Mem                                 0x1ffff150   Data           0  startup_mkl25z4.o(HEAP)
+    Stack_Mem                                0x1ffff150   Data         256  startup_mkl25z4.o(STACK)
+    HEAP                                     0x1ffff150   Section        0  startup_mkl25z4.o(HEAP)
+    STACK                                    0x1ffff150   Section      256  startup_mkl25z4.o(STACK)
+    __initial_sp                             0x1ffff250   Data           0  startup_mkl25z4.o(STACK)
 
     Global Symbols
 
@@ -1232,94 +1301,99 @@ Image Symbol Table
     __fpl_dcheck_NaN2                        0x00001195   Thumb Code    14  dnan2.o(.text)
     __fpl_return_NaN                         0x000011a9   Thumb Code    94  retnan.o(.text)
     _sys_exit                                0x00001209   Thumb Code     8  sys_exit.o(.text)
-    PIT_IRQHandler                           0x00001215   Thumb Code   160  main.o(.text.PIT_IRQHandler)
-    PORTA_IRQHandler                         0x000012c1   Thumb Code   156  main.o(.text.PORTA_IRQHandler)
-    RTC_timer_configura                      0x00001375   Thumb Code    48  controle_motor.o(.text.RTC_timer_configura)
-    SystemInit                               0x000013b5   Thumb Code     8  system_mkl25z4.o(.text.SystemInit)
-    abrePortasEspera                         0x00001541   Thumb Code    84  validacao_senhas.o(.text.abrePortasEspera)
-    atraso                                   0x000015a9   Thumb Code    50  timers.o(.text.atraso)
-    config_lcd_padrao                        0x000015db   Thumb Code    28  lcdio.o(.text.config_lcd_padrao)
-    configura_motor                          0x000015f9   Thumb Code    40  controle_motor.o(.text.configura_motor)
-    delay_ms                                 0x00001631   Thumb Code    84  timers.o(.text.delay_ms)
-    delay_s                                  0x00001689   Thumb Code    84  timers.o(.text.delay_s)
-    desliga_PIT0                             0x000016e9   Thumb Code     8  timers.o(.text.desliga_PIT0)
-    desliga_PIT1                             0x000016f5   Thumb Code     8  timers.o(.text.desliga_PIT1)
-    edicaoDist                               0x00001701   Thumb Code   324  validacao_senhas.o(.text.edicaoDist)
-    edicaoParametros                         0x00001845   Thumb Code   160  validacao_senhas.o(.text.edicaoParametros)
-    edicaoTempo                              0x000018ed   Thumb Code   100  validacao_senhas.o(.text.edicaoTempo)
-    edicaoTempoParada                        0x00001951   Thumb Code   316  validacao_senhas.o(.text.edicaoTempoParada)
-    edicaoTempoViagem                        0x00001a95   Thumb Code   316  validacao_senhas.o(.text.edicaoTempoViagem)
-    edicaoVel                                0x00001bd9   Thumb Code   332  validacao_senhas.o(.text.edicaoVel)
-    lerSenha                                 0x00001d2d   Thumb Code   188  validacao_senhas.o(.text.lerSenha)
-    lerTeclado                               0x00001e11   Thumb Code   136  teclado.o(.text.lerTeclado)
-    ligaLinhas                               0x00001e9d   Thumb Code   256  teclado.o(.text.ligaLinhas)
-    limpa_reseta_cursor                      0x00001fa9   Thumb Code    24  lcdio.o(.text.limpa_reseta_cursor)
-    main                                     0x00001fc1   Thumb Code   408  main.o(.text.main)
-    modoAuto                                 0x00002205   Thumb Code   296  validacao_senhas.o(.text.modoAuto)
-    procuraLinhas                            0x00002359   Thumb Code   124  teclado.o(.text.procuraLinhas)
-    procuraTecla                             0x000023d9   Thumb Code    20  teclado.o(.text.procuraTecla)
-    proxima_linha                            0x000023ed   Thumb Code    18  lcdio.o(.text.proxima_linha)
-    pwm_motor                                0x00002401   Thumb Code    80  controle_motor.o(.text.pwm_motor)
-    realizar_viagem                          0x00002475   Thumb Code   500  validacao_senhas.o(.text.realizar_viagem)
-    selecaoModoMaquinista                    0x00002691   Thumb Code   108  validacao_senhas.o(.text.selecaoModoMaquinista)
-    send_command                             0x0000270d   Thumb Code    72  lcdio.o(.text.send_command)
-    send_data                                0x00002759   Thumb Code    72  lcdio.o(.text.send_data)
-    send_string                              0x000027ad   Thumb Code    38  lcdio.o(.text.send_string)
-    setup_PIT0                               0x000027d5   Thumb Code    84  timers.o(.text.setup_PIT0)
-    setup_PIT1                               0x00002831   Thumb Code    80  timers.o(.text.setup_PIT1)
-    teclaDeboucing                           0x00002891   Thumb Code   116  teclado.o(.text.teclaDeboucing)
-    telaAdmLogado                            0x00002911   Thumb Code    24  lcdio.o(.text.telaAdmLogado)
-    telaArmMetro                             0x0000292d   Thumb Code    24  lcdio.o(.text.telaArmMetro)
-    telaEditarDist                           0x0000294d   Thumb Code    24  lcdio.o(.text.telaEditarDist)
-    telaEditarParametros                     0x00002965   Thumb Code    24  lcdio.o(.text.telaEditarParametros)
-    telaEditarTempoParada                    0x00002985   Thumb Code    24  lcdio.o(.text.telaEditarTempoParada)
-    telaEditarTempoViagem                    0x0000299d   Thumb Code    24  lcdio.o(.text.telaEditarTempoViagem)
-    telaEditarTempos                         0x000029b5   Thumb Code    20  lcdio.o(.text.telaEditarTempos)
-    telaEditarVel                            0x000029cd   Thumb Code    24  lcdio.o(.text.telaEditarVel)
-    telaModosMaquinista                      0x000029ed   Thumb Code    24  lcdio.o(.text.telaModosMaquinista)
-    telaNovaDist                             0x00002a0d   Thumb Code    20  lcdio.o(.text.telaNovaDist)
-    telaNovaVel                              0x00002a25   Thumb Code    20  lcdio.o(.text.telaNovaVel)
-    telaSenhaCorreta                         0x00002a3d   Thumb Code    24  lcdio.o(.text.telaSenhaCorreta)
-    telaSenhaIncorreta                       0x00002a59   Thumb Code    24  lcdio.o(.text.telaSenhaIncorreta)
-    telaTempoParada                          0x00002a75   Thumb Code    20  lcdio.o(.text.telaTempoParada)
-    telaTempoViagem                          0x00002a8d   Thumb Code    20  lcdio.o(.text.telaTempoViagem)
-    tostring                                 0x00002aa5   Thumb Code   124  validacao_senhas.o(.text.tostring)
-    trigger_EN                               0x00002b21   Thumb Code    48  lcdio.o(.text.trigger_EN)
-    __aeabi_dcmpge                           0x00002b59   Thumb Code     0  dcmp.o(i._dgeq)
-    _dgeq                                    0x00002b59   Thumb Code    22  dcmp.o(i._dgeq)
-    _get_lc_ctype                            0x00002b71   Thumb Code    44  lc_ctype_c.o(locale$$code)
-    _dcmpge                                  0x00002b9d   Thumb Code    94  dgef.o(x$fpl$dgeqf)
-    __aeabi_fadd                             0x00002c01   Thumb Code     0  faddsub.o(x$fpl$fadd)
-    _fadd                                    0x00002c01   Thumb Code   134  faddsub.o(x$fpl$fadd)
-    __aeabi_fmul                             0x00002c8d   Thumb Code     0  fmul.o(x$fpl$fmul)
-    _fmul                                    0x00002c8d   Thumb Code   172  fmul.o(x$fpl$fmul)
-    __aeabi_fsub                             0x00002d3d   Thumb Code     0  faddsub.o(x$fpl$fsub)
-    _fsub                                    0x00002d3d   Thumb Code   204  faddsub.o(x$fpl$fsub)
-    Region$$Table$$Base                      0x00003058   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00003078   Number         0  anon$$obj.o(Region$$Table)
-    __ctype                                  0x00003085   Data           0  lc_ctype_c.o(locale$$data)
+    PIT_IRQHandler                           0x00001215   Thumb Code   256  main.o(.text.PIT_IRQHandler)
+    PORTA_IRQHandler                         0x00001331   Thumb Code   200  main.o(.text.PORTA_IRQHandler)
+    RTC_timer_configura                      0x00001419   Thumb Code    48  controle_motor.o(.text.RTC_timer_configura)
+    SystemInit                               0x00001459   Thumb Code     8  system_mkl25z4.o(.text.SystemInit)
+    abrePortasEspera                         0x000015e5   Thumb Code    84  validacao_senhas.o(.text.abrePortasEspera)
+    atraso                                   0x0000164d   Thumb Code    50  timers.o(.text.atraso)
+    config_lcd_padrao                        0x0000167f   Thumb Code    28  lcdio.o(.text.config_lcd_padrao)
+    configura_motor                          0x0000169d   Thumb Code    40  controle_motor.o(.text.configura_motor)
+    delay_ms                                 0x000016d5   Thumb Code    72  timers.o(.text.delay_ms)
+    delay_s                                  0x00001721   Thumb Code    84  timers.o(.text.delay_s)
+    desliga_PIT0                             0x00001781   Thumb Code     8  timers.o(.text.desliga_PIT0)
+    desliga_PIT1                             0x0000178d   Thumb Code     8  timers.o(.text.desliga_PIT1)
+    edicaoDist                               0x00001799   Thumb Code   324  validacao_senhas.o(.text.edicaoDist)
+    edicaoParametros                         0x000018dd   Thumb Code   160  validacao_senhas.o(.text.edicaoParametros)
+    edicaoTempo                              0x00001985   Thumb Code   100  validacao_senhas.o(.text.edicaoTempo)
+    edicaoTempoParada                        0x000019e9   Thumb Code   316  validacao_senhas.o(.text.edicaoTempoParada)
+    edicaoTempoViagem                        0x00001b2d   Thumb Code   316  validacao_senhas.o(.text.edicaoTempoViagem)
+    edicaoVel                                0x00001c71   Thumb Code   332  validacao_senhas.o(.text.edicaoVel)
+    lerSenha                                 0x00001dc5   Thumb Code   188  validacao_senhas.o(.text.lerSenha)
+    lerTeclado                               0x00001ea9   Thumb Code   136  teclado.o(.text.lerTeclado)
+    ligaLinhas                               0x00001f35   Thumb Code   256  teclado.o(.text.ligaLinhas)
+    limpa_reseta_cursor                      0x00002041   Thumb Code    24  lcdio.o(.text.limpa_reseta_cursor)
+    main                                     0x00002059   Thumb Code   412  main.o(.text.main)
+    modoAuto                                 0x000022a5   Thumb Code   280  validacao_senhas.o(.text.modoAuto)
+    modoManual                               0x000023e9   Thumb Code  1092  validacao_senhas.o(.text.modoManual)
+    procuraLinhas                            0x00002881   Thumb Code   124  teclado.o(.text.procuraLinhas)
+    procuraTecla                             0x00002901   Thumb Code    20  teclado.o(.text.procuraTecla)
+    proxima_linha                            0x00002919   Thumb Code    18  lcdio.o(.text.proxima_linha)
+    pwm_motor                                0x0000292d   Thumb Code    80  controle_motor.o(.text.pwm_motor)
+    realizar_viagem                          0x000029a1   Thumb Code   588  validacao_senhas.o(.text.realizar_viagem)
+    selecaoModoMaquinista                    0x00002c1d   Thumb Code   108  validacao_senhas.o(.text.selecaoModoMaquinista)
+    send_command                             0x00002c99   Thumb Code    72  lcdio.o(.text.send_command)
+    send_data                                0x00002ce5   Thumb Code    72  lcdio.o(.text.send_data)
+    send_string                              0x00002d39   Thumb Code    38  lcdio.o(.text.send_string)
+    setup_PIT0                               0x00002d61   Thumb Code    84  timers.o(.text.setup_PIT0)
+    setup_PIT0_modoManual                    0x00002db5   Thumb Code    84  timers.o(.text.setup_PIT0_modoManual)
+    setup_PIT1                               0x00002e11   Thumb Code    80  timers.o(.text.setup_PIT1)
+    teclaDeboucing                           0x00002e71   Thumb Code   116  teclado.o(.text.teclaDeboucing)
+    telaAdmLogado                            0x00002ef1   Thumb Code    24  lcdio.o(.text.telaAdmLogado)
+    telaArmMetro                             0x00002f0d   Thumb Code    24  lcdio.o(.text.telaArmMetro)
+    telaEditarDist                           0x00002f2d   Thumb Code    24  lcdio.o(.text.telaEditarDist)
+    telaEditarParametros                     0x00002f45   Thumb Code    24  lcdio.o(.text.telaEditarParametros)
+    telaEditarTempoParada                    0x00002f65   Thumb Code    24  lcdio.o(.text.telaEditarTempoParada)
+    telaEditarTempoViagem                    0x00002f7d   Thumb Code    24  lcdio.o(.text.telaEditarTempoViagem)
+    telaEditarTempos                         0x00002f95   Thumb Code    20  lcdio.o(.text.telaEditarTempos)
+    telaEditarVel                            0x00002fad   Thumb Code    24  lcdio.o(.text.telaEditarVel)
+    telaModosMaquinista                      0x00002fcd   Thumb Code    24  lcdio.o(.text.telaModosMaquinista)
+    telaNovaDist                             0x00002fed   Thumb Code    20  lcdio.o(.text.telaNovaDist)
+    telaNovaVel                              0x00003005   Thumb Code    20  lcdio.o(.text.telaNovaVel)
+    telaSenhaCorreta                         0x0000301d   Thumb Code    24  lcdio.o(.text.telaSenhaCorreta)
+    telaSenhaIncorreta                       0x00003039   Thumb Code    24  lcdio.o(.text.telaSenhaIncorreta)
+    telaTempoParada                          0x00003055   Thumb Code    20  lcdio.o(.text.telaTempoParada)
+    telaTempoViagem                          0x0000306d   Thumb Code    20  lcdio.o(.text.telaTempoViagem)
+    tostring                                 0x00003085   Thumb Code   124  validacao_senhas.o(.text.tostring)
+    trigger_EN                               0x00003101   Thumb Code    48  lcdio.o(.text.trigger_EN)
+    __aeabi_dcmpge                           0x00003139   Thumb Code     0  dcmp.o(i._dgeq)
+    _dgeq                                    0x00003139   Thumb Code    22  dcmp.o(i._dgeq)
+    _get_lc_ctype                            0x00003151   Thumb Code    44  lc_ctype_c.o(locale$$code)
+    _dcmpge                                  0x0000317d   Thumb Code    94  dgef.o(x$fpl$dgeqf)
+    __aeabi_fadd                             0x000031e1   Thumb Code     0  faddsub.o(x$fpl$fadd)
+    _fadd                                    0x000031e1   Thumb Code   134  faddsub.o(x$fpl$fadd)
+    __aeabi_fmul                             0x0000326d   Thumb Code     0  fmul.o(x$fpl$fmul)
+    _fmul                                    0x0000326d   Thumb Code   172  fmul.o(x$fpl$fmul)
+    __aeabi_fsub                             0x0000331d   Thumb Code     0  faddsub.o(x$fpl$fsub)
+    _fsub                                    0x0000331d   Thumb Code   204  faddsub.o(x$fpl$fsub)
+    Region$$Table$$Base                      0x0000366c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0000368c   Number         0  anon$$obj.o(Region$$Table)
+    __ctype                                  0x00003699   Data           0  lc_ctype_c.o(locale$$data)
     estado                                   0x1ffff000   Data          16  validacao_senhas.o(.data.estado)
-    ida                                      0x1ffff010   Data           4  validacao_senhas.o(.data.ida)
-    parametros                               0x1ffff018   Data          96  validacao_senhas.o(.data.parametros)
-    senhaAdm                                 0x1ffff078   Data           7  validacao_senhas.o(.data.senhaAdm)
-    senhaOp1                                 0x1ffff07f   Data           7  validacao_senhas.o(.data.senhaOp1)
-    senhaOp2                                 0x1ffff086   Data           7  validacao_senhas.o(.data.senhaOp2)
-    teclado                                  0x1ffff08d   Data          16  teclado.o(.data.teclado)
-    __libspace_start                         0x1ffff0a0   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x1ffff100   Data           0  libspace.o(.bss)
-    contagemBlinkLed                         0x1ffff100   Data           4  main.o(.bss.contagemBlinkLed)
-    distancia                                0x1ffff104   Data           4  controle_motor.o(.bss.distancia)
-    motor_calibrado                          0x1ffff108   Data           4  controle_motor.o(.bss.motor_calibrado)
-    nr_digitados                             0x1ffff10c   Data           4  validacao_senhas.o(.bss.nr_digitados)
-    portas_abertas                           0x1ffff110   Data           4  validacao_senhas.o(.bss.portas_abertas)
-    pulsos                                   0x1ffff114   Data           4  controle_motor.o(.bss.pulsos)
-    rotacoes_0kmh                            0x1ffff118   Data           4  controle_motor.o(.bss.rotacoes_0kmh)
-    rotacoes_80kmh                           0x1ffff11c   Data           4  controle_motor.o(.bss.rotacoes_80kmh)
-    senha                                    0x1ffff120   Data           7  validacao_senhas.o(.bss.senha)
-    tecla                                    0x1ffff127   Data           1  teclado.o(.bss.tecla)
-    tempoEntrePulsos                         0x1ffff128   Data           4  controle_motor.o(.bss.tempoEntrePulsos)
-    tempoFaltando                            0x1ffff12c   Data           4  controle_motor.o(.bss.tempoFaltando)
-    velocidadeAtual                          0x1ffff130   Data           4  controle_motor.o(.bss.velocidadeAtual)
+    estado_viagem                            0x1ffff010   Data          16  validacao_senhas.o(.data.estado_viagem)
+    ida                                      0x1ffff020   Data           4  validacao_senhas.o(.data.ida)
+    parametros                               0x1ffff028   Data          96  validacao_senhas.o(.data.parametros)
+    senhaAdm                                 0x1ffff088   Data           7  validacao_senhas.o(.data.senhaAdm)
+    senhaOp1                                 0x1ffff08f   Data           7  validacao_senhas.o(.data.senhaOp1)
+    senhaOp2                                 0x1ffff096   Data           7  validacao_senhas.o(.data.senhaOp2)
+    teclado                                  0x1ffff09d   Data          16  teclado.o(.data.teclado)
+    __libspace_start                         0x1ffff0b0   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x1ffff110   Data           0  libspace.o(.bss)
+    contagemBlinkLed                         0x1ffff110   Data           4  main.o(.bss.contagemBlinkLed)
+    distancia                                0x1ffff114   Data           4  controle_motor.o(.bss.distancia)
+    motor_calibrado                          0x1ffff118   Data           4  controle_motor.o(.bss.motor_calibrado)
+    nr_digitados                             0x1ffff11c   Data           4  validacao_senhas.o(.bss.nr_digitados)
+    portas_abertas                           0x1ffff120   Data           4  validacao_senhas.o(.bss.portas_abertas)
+    pulsos                                   0x1ffff124   Data           4  controle_motor.o(.bss.pulsos)
+    rotacoes_0kmh                            0x1ffff128   Data           4  controle_motor.o(.bss.rotacoes_0kmh)
+    rotacoes_80kmh                           0x1ffff12c   Data           4  controle_motor.o(.bss.rotacoes_80kmh)
+    senha                                    0x1ffff130   Data           7  validacao_senhas.o(.bss.senha)
+    tecla                                    0x1ffff137   Data           1  teclado.o(.bss.tecla)
+    tempoDeEspera                            0x1ffff138   Data           4  validacao_senhas.o(.bss.tempoDeEspera)
+    tempoEntrePulsos                         0x1ffff13c   Data           4  controle_motor.o(.bss.tempoEntrePulsos)
+    tempoFaltando                            0x1ffff140   Data           4  controle_motor.o(.bss.tempoFaltando)
+    tempoPortasAbertas                       0x1ffff144   Data           4  validacao_senhas.o(.bss.tempoPortasAbertas)
+    velocidadeAtual                          0x1ffff148   Data           4  controle_motor.o(.bss.velocidadeAtual)
 
 
 
@@ -1329,213 +1403,218 @@ Memory Map of the image
 
   Image Entry point : 0x00000175
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00003228, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00003850, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00003188, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x0000379c, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x000000c0   Data   RO          200    RESET               startup_mkl25z4.o
-    0x000000c0   0x000000c0   0x00000008   Code   RO          236  * !!!main             c_p.l(__main.o)
-    0x000000c8   0x000000c8   0x0000003c   Code   RO          487    !!!scatter          c_p.l(__scatter.o)
-    0x00000104   0x00000104   0x0000001a   Code   RO          489    !!handler_copy      c_p.l(__scatter_copy.o)
+    0x00000000   0x00000000   0x000000c0   Data   RO          206    RESET               startup_mkl25z4.o
+    0x000000c0   0x000000c0   0x00000008   Code   RO          242  * !!!main             c_p.l(__main.o)
+    0x000000c8   0x000000c8   0x0000003c   Code   RO          493    !!!scatter          c_p.l(__scatter.o)
+    0x00000104   0x00000104   0x0000001a   Code   RO          495    !!handler_copy      c_p.l(__scatter_copy.o)
     0x0000011e   0x0000011e   0x00000002   PAD
-    0x00000120   0x00000120   0x0000001c   Code   RO          491    !!handler_zi        c_p.l(__scatter_zi.o)
-    0x0000013c   0x0000013c   0x00000002   Code   RO          345    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          360    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          362    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          364    .ARM.Collect$$libinit$$00000006  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          367    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          369    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000000   Code   RO          371    .ARM.Collect$$libinit$$00000010  c_p.l(libinit2.o)
-    0x0000013e   0x0000013e   0x00000006   Code   RO          372    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
-    0x00000144   0x00000144   0x00000000   Code   RO          374    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
-    0x00000144   0x00000144   0x0000000c   Code   RO          375    .ARM.Collect$$libinit$$00000014  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          376    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          378    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          380    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          382    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          384    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          386    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          388    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          390    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          392    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          394    .ARM.Collect$$libinit$$00000027  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          398    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          400    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          402    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000000   Code   RO          404    .ARM.Collect$$libinit$$00000034  c_p.l(libinit2.o)
-    0x00000150   0x00000150   0x00000002   Code   RO          405    .ARM.Collect$$libinit$$00000035  c_p.l(libinit2.o)
-    0x00000152   0x00000152   0x00000002   Code   RO          442    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
-    0x00000154   0x00000154   0x00000000   Code   RO          470    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
-    0x00000154   0x00000154   0x00000000   Code   RO          472    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
-    0x00000154   0x00000154   0x00000000   Code   RO          475    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
-    0x00000154   0x00000154   0x00000000   Code   RO          478    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
-    0x00000154   0x00000154   0x00000000   Code   RO          480    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
-    0x00000154   0x00000154   0x00000000   Code   RO          483    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
-    0x00000154   0x00000154   0x00000002   Code   RO          484    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
-    0x00000156   0x00000156   0x00000000   Code   RO          276    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
-    0x00000156   0x00000156   0x00000000   Code   RO          299    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
-    0x00000156   0x00000156   0x00000006   Code   RO          311    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
-    0x0000015c   0x0000015c   0x00000000   Code   RO          301    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
-    0x0000015c   0x0000015c   0x00000004   Code   RO          302    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
-    0x00000160   0x00000160   0x00000000   Code   RO          304    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
-    0x00000160   0x00000160   0x00000008   Code   RO          305    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
-    0x00000168   0x00000168   0x00000002   Code   RO          351    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
-    0x0000016a   0x0000016a   0x00000000   Code   RO          413    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
-    0x0000016a   0x0000016a   0x00000004   Code   RO          414    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
-    0x0000016e   0x0000016e   0x00000006   Code   RO          415    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
-    0x00000174   0x00000174   0x00000040   Code   RO          202  * .text               startup_mkl25z4.o
-    0x000001b4   0x000001b4   0x0000001a   Code   RO          224    .text               c_p.l(atoi.o)
+    0x00000120   0x00000120   0x0000001c   Code   RO          497    !!handler_zi        c_p.l(__scatter_zi.o)
+    0x0000013c   0x0000013c   0x00000002   Code   RO          351    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          366    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          368    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          370    .ARM.Collect$$libinit$$00000006  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          373    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          375    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000000   Code   RO          377    .ARM.Collect$$libinit$$00000010  c_p.l(libinit2.o)
+    0x0000013e   0x0000013e   0x00000006   Code   RO          378    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
+    0x00000144   0x00000144   0x00000000   Code   RO          380    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
+    0x00000144   0x00000144   0x0000000c   Code   RO          381    .ARM.Collect$$libinit$$00000014  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          382    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          384    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          386    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          388    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          390    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          392    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          394    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          396    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          398    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          400    .ARM.Collect$$libinit$$00000027  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          404    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          406    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          408    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000000   Code   RO          410    .ARM.Collect$$libinit$$00000034  c_p.l(libinit2.o)
+    0x00000150   0x00000150   0x00000002   Code   RO          411    .ARM.Collect$$libinit$$00000035  c_p.l(libinit2.o)
+    0x00000152   0x00000152   0x00000002   Code   RO          448    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
+    0x00000154   0x00000154   0x00000000   Code   RO          476    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
+    0x00000154   0x00000154   0x00000000   Code   RO          478    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
+    0x00000154   0x00000154   0x00000000   Code   RO          481    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
+    0x00000154   0x00000154   0x00000000   Code   RO          484    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
+    0x00000154   0x00000154   0x00000000   Code   RO          486    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
+    0x00000154   0x00000154   0x00000000   Code   RO          489    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
+    0x00000154   0x00000154   0x00000002   Code   RO          490    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
+    0x00000156   0x00000156   0x00000000   Code   RO          282    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
+    0x00000156   0x00000156   0x00000000   Code   RO          305    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
+    0x00000156   0x00000156   0x00000006   Code   RO          317    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
+    0x0000015c   0x0000015c   0x00000000   Code   RO          307    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
+    0x0000015c   0x0000015c   0x00000004   Code   RO          308    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
+    0x00000160   0x00000160   0x00000000   Code   RO          310    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
+    0x00000160   0x00000160   0x00000008   Code   RO          311    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
+    0x00000168   0x00000168   0x00000002   Code   RO          357    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
+    0x0000016a   0x0000016a   0x00000000   Code   RO          419    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
+    0x0000016a   0x0000016a   0x00000004   Code   RO          420    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
+    0x0000016e   0x0000016e   0x00000006   Code   RO          421    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
+    0x00000174   0x00000174   0x00000040   Code   RO          208  * .text               startup_mkl25z4.o
+    0x000001b4   0x000001b4   0x0000001a   Code   RO          230    .text               c_p.l(atoi.o)
     0x000001ce   0x000001ce   0x00000002   PAD
-    0x000001d0   0x000001d0   0x0000004c   Code   RO          226    .text               c_p.l(strcpy.o)
-    0x0000021c   0x0000021c   0x00000088   Code   RO          228    .text               c_p.l(strcmp.o)
-    0x000002a4   0x000002a4   0x00000006   Code   RO          234    .text               c_p.l(heapauxi.o)
+    0x000001d0   0x000001d0   0x0000004c   Code   RO          232    .text               c_p.l(strcpy.o)
+    0x0000021c   0x0000021c   0x00000088   Code   RO          234    .text               c_p.l(strcmp.o)
+    0x000002a4   0x000002a4   0x00000006   Code   RO          240    .text               c_p.l(heapauxi.o)
     0x000002aa   0x000002aa   0x00000002   PAD
-    0x000002ac   0x000002ac   0x0000007c   Code   RO          238    .text               fz_ps.l(d2f.o)
-    0x00000328   0x00000328   0x0000006c   Code   RO          257    .text               fz_ps.l(dfixi.o)
-    0x00000394   0x00000394   0x00000058   Code   RO          259    .text               fz_ps.l(dflti.o)
-    0x000003ec   0x000003ec   0x00000008   Code   RO          284    .text               c_p.l(rt_errno_addr_intlibspace.o)
-    0x000003f4   0x000003f4   0x00000008   Code   RO          295    .text               c_p.l(libspace.o)
-    0x000003fc   0x000003fc   0x00000002   Code   RO          431    .text               c_p.l(use_no_semi.o)
-    0x000003fe   0x000003fe   0x00000000   Code   RO          433    .text               c_p.l(indicate_semi.o)
-    0x000003fe   0x000003fe   0x00000000   Code   RO          294    x$fpl$usenofp       fz_ps.l(usenofp.o)
+    0x000002ac   0x000002ac   0x0000007c   Code   RO          244    .text               fz_ps.l(d2f.o)
+    0x00000328   0x00000328   0x0000006c   Code   RO          263    .text               fz_ps.l(dfixi.o)
+    0x00000394   0x00000394   0x00000058   Code   RO          265    .text               fz_ps.l(dflti.o)
+    0x000003ec   0x000003ec   0x00000008   Code   RO          290    .text               c_p.l(rt_errno_addr_intlibspace.o)
+    0x000003f4   0x000003f4   0x00000008   Code   RO          301    .text               c_p.l(libspace.o)
+    0x000003fc   0x000003fc   0x00000002   Code   RO          437    .text               c_p.l(use_no_semi.o)
+    0x000003fe   0x000003fe   0x00000000   Code   RO          439    .text               c_p.l(indicate_semi.o)
+    0x000003fe   0x000003fe   0x00000000   Code   RO          300    x$fpl$usenofp       fz_ps.l(usenofp.o)
     0x000003fe   0x000003fe   0x00000002   PAD
-    0x00000400   0x00000400   0x00000010   Code   RO          201    .ARM.__at_0x400     startup_mkl25z4.o
-    0x00000410   0x00000410   0x0000016c   Code   RO          230    .text               c_p.l(aeabi_sdiv.o)
-    0x0000057c   0x0000057c   0x00000358   Code   RO          240    .text               fz_ps.l(daddsub.o)
-    0x000008d4   0x000008d4   0x00000448   Code   RO          254    .text               fz_ps.l(ddiv.o)
-    0x00000d1c   0x00000d1c   0x00000160   Code   RO          267    .text               fz_ps.l(fdiv.o)
-    0x00000e7c   0x00000e7c   0x0000004c   Code   RO          270    .text               fz_ps.l(ffixi.o)
-    0x00000ec8   0x00000ec8   0x0000005e   Code   RO          272    .text               fz_ps.l(fflti.o)
+    0x00000400   0x00000400   0x00000010   Code   RO          207    .ARM.__at_0x400     startup_mkl25z4.o
+    0x00000410   0x00000410   0x0000016c   Code   RO          236    .text               c_p.l(aeabi_sdiv.o)
+    0x0000057c   0x0000057c   0x00000358   Code   RO          246    .text               fz_ps.l(daddsub.o)
+    0x000008d4   0x000008d4   0x00000448   Code   RO          260    .text               fz_ps.l(ddiv.o)
+    0x00000d1c   0x00000d1c   0x00000160   Code   RO          273    .text               fz_ps.l(fdiv.o)
+    0x00000e7c   0x00000e7c   0x0000004c   Code   RO          276    .text               fz_ps.l(ffixi.o)
+    0x00000ec8   0x00000ec8   0x0000005e   Code   RO          278    .text               fz_ps.l(fflti.o)
     0x00000f26   0x00000f26   0x00000002   PAD
-    0x00000f28   0x00000f28   0x00000070   Code   RO          286    .text               c_p.l(strtol.o)
-    0x00000f98   0x00000f98   0x00000010   Code   RO          313    .text               c_p.l(rt_ctype_table.o)
-    0x00000fa8   0x00000fa8   0x000000a6   Code   RO          317    .text               c_p.l(_strtoul.o)
+    0x00000f28   0x00000f28   0x00000070   Code   RO          292    .text               c_p.l(strtol.o)
+    0x00000f98   0x00000f98   0x00000010   Code   RO          319    .text               c_p.l(rt_ctype_table.o)
+    0x00000fa8   0x00000fa8   0x000000a6   Code   RO          323    .text               c_p.l(_strtoul.o)
     0x0000104e   0x0000104e   0x00000002   PAD
-    0x00001050   0x00001050   0x000000a0   Code   RO          319    .text               fz_ps.l(dcmpin.o)
-    0x000010f0   0x000010f0   0x0000003e   Code   RO          321    .text               c_p.l(sys_stackheap_outer.o)
+    0x00001050   0x00001050   0x000000a0   Code   RO          325    .text               fz_ps.l(dcmpin.o)
+    0x000010f0   0x000010f0   0x0000003e   Code   RO          327    .text               c_p.l(sys_stackheap_outer.o)
     0x0000112e   0x0000112e   0x00000002   PAD
-    0x00001130   0x00001130   0x00000008   Code   RO          327    .text               c_p.l(rt_locale_intlibspace.o)
-    0x00001138   0x00001138   0x0000001e   Code   RO          329    .text               c_p.l(_chval.o)
-    0x00001156   0x00001156   0x00000010   Code   RO          334    .text               c_p.l(exit.o)
-    0x00001166   0x00001166   0x0000002e   Code   RO          346    .text               fz_ps.l(cmpret.o)
-    0x00001194   0x00001194   0x00000014   Code   RO          348    .text               fz_ps.l(dnan2.o)
-    0x000011a8   0x000011a8   0x0000005e   Code   RO          406    .text               fz_ps.l(retnan.o)
+    0x00001130   0x00001130   0x00000008   Code   RO          333    .text               c_p.l(rt_locale_intlibspace.o)
+    0x00001138   0x00001138   0x0000001e   Code   RO          335    .text               c_p.l(_chval.o)
+    0x00001156   0x00001156   0x00000010   Code   RO          340    .text               c_p.l(exit.o)
+    0x00001166   0x00001166   0x0000002e   Code   RO          352    .text               fz_ps.l(cmpret.o)
+    0x00001194   0x00001194   0x00000014   Code   RO          354    .text               fz_ps.l(dnan2.o)
+    0x000011a8   0x000011a8   0x0000005e   Code   RO          412    .text               fz_ps.l(retnan.o)
     0x00001206   0x00001206   0x00000002   PAD
-    0x00001208   0x00001208   0x0000000c   Code   RO          408    .text               c_p.l(sys_exit.o)
-    0x00001214   0x00001214   0x000000ac   Code   RO            8    .text.PIT_IRQHandler  main.o
-    0x000012c0   0x000012c0   0x000000b4   Code   RO           10    .text.PORTA_IRQHandler  main.o
-    0x00001374   0x00001374   0x00000040   Code   RO          179    .text.RTC_timer_configura  controle_motor.o
-    0x000013b4   0x000013b4   0x0000000c   Code   RO          211    .text.SystemInit    system_mkl25z4.o
-    0x000013c0   0x000013c0   0x0000002c   Code   RO          150    .text.__NVIC_ClearPendingIRQ  timers.o
-    0x000013ec   0x000013ec   0x00000028   Code   RO            6    .text.__NVIC_EnableIRQ  main.o
-    0x00001414   0x00001414   0x0000002c   Code   RO          152    .text.__NVIC_EnableIRQ  timers.o
-    0x00001440   0x00001440   0x0000007c   Code   RO            4    .text.__NVIC_SetPriority  main.o
-    0x000014bc   0x000014bc   0x00000084   Code   RO          148    .text.__NVIC_SetPriority  timers.o
-    0x00001540   0x00001540   0x00000068   Code   RO           38    .text.abrePortasEspera  validacao_senhas.o
-    0x000015a8   0x000015a8   0x00000032   Code   RO          142    .text.atraso        timers.o
-    0x000015da   0x000015da   0x0000001c   Code   RO           76    .text.config_lcd_padrao  lcdio.o
-    0x000015f6   0x000015f6   0x00000002   PAD
-    0x000015f8   0x000015f8   0x00000038   Code   RO          169    .text.configura_motor  controle_motor.o
-    0x00001630   0x00001630   0x00000058   Code   RO          140    .text.delay_ms      timers.o
-    0x00001688   0x00001688   0x00000060   Code   RO          138    .text.delay_s       timers.o
-    0x000016e8   0x000016e8   0x0000000c   Code   RO          158    .text.desliga_PIT0  timers.o
-    0x000016f4   0x000016f4   0x0000000c   Code   RO          156    .text.desliga_PIT1  timers.o
-    0x00001700   0x00001700   0x00000144   Code   RO           28    .text.edicaoDist    validacao_senhas.o
-    0x00001844   0x00001844   0x000000a8   Code   RO           24    .text.edicaoParametros  validacao_senhas.o
-    0x000018ec   0x000018ec   0x00000064   Code   RO           30    .text.edicaoTempo   validacao_senhas.o
-    0x00001950   0x00001950   0x00000144   Code   RO           32    .text.edicaoTempoParada  validacao_senhas.o
-    0x00001a94   0x00001a94   0x00000144   Code   RO           34    .text.edicaoTempoViagem  validacao_senhas.o
-    0x00001bd8   0x00001bd8   0x00000154   Code   RO           26    .text.edicaoVel     validacao_senhas.o
-    0x00001d2c   0x00001d2c   0x000000e4   Code   RO           22    .text.lerSenha      validacao_senhas.o
-    0x00001e10   0x00001e10   0x0000008c   Code   RO          126    .text.lerTeclado    teclado.o
-    0x00001e9c   0x00001e9c   0x0000010c   Code   RO          120    .text.ligaLinhas    teclado.o
-    0x00001fa8   0x00001fa8   0x00000018   Code   RO           74    .text.limpa_reseta_cursor  lcdio.o
-    0x00001fc0   0x00001fc0   0x00000244   Code   RO            2    .text.main          main.o
-    0x00002204   0x00002204   0x00000154   Code   RO           44    .text.modoAuto      validacao_senhas.o
-    0x00002358   0x00002358   0x00000080   Code   RO          122    .text.procuraLinhas  teclado.o
-    0x000023d8   0x000023d8   0x00000014   Code   RO          124    .text.procuraTecla  teclado.o
-    0x000023ec   0x000023ec   0x00000012   Code   RO           78    .text.proxima_linha  lcdio.o
-    0x000023fe   0x000023fe   0x00000002   PAD
-    0x00002400   0x00002400   0x00000074   Code   RO          171    .text.pwm_motor     controle_motor.o
-    0x00002474   0x00002474   0x0000021c   Code   RO           42    .text.realizar_viagem  validacao_senhas.o
-    0x00002690   0x00002690   0x0000007c   Code   RO           36    .text.selecaoModoMaquinista  validacao_senhas.o
-    0x0000270c   0x0000270c   0x0000004c   Code   RO           70    .text.send_command  lcdio.o
-    0x00002758   0x00002758   0x00000054   Code   RO           68    .text.send_data     lcdio.o
-    0x000027ac   0x000027ac   0x00000026   Code   RO           72    .text.send_string   lcdio.o
-    0x000027d2   0x000027d2   0x00000002   PAD
-    0x000027d4   0x000027d4   0x0000005c   Code   RO          146    .text.setup_PIT0    timers.o
-    0x00002830   0x00002830   0x00000060   Code   RO          154    .text.setup_PIT1    timers.o
-    0x00002890   0x00002890   0x00000080   Code   RO          118    .text.teclaDeboucing  teclado.o
-    0x00002910   0x00002910   0x0000001c   Code   RO           86    .text.telaAdmLogado  lcdio.o
-    0x0000292c   0x0000292c   0x00000020   Code   RO           80    .text.telaArmMetro  lcdio.o
-    0x0000294c   0x0000294c   0x00000018   Code   RO           90    .text.telaEditarDist  lcdio.o
-    0x00002964   0x00002964   0x00000020   Code   RO           88    .text.telaEditarParametros  lcdio.o
-    0x00002984   0x00002984   0x00000018   Code   RO           96    .text.telaEditarTempoParada  lcdio.o
-    0x0000299c   0x0000299c   0x00000018   Code   RO           94    .text.telaEditarTempoViagem  lcdio.o
-    0x000029b4   0x000029b4   0x00000018   Code   RO           92    .text.telaEditarTempos  lcdio.o
-    0x000029cc   0x000029cc   0x00000020   Code   RO           98    .text.telaEditarVel  lcdio.o
-    0x000029ec   0x000029ec   0x00000020   Code   RO          108    .text.telaModosMaquinista  lcdio.o
-    0x00002a0c   0x00002a0c   0x00000018   Code   RO          102    .text.telaNovaDist  lcdio.o
-    0x00002a24   0x00002a24   0x00000018   Code   RO          100    .text.telaNovaVel   lcdio.o
-    0x00002a3c   0x00002a3c   0x0000001c   Code   RO           82    .text.telaSenhaCorreta  lcdio.o
-    0x00002a58   0x00002a58   0x0000001c   Code   RO           84    .text.telaSenhaIncorreta  lcdio.o
-    0x00002a74   0x00002a74   0x00000018   Code   RO          104    .text.telaTempoParada  lcdio.o
-    0x00002a8c   0x00002a8c   0x00000018   Code   RO          106    .text.telaTempoViagem  lcdio.o
-    0x00002aa4   0x00002aa4   0x0000007c   Code   RO           40    .text.tostring      validacao_senhas.o
-    0x00002b20   0x00002b20   0x00000038   Code   RO           66    .text.trigger_EN    lcdio.o
-    0x00002b58   0x00002b58   0x00000016   Code   RO          243    i._dgeq             fz_ps.l(dcmp.o)
-    0x00002b6e   0x00002b6e   0x00000002   PAD
-    0x00002b70   0x00002b70   0x0000002c   Code   RO          332    locale$$code        c_p.l(lc_ctype_c.o)
-    0x00002b9c   0x00002b9c   0x00000064   Code   RO          290    x$fpl$dgeqf         fz_ps.l(dgef.o)
-    0x00002c00   0x00002c00   0x0000008c   Code   RO          261    x$fpl$fadd          fz_ps.l(faddsub.o)
-    0x00002c8c   0x00002c8c   0x000000b0   Code   RO          274    x$fpl$fmul          fz_ps.l(fmul.o)
-    0x00002d3c   0x00002d3c   0x000000d0   Code   RO          263    x$fpl$fsub          fz_ps.l(faddsub.o)
-    0x00002e0c   0x00002e0c   0x00000080   Data   RO          255    .constdata          fz_ps.l(ddiv.o)
-    0x00002e8c   0x00002e8c   0x00000040   Data   RO          268    .constdata          fz_ps.l(fdiv.o)
-    0x00002ecc   0x00002ecc   0x00000026   Data   RO           13    .rodata.str1.1      main.o
-    0x00002ef2   0x00002ef2   0x00000087   Data   RO           56    .rodata.str1.1      validacao_senhas.o
-    0x00002f79   0x00002f79   0x000000df   Data   RO          110    .rodata.str1.1      lcdio.o
-    0x00003058   0x00003058   0x00000020   Data   RO          486    Region$$Table       anon$$obj.o
-    0x00003078   0x00003078   0x00000110   Data   RO          331    locale$$data        c_p.l(lc_ctype_c.o)
+    0x00001208   0x00001208   0x0000000c   Code   RO          414    .text               c_p.l(sys_exit.o)
+    0x00001214   0x00001214   0x0000011c   Code   RO            8    .text.PIT_IRQHandler  main.o
+    0x00001330   0x00001330   0x000000e8   Code   RO           10    .text.PORTA_IRQHandler  main.o
+    0x00001418   0x00001418   0x00000040   Code   RO          185    .text.RTC_timer_configura  controle_motor.o
+    0x00001458   0x00001458   0x0000000c   Code   RO          217    .text.SystemInit    system_mkl25z4.o
+    0x00001464   0x00001464   0x0000002c   Code   RO          154    .text.__NVIC_ClearPendingIRQ  timers.o
+    0x00001490   0x00001490   0x00000028   Code   RO            6    .text.__NVIC_EnableIRQ  main.o
+    0x000014b8   0x000014b8   0x0000002c   Code   RO          156    .text.__NVIC_EnableIRQ  timers.o
+    0x000014e4   0x000014e4   0x0000007c   Code   RO            4    .text.__NVIC_SetPriority  main.o
+    0x00001560   0x00001560   0x00000084   Code   RO          152    .text.__NVIC_SetPriority  timers.o
+    0x000015e4   0x000015e4   0x00000068   Code   RO           38    .text.abrePortasEspera  validacao_senhas.o
+    0x0000164c   0x0000164c   0x00000032   Code   RO          146    .text.atraso        timers.o
+    0x0000167e   0x0000167e   0x0000001c   Code   RO           80    .text.config_lcd_padrao  lcdio.o
+    0x0000169a   0x0000169a   0x00000002   PAD
+    0x0000169c   0x0000169c   0x00000038   Code   RO          175    .text.configura_motor  controle_motor.o
+    0x000016d4   0x000016d4   0x0000004c   Code   RO          144    .text.delay_ms      timers.o
+    0x00001720   0x00001720   0x00000060   Code   RO          142    .text.delay_s       timers.o
+    0x00001780   0x00001780   0x0000000c   Code   RO          164    .text.desliga_PIT0  timers.o
+    0x0000178c   0x0000178c   0x0000000c   Code   RO          162    .text.desliga_PIT1  timers.o
+    0x00001798   0x00001798   0x00000144   Code   RO           28    .text.edicaoDist    validacao_senhas.o
+    0x000018dc   0x000018dc   0x000000a8   Code   RO           24    .text.edicaoParametros  validacao_senhas.o
+    0x00001984   0x00001984   0x00000064   Code   RO           30    .text.edicaoTempo   validacao_senhas.o
+    0x000019e8   0x000019e8   0x00000144   Code   RO           32    .text.edicaoTempoParada  validacao_senhas.o
+    0x00001b2c   0x00001b2c   0x00000144   Code   RO           34    .text.edicaoTempoViagem  validacao_senhas.o
+    0x00001c70   0x00001c70   0x00000154   Code   RO           26    .text.edicaoVel     validacao_senhas.o
+    0x00001dc4   0x00001dc4   0x000000e4   Code   RO           22    .text.lerSenha      validacao_senhas.o
+    0x00001ea8   0x00001ea8   0x0000008c   Code   RO          130    .text.lerTeclado    teclado.o
+    0x00001f34   0x00001f34   0x0000010c   Code   RO          124    .text.ligaLinhas    teclado.o
+    0x00002040   0x00002040   0x00000018   Code   RO           78    .text.limpa_reseta_cursor  lcdio.o
+    0x00002058   0x00002058   0x0000024c   Code   RO            2    .text.main          main.o
+    0x000022a4   0x000022a4   0x00000144   Code   RO           44    .text.modoAuto      validacao_senhas.o
+    0x000023e8   0x000023e8   0x00000498   Code   RO           46    .text.modoManual    validacao_senhas.o
+    0x00002880   0x00002880   0x00000080   Code   RO          126    .text.procuraLinhas  teclado.o
+    0x00002900   0x00002900   0x00000018   Code   RO          128    .text.procuraTecla  teclado.o
+    0x00002918   0x00002918   0x00000012   Code   RO           82    .text.proxima_linha  lcdio.o
+    0x0000292a   0x0000292a   0x00000002   PAD
+    0x0000292c   0x0000292c   0x00000074   Code   RO          177    .text.pwm_motor     controle_motor.o
+    0x000029a0   0x000029a0   0x0000027c   Code   RO           42    .text.realizar_viagem  validacao_senhas.o
+    0x00002c1c   0x00002c1c   0x0000007c   Code   RO           36    .text.selecaoModoMaquinista  validacao_senhas.o
+    0x00002c98   0x00002c98   0x0000004c   Code   RO           74    .text.send_command  lcdio.o
+    0x00002ce4   0x00002ce4   0x00000054   Code   RO           72    .text.send_data     lcdio.o
+    0x00002d38   0x00002d38   0x00000026   Code   RO           76    .text.send_string   lcdio.o
+    0x00002d5e   0x00002d5e   0x00000002   PAD
+    0x00002d60   0x00002d60   0x00000054   Code   RO          150    .text.setup_PIT0    timers.o
+    0x00002db4   0x00002db4   0x0000005c   Code   RO          160    .text.setup_PIT0_modoManual  timers.o
+    0x00002e10   0x00002e10   0x00000060   Code   RO          158    .text.setup_PIT1    timers.o
+    0x00002e70   0x00002e70   0x00000080   Code   RO          122    .text.teclaDeboucing  teclado.o
+    0x00002ef0   0x00002ef0   0x0000001c   Code   RO           90    .text.telaAdmLogado  lcdio.o
+    0x00002f0c   0x00002f0c   0x00000020   Code   RO           84    .text.telaArmMetro  lcdio.o
+    0x00002f2c   0x00002f2c   0x00000018   Code   RO           94    .text.telaEditarDist  lcdio.o
+    0x00002f44   0x00002f44   0x00000020   Code   RO           92    .text.telaEditarParametros  lcdio.o
+    0x00002f64   0x00002f64   0x00000018   Code   RO          100    .text.telaEditarTempoParada  lcdio.o
+    0x00002f7c   0x00002f7c   0x00000018   Code   RO           98    .text.telaEditarTempoViagem  lcdio.o
+    0x00002f94   0x00002f94   0x00000018   Code   RO           96    .text.telaEditarTempos  lcdio.o
+    0x00002fac   0x00002fac   0x00000020   Code   RO          102    .text.telaEditarVel  lcdio.o
+    0x00002fcc   0x00002fcc   0x00000020   Code   RO          112    .text.telaModosMaquinista  lcdio.o
+    0x00002fec   0x00002fec   0x00000018   Code   RO          106    .text.telaNovaDist  lcdio.o
+    0x00003004   0x00003004   0x00000018   Code   RO          104    .text.telaNovaVel   lcdio.o
+    0x0000301c   0x0000301c   0x0000001c   Code   RO           86    .text.telaSenhaCorreta  lcdio.o
+    0x00003038   0x00003038   0x0000001c   Code   RO           88    .text.telaSenhaIncorreta  lcdio.o
+    0x00003054   0x00003054   0x00000018   Code   RO          108    .text.telaTempoParada  lcdio.o
+    0x0000306c   0x0000306c   0x00000018   Code   RO          110    .text.telaTempoViagem  lcdio.o
+    0x00003084   0x00003084   0x0000007c   Code   RO           40    .text.tostring      validacao_senhas.o
+    0x00003100   0x00003100   0x00000038   Code   RO           70    .text.trigger_EN    lcdio.o
+    0x00003138   0x00003138   0x00000016   Code   RO          249    i._dgeq             fz_ps.l(dcmp.o)
+    0x0000314e   0x0000314e   0x00000002   PAD
+    0x00003150   0x00003150   0x0000002c   Code   RO          338    locale$$code        c_p.l(lc_ctype_c.o)
+    0x0000317c   0x0000317c   0x00000064   Code   RO          296    x$fpl$dgeqf         fz_ps.l(dgef.o)
+    0x000031e0   0x000031e0   0x0000008c   Code   RO          267    x$fpl$fadd          fz_ps.l(faddsub.o)
+    0x0000326c   0x0000326c   0x000000b0   Code   RO          280    x$fpl$fmul          fz_ps.l(fmul.o)
+    0x0000331c   0x0000331c   0x000000d0   Code   RO          269    x$fpl$fsub          fz_ps.l(faddsub.o)
+    0x000033ec   0x000033ec   0x00000080   Data   RO          261    .constdata          fz_ps.l(ddiv.o)
+    0x0000346c   0x0000346c   0x00000040   Data   RO          274    .constdata          fz_ps.l(fdiv.o)
+    0x000034ac   0x000034ac   0x00000026   Data   RO           13    .rodata.str1.1      main.o
+    0x000034d2   0x000034d2   0x000000bb   Data   RO           61    .rodata.str1.1      validacao_senhas.o
+    0x0000358d   0x0000358d   0x000000df   Data   RO          114    .rodata.str1.1      lcdio.o
+    0x0000366c   0x0000366c   0x00000020   Data   RO          492    Region$$Table       anon$$obj.o
+    0x0000368c   0x0000368c   0x00000110   Data   RO          337    locale$$data        c_p.l(lc_ctype_c.o)
 
 
-    Execution Region ER_RW (Exec base: 0x1ffff000, Load base: 0x00003188, Size: 0x000000a0, Max: 0xffffffff, ABSOLUTE)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x1ffff000   0x00003188   0x00000010   Data   RW           53    .data.estado        validacao_senhas.o
-    0x1ffff010   0x00003198   0x00000004   Data   RW           55    .data.ida           validacao_senhas.o
-    0x1ffff014   0x0000319c   0x00000004   PAD
-    0x1ffff018   0x000031a0   0x00000060   Data   RW           49    .data.parametros    validacao_senhas.o
-    0x1ffff078   0x00003200   0x00000007   Data   RW           46    .data.senhaAdm      validacao_senhas.o
-    0x1ffff07f   0x00003207   0x00000007   Data   RW           47    .data.senhaOp1      validacao_senhas.o
-    0x1ffff086   0x0000320e   0x00000007   Data   RW           48    .data.senhaOp2      validacao_senhas.o
-    0x1ffff08d   0x00003215   0x00000010   Data   RW          128    .data.teclado       teclado.o
-
-
-    Execution Region ER_ZI (Exec base: 0x1ffff0a0, Load base: 0x00003228, Size: 0x00000198, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x1ffff000, Load base: 0x000037a0, Size: 0x000000b0, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x1ffff0a0        -       0x00000060   Zero   RW          296    .bss                c_p.l(libspace.o)
-    0x1ffff100        -       0x00000004   Zero   RW           12    .bss.contagemBlinkLed  main.o
-    0x1ffff104        -       0x00000004   Zero   RW          189    .bss.distancia      controle_motor.o
-    0x1ffff108        -       0x00000004   Zero   RW          187    .bss.motor_calibrado  controle_motor.o
-    0x1ffff10c        -       0x00000004   Zero   RW           50    .bss.nr_digitados   validacao_senhas.o
-    0x1ffff110        -       0x00000004   Zero   RW           54    .bss.portas_abertas  validacao_senhas.o
-    0x1ffff114        -       0x00000004   Zero   RW          184    .bss.pulsos         controle_motor.o
-    0x1ffff118        -       0x00000004   Zero   RW          186    .bss.rotacoes_0kmh  controle_motor.o
-    0x1ffff11c        -       0x00000004   Zero   RW          185    .bss.rotacoes_80kmh  controle_motor.o
-    0x1ffff120        -       0x00000007   Zero   RW           51    .bss.senha          validacao_senhas.o
-    0x1ffff127        -       0x00000001   Zero   RW          129    .bss.tecla          teclado.o
-    0x1ffff128        -       0x00000004   Zero   RW          191    .bss.tempoEntrePulsos  controle_motor.o
-    0x1ffff12c        -       0x00000004   Zero   RW          190    .bss.tempoFaltando  controle_motor.o
-    0x1ffff130        -       0x00000004   Zero   RW          183    .bss.velocidadeAtual  controle_motor.o
-    0x1ffff134   0x00003228   0x00000004   PAD
-    0x1ffff138        -       0x00000000   Zero   RW          199    HEAP                startup_mkl25z4.o
-    0x1ffff138        -       0x00000100   Zero   RW          198    STACK               startup_mkl25z4.o
+    0x1ffff000   0x000037a0   0x00000010   Data   RW           57    .data.estado        validacao_senhas.o
+    0x1ffff010   0x000037b0   0x00000010   Data   RW           48    .data.estado_viagem  validacao_senhas.o
+    0x1ffff020   0x000037c0   0x00000004   Data   RW           60    .data.ida           validacao_senhas.o
+    0x1ffff024   0x000037c4   0x00000004   PAD
+    0x1ffff028   0x000037c8   0x00000060   Data   RW           53    .data.parametros    validacao_senhas.o
+    0x1ffff088   0x00003828   0x00000007   Data   RW           50    .data.senhaAdm      validacao_senhas.o
+    0x1ffff08f   0x0000382f   0x00000007   Data   RW           51    .data.senhaOp1      validacao_senhas.o
+    0x1ffff096   0x00003836   0x00000007   Data   RW           52    .data.senhaOp2      validacao_senhas.o
+    0x1ffff09d   0x0000383d   0x00000010   Data   RW          132    .data.teclado       teclado.o
+
+
+    Execution Region ER_ZI (Exec base: 0x1ffff0b0, Load base: 0x00003850, Size: 0x000001a0, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x1ffff0b0        -       0x00000060   Zero   RW          302    .bss                c_p.l(libspace.o)
+    0x1ffff110        -       0x00000004   Zero   RW           12    .bss.contagemBlinkLed  main.o
+    0x1ffff114        -       0x00000004   Zero   RW          195    .bss.distancia      controle_motor.o
+    0x1ffff118        -       0x00000004   Zero   RW          193    .bss.motor_calibrado  controle_motor.o
+    0x1ffff11c        -       0x00000004   Zero   RW           54    .bss.nr_digitados   validacao_senhas.o
+    0x1ffff120        -       0x00000004   Zero   RW           58    .bss.portas_abertas  validacao_senhas.o
+    0x1ffff124        -       0x00000004   Zero   RW          190    .bss.pulsos         controle_motor.o
+    0x1ffff128        -       0x00000004   Zero   RW          192    .bss.rotacoes_0kmh  controle_motor.o
+    0x1ffff12c        -       0x00000004   Zero   RW          191    .bss.rotacoes_80kmh  controle_motor.o
+    0x1ffff130        -       0x00000007   Zero   RW           55    .bss.senha          validacao_senhas.o
+    0x1ffff137        -       0x00000001   Zero   RW          133    .bss.tecla          teclado.o
+    0x1ffff138        -       0x00000004   Zero   RW           59    .bss.tempoDeEspera  validacao_senhas.o
+    0x1ffff13c        -       0x00000004   Zero   RW          197    .bss.tempoEntrePulsos  controle_motor.o
+    0x1ffff140        -       0x00000004   Zero   RW          196    .bss.tempoFaltando  controle_motor.o
+    0x1ffff144        -       0x00000004   Zero   RW           49    .bss.tempoPortasAbertas  validacao_senhas.o
+    0x1ffff148        -       0x00000004   Zero   RW          189    .bss.velocidadeAtual  controle_motor.o
+    0x1ffff14c   0x00003850   0x00000004   PAD
+    0x1ffff150        -       0x00000000   Zero   RW          205    HEAP                startup_mkl25z4.o
+    0x1ffff150        -       0x00000100   Zero   RW          204    STACK               startup_mkl25z4.o
 
 
 ==============================================================================
@@ -1545,17 +1624,17 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       236         68          0          0         32       3491   controle_motor.o
-       728         88        223          0          0       3305   lcdio.o
-      1096        208         38          0          4       4525   main.o
-        80         44        192          0        256        876   startup_mkl25z4.o
-        12          4          0          0          0       2558   system_mkl25z4.o
-       684         32          0         16          1       1981   teclado.o
-       666         64          0          0          0       4914   timers.o
-      3040        192        135        137         15       6008   validacao_senhas.o
+       236         68          0          0         32       3472   controle_motor.o
+       728         88        223          0          0       3286   lcdio.o
+      1268        236         38          0          4       4685   main.o
+        80         44        192          0        256        860   startup_mkl25z4.o
+        12          4          0          0          0       2539   system_mkl25z4.o
+       688         36          0         16          1       1962   teclado.o
+       738         64          0          0          0       4998   timers.o
+      4296        324        187        153         23       6991   validacao_senhas.o
 
     ----------------------------------------------------------------------
-      6548        700        620        160        312      27658   Object Totals
+      8052        864        672        176        320      28793   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          6          0          0          7          4          0   (incl. Padding)
 
@@ -1633,15 +1712,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     11596        854       1084        160        408      28986   Grand Totals
-     11596        854       1084        160        408      28986   ELF Image Totals
-     11596        854       1084        160          0          0   ROM Totals
+     13100       1018       1136        176        416      30121   Grand Totals
+     13100       1018       1136        176        416      30121   ELF Image Totals
+     13100       1018       1136        176          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                12680 (  12.38kB)
-    Total RW  Size (RW Data + ZI Data)               568 (   0.55kB)
-    Total ROM Size (Code + RO Data + RW Data)      12840 (  12.54kB)
+    Total RO  Size (Code + RO Data)                14236 (  13.90kB)
+    Total RW  Size (RW Data + ZI Data)               592 (   0.58kB)
+    Total ROM Size (Code + RO Data + RW Data)      14412 (  14.07kB)
 
 ==============================================================================
 

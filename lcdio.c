@@ -14,10 +14,10 @@
 	{
 		
 		GPIOC_PSOR |= (1 << 9);//coloca HIGH
-		atraso(3, 'm');
+		atraso(1, 'm');
 		
 		GPIOC_PCOR |= (1 << 9);//coloca LOW
-		atraso(3, 'm');
+		atraso(1, 'm');
 	}
 
 	void send_data(char _data_) //Enviar dados
@@ -25,15 +25,15 @@
 		
 		//RS = dados
 		GPIOC_PSOR |= (1 << 8);
-		atraso(3, 'm');
+		atraso(1, 'm');
 		
 		GPIOD_PCOR = 0b11111111;
-		atraso(3, 'm');
+		atraso(1, 'm');
 		
 		GPIOD_PSOR = _data_;
 		trigger_EN();
 		
-		atraso(3, 'm');
+		atraso(1, 'm');
 	}
 
 	void send_command(char command) //enviar comando para o Hitachi
@@ -41,15 +41,15 @@
 		
 		//RS = comandos
 		GPIOC_PCOR |= (1 << 8);
-		atraso(3, 'm');
+		atraso(1, 'm');
 		
 		GPIOD_PCOR = 0b11111111;
-		atraso(3, 'm');
+		atraso(1, 'm');
 		
 		GPIOD_PSOR = command;
 		trigger_EN();
 		
-		atraso(3, 'm');
+		atraso(1, 'm');
 
 	}
 

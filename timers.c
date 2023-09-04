@@ -22,7 +22,7 @@ void delay_s(int segundos){
 void delay_ms(int miliSegundos){
 	
 	TPM2_SC = (1<<7) + (1<<3) + 6;
-	TPM2_MOD = (8*8000000/3)*(miliSegundos/1000)/64;
+	TPM2_MOD = miliSegundos*5*65535/1000;
 	
 		//Com o prescale de 64, o delay de 1 segundo ocorrera apos 5 overflows do timer
 	TPM2_SC |= (1<<7);
@@ -122,6 +122,30 @@ void setup_PIT1(){// led
 	
 	
 	NVIC_SetPriority(PIT_IRQn, 1); 
+	//Clear any pending IRQ from PIT
+	NVIC_ClearPendingIRQ(PIT_IRQn); 
+	//Enable the PIT interrupt in the NVIC
+	NVIC_EnableIRQ(PIT_IRQn);	
+}
+
+void setup_PIT0_modoManual(){
+	//Enable clock to PIT module
+	SIM->SCGC6 |= SIM_SCGC6_PIT_MASK;
+ //Enable module, freeze timers in debug mode
+	PIT->MCR &= ~PIT_MCR_MDIS_MASK; //enable mdis
+	
+	//Initialize PIT0 to count down from starting_value
+	PIT->CHANNEL[0].LDVAL =10485760;   //1seg
+	//No chaining of timers
+	PIT->CHANNEL[0].TCTRL &= PIT_TCTRL_CHN_MASK;
+	
+	PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK;
+	
+	//Let the PIT channel generate interrupt requests
+	PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TIE_MASK;
+	
+	
+	NVIC_SetPriority(PIT_IRQn, 3); 
 	//Clear any pending IRQ from PIT
 	NVIC_ClearPendingIRQ(PIT_IRQn); 
 	//Enable the PIT interrupt in the NVIC
